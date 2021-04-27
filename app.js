@@ -9,7 +9,7 @@ const port = 8080;
 const config = {
   authRequired: false,
   auth0Logout: true,
-  baseURL: 'https://localhost:8080',
+  baseURL: 'http://localhost:8080',
   clientID: process.env.AUTH_CLIENT_ID,
   issuerBaseURL: process.env.AUTH_DOMAIN,
   secret: process.env.AUTH_CLIENT_SECRET
@@ -25,7 +25,16 @@ app.set('view engine', 'ejs');
 
 
 app.get('/', function (req, res) {
-  res.render(req.oidc.isAuthenticated() ? 'index' : 'authError')
+  res.render('index')
+})
+
+app.get('/profile', function (req, res) {
+  let authenticated = req.oidc.isAuthenticated();
+  if (authenticated) {
+    res.render('profile');
+    return
+  }
+  res.redirect('/login');
 })
 
 
