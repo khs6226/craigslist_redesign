@@ -25,17 +25,26 @@ app.set('view engine', 'ejs');
 
 
 app.get('/', function (req, res) {
-  res.render('index')
+  let authenticated = req.oidc.isAuthenticated();
+  let username;
+  if (authenticated) {
+    username = JSON.stringify(req.oidc.user)
+  }
+  res.render('index', { user: username })
 })
 
-app.get('/profile', function (req, res) {
-  let authenticated = req.oidc.isAuthenticated();
-  if (authenticated) {
-    res.render('profile');
-    return
-  }
-  res.redirect('/login');
-})
+app.get('/profile', requiresAuth(), (req, res) => {
+  res.send(JSON.stringify(req.oidc.user));
+});
+
+// app.get('/profile', function (req, res) {
+//   let authenticated = req.oidc.isAuthenticated();
+//   if (authenticated) {
+//     res.render('profile');
+//     return
+//   }
+//   res.redirect('/login');
+// })
 
 
 app.listen(port, () => {
