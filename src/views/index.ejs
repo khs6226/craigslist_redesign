@@ -10,6 +10,9 @@
 <body>
     <nav class="navbar">
         <p>logo</p>
+        <% if (user) { %>
+            <a href="/user/profile"><%= user %></a>
+        <% } %>
         <form action="/login" method="GET">
             <input type="submit" value="login">
         </form>

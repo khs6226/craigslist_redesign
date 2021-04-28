@@ -34,9 +34,9 @@ app.use('/user', user);
 
 app.get('/', function (req, res) {
   let authenticated = req.oidc.isAuthenticated();
-  let username;
+  let username = false;
   if (authenticated) {
-    username = JSON.stringify(req.oidc.user)
+    username = (req.oidc.user.nickname)
   }
   res.render('index', { user: username })
 })
