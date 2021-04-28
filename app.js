@@ -1,7 +1,8 @@
-const { auth } = require('express-openid-connect');
+const { auth, requiresAuth } = require('express-openid-connect');
 require('dotenv').config();
 const express = require('express');
 const app = express();
+const user = require('./routes/user')
 const port = 8080;
 
 
@@ -24,6 +25,10 @@ app.use(express.json());
 app.set('view engine', 'ejs');
 
 
+// Routes
+app.use('/user', user);
+
+
 app.get('/', function (req, res) {
   let authenticated = req.oidc.isAuthenticated();
   let username;
@@ -33,17 +38,13 @@ app.get('/', function (req, res) {
   res.render('index', { user: username })
 })
 
-app.get('/profile', requiresAuth(), (req, res) => {
-  res.send(JSON.stringify(req.oidc.user));
-});
-
-// app.get('/profile', function (req, res) {
+// app.get('/profile', requiresAuth(), function (req, res) {
 //   let authenticated = req.oidc.isAuthenticated();
+//   let user;
 //   if (authenticated) {
-//     res.render('profile');
-//     return
+//     user = JSON.stringify(req.oidc.user)
 //   }
-//   res.redirect('/login');
+//   res.render('profile', { user: user });
 // })
 
 
