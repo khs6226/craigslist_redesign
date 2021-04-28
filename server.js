@@ -52,16 +52,6 @@ app.get('/', function (req, res) {
   res.render('index', { user: username })
 })
 
-// app.get('/profile', requiresAuth(), function (req, res) {
-//   let authenticated = req.oidc.isAuthenticated();
-//   let user;
-//   if (authenticated) {
-//     user = JSON.stringify(req.oidc.user)
-//   }
-//   res.render('profile', { user: user });
-// })
-
-
 app.listen(port, () => {
     console.log('Listening on port 8080...')
 })
