@@ -3,7 +3,7 @@ require('dotenv').config();
 const path = require('path');
 const express = require('express');
 const app = express();
-const user = require('./routes/user')
+const user = require('./src/routes/user')
 const port = process.env.PORT || 8080;
 
 
@@ -21,11 +21,11 @@ const config = {
 // Middleware
 app.use(auth(config));
 app.use(express.json());
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/src/public'));
 
 // Views engine
 app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, './views'));
+app.set('views', path.join(__dirname, './src/views'));
 
 
 // Routes
