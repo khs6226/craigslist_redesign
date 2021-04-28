@@ -8,15 +8,26 @@ const port = process.env.PORT || 8080;
 
 
 // Auth0 config
-const config = {
-  authRequired: false,
-  auth0Logout: true,
-  baseURL: 'http://localhost:8080',
-  clientID: process.env.AUTH_CLIENT_ID,
-  issuerBaseURL: process.env.AUTH_DOMAIN,
-  secret: process.env.AUTH_CLIENT_SECRET
-};
-
+let config
+if (process.env.IS_HEROKU) {
+  config = {
+    authRequired: false,
+    auth0Logout: true,
+    baseURL: 'https://idsp2380-craigslist.herokuapp.com/',
+    clientID: process.env.AUTH_CLIENT_ID,
+    issuerBaseURL: process.env.AUTH_DOMAIN,
+    secret: process.env.AUTH_CLIENT_SECRET
+  };
+} else {
+  config = {
+    authRequired: false,
+    auth0Logout: true,
+    baseURL: 'http://localhost:8080',
+    clientID: process.env.AUTH_CLIENT_ID,
+    issuerBaseURL: process.env.AUTH_DOMAIN,
+    secret: process.env.AUTH_CLIENT_SECRET
+  };
+}
 
 // Middleware
 app.use(auth(config));
