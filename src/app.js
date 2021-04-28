@@ -4,7 +4,7 @@ const path = require('path');
 const express = require('express');
 const app = express();
 const user = require('./routes/user')
-const port = 8080;
+const port = process.env.PORT || 8080;
 
 
 // Auth0 config
