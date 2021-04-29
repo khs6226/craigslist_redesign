@@ -9,26 +9,30 @@
 </head>
 <body>
     <nav class="navbar">
-        <div></div>
         <div class="nav-logo-container">
             <img class="nav-logo" src="./img/Logo.svg" alt="Craigslist Logo">
         </div>
+        <div></div>
         <div class="nav-user-container">
             <% if (user) { %>
                 <a href="/user/profile" class="nav-user"><%= user %></a>
-            <% } %>
+            <% } else {%>
+                <form action="/login" method="GET">
+                    <input class="loginBtn" type="submit" value="Login">
+                </form>
+            <% }%>
         </div>
         <div class="menu-icon-container">
             <img src="./img/menu.svg" alt="Mobile Menu" class="menu-icon">
         </div>
-        <div class="nav-menu">
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Explore</a></li>
+        <div class="nav-menu-container">
+            <ul class="nav-menu">
+                <li><a class="nav-menu-item" href="#">Home</a></li>
+                <li><a class="nav-menu-item" href="#">Explore</a></li>
                 <% if (user) { %>
-                    <li><a href="/logout">Logout</a></li>
+                    <li><a class="nav-menu-item" href="/logout">Logout</a></li>
                 <% } else { %>
-                    <li><a href="/login">Login</a></li>
+                    <li><a class="nav-menu-item" href="/login">Login</a></li>
                 <% } %>
             </ul>
         </div>
@@ -42,6 +46,7 @@
             <input type="submit" value="logout">
         </form>
     </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./js/menu.js"></script>
 </body>
 </html>

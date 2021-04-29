@@ -18,9 +18,9 @@ $sanchez: 'Sanchez', serif;
 
 .navbar {
     display: grid;
-    grid-template-columns: 40% 20% 25% 15%;
+    grid-template-columns: 20% 30% 35% 15%;
     background-color: $blue;
-    height: 60px;
+    height: 8vh;
 }
 
 .nav-logo-container {
@@ -39,6 +39,21 @@ $sanchez: 'Sanchez', serif;
     justify-content: center;
 }
 
+.nav-user{
+    margin: 0 10px 0 0;
+    text-decoration: none;
+    color: black;
+}
+
+.loginBtn{
+    background-color: $green;
+    border: none;
+    font-size: 1.1rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 .menu-icon-container {
     display: flex;
     align-items: center;
@@ -50,10 +65,36 @@ $sanchez: 'Sanchez', serif;
     cursor: pointer;
 }
 
+.nav-menu-container {
+    visibility: hidden;
+    opacity: 0;
+    background: $blue;
+    width: 100%;
+    position: absolute;
+    height: 92vh;
+    transform: translate(0, 8vh);
+    text-align: right;
+    transition: all .2s ease-in-out;
+}
+
 .nav-menu {
-    display: none;
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    justify-content: space-around;
+    height: 60%;
+    margin: 0 40px 0 0;
 }
 
 .show-menu{
-    display: block;
+    visibility: visible;
+    opacity: 1;
+    display: flex;
+    justify-content: right;
+}
+
+.nav-menu-item {
+    text-decoration: none;
+    color: black; 
+    font-size: 1.2rem;
 }

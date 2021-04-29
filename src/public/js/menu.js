@@ -1,6 +1,10 @@
-const menuBtn = document.querySelector('.menu-icon');
-const navMenu = document.querySelector('.nav-menu');
 
-menuBtn.on('click', (e) => {
-    navMenu.classList.toggle('.show-menu')
+$('.menu-icon').click((e) => {
+    console.log('click')
+    $('.nav-menu-container').toggleClass('show-menu', 500);
+    if ($('.menu-icon').attr('src') == './img/menu.svg') {
+        $('.menu-icon').attr('src', './img/close.svg');
+    } else {
+        $('.menu-icon').attr('src', './img/menu.svg'); 
+    }
 })
