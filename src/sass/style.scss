@@ -1,8 +1,59 @@
+// imports
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@0,700;1,400&family=Sanchez&display=swap');
+
+// variables
+$blue: #14bcff;
+$green: #99DA67;
+$red: #FF5050;
+
+$roboto: 'Roboto', sans-serif;
+$sanchez: 'Sanchez', serif;
+
+// styles
 * {
     margin: 0;
     padding: 0;
+    font-family: $roboto;
 }
 
 .navbar {
-    background-color: grey;
+    display: grid;
+    grid-template-columns: 40% 20% 25% 15%;
+    background-color: $blue;
+    height: 60px;
+}
+
+.nav-logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-logo {
+    height: 45px;
+}
+
+.nav-user-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-icon {
+    height: 40px;
+    cursor: pointer;
+}
+
+.nav-menu {
+    display: none;
+}
+
+.show-menu{
+    display: block;
 }
