@@ -4,10 +4,24 @@
 // variables
 $blue: #14bcff;
 $green: #99DA67;
+$dark-green: #6c9b48;
 $red: #FF5050;
 
 $roboto: 'Roboto', sans-serif;
 $sanchez: 'Sanchez', serif;
+
+// mixins
+@mixin greenButton {
+    background-color: $green;
+    border-top: none;
+    border-right: none;
+    border-bottom: 3px solid $dark-green;
+    border-left: 3px solid $dark-green;
+    font-size: 1.1rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
 // styles
 * {
@@ -46,12 +60,14 @@ $sanchez: 'Sanchez', serif;
 }
 
 .loginBtn{
-    background-color: $green;
-    border: 1px solid;
-    font-size: 1.1rem;
-    padding: 5px 10px;
-    border-radius: 5px;
-    cursor: pointer;
+    @include greenButton();
+}
+
+.loginBtn:active {
+    border-top: none;
+    border-right: none;
+    border-bottom: 0px solid $dark-green;
+    border-left: 0px solid $dark-green;
 }
 
 .menu-icon-container {
@@ -97,4 +113,8 @@ $sanchez: 'Sanchez', serif;
     text-decoration: none;
     color: black; 
     font-size: 1.2rem;
+}
+
+.nav-menu-item:hover{
+    color: rgb(56, 56, 56);
 }

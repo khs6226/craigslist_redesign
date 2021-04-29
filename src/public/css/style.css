@@ -30,11 +30,20 @@
 
 .loginBtn {
   background-color: #99DA67;
-  border: 1px solid;
+  border-top: none;
+  border-right: none;
+  border-bottom: 3px solid #6c9b48;
+  border-left: 3px solid #6c9b48;
   font-size: 1.1rem;
   padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer; }
+
+.loginBtn:active {
+  border-top: none;
+  border-right: none;
+  border-bottom: 0px solid #6c9b48;
+  border-left: 0px solid #6c9b48; }
 
 .menu-icon-container {
   display: flex;
@@ -74,3 +83,6 @@
   text-decoration: none;
   color: black;
   font-size: 1.2rem; }
+
+.nav-menu-item:hover {
+  color: #383838; }
