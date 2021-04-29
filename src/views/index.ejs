@@ -30,6 +30,7 @@
                 <li><a class="nav-menu-item" href="#">Home</a></li>
                 <li><a class="nav-menu-item" href="#">Explore</a></li>
                 <% if (user) { %>
+                    <li><a class="nav-menu-item" href="/user/profile">Profile</a></li>
                     <li><a class="nav-menu-item" href="/logout">Logout</a></li>
                 <% } else { %>
                     <li><a class="nav-menu-item" href="/login">Login</a></li>
@@ -39,12 +40,6 @@
     </nav>
     <main class="container">
         <p>Homepage</p>
-        <form action="/login" method="GET">
-            <input type="submit" value="login">
-        </form>
-        <form action="/logout" method="GET">
-            <input type="submit" value="logout">
-        </form>
     </main>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./js/menu.js"></script>

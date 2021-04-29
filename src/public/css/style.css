@@ -30,7 +30,7 @@
 
 .loginBtn {
   background-color: #99DA67;
-  border: none;
+  border: 1px solid;
   font-size: 1.1rem;
   padding: 5px 10px;
   border-radius: 5px;

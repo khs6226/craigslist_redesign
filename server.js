@@ -47,11 +47,9 @@ app.get('/', function (req, res) {
   let authenticated = req.oidc.isAuthenticated();
   let username;
   if (authenticated) {
-    username = req.oidc.user.nickname;
-    res.redirect('/user/profile');
-  } else {
-    res.render('index', { user: username })
+    username = req.oidc.user.nickname
   }
+  res.render('index', { user: username })
 })
 
 app.listen(port, () => {

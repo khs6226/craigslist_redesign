@@ -42,12 +42,12 @@ $sanchez: 'Sanchez', serif;
 .nav-user{
     margin: 0 10px 0 0;
     text-decoration: none;
-    color: black;
+    color: rgb(0, 0, 0);
 }
 
 .loginBtn{
     background-color: $green;
-    border: none;
+    border: 1px solid;
     font-size: 1.1rem;
     padding: 5px 10px;
     border-radius: 5px;
