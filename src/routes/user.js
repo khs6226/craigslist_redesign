@@ -4,11 +4,22 @@ const { auth, requiresAuth } = require('express-openid-connect');
 
 router.get('/profile', requiresAuth(), function (req, res) {
     let authenticated = req.oidc.isAuthenticated();
-    let user;
+    let user = req.oidc.user;
     if (authenticated) {
-      user = JSON.stringify(req.oidc.user)
+      res.render('profile', { user: user });
+    } else {
+      res.redirect('/');
     }
-    res.render('profile', { user: user });
   })
+
+router.get('/posting', requiresAuth(), (req, res) => {
+  let authenticated = req.oidc.isAuthenticated();
+  let user = req.oidc.user;
+  if (authenticated) {
+    res.render('posting', { user: user });
+  } else {
+    res.redirect('/');
+  }
+})
 
 module.exports = router 
