@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./server.js",
+    "start": "node-sass ./src/sass/style.scss ./src/public/css/style.css && node ./server.js",
     "dev": "node-sass ./src/sass/style.scss ./src/public/css/style.css && npx nodemon server.js",
     "scss": "node-sass ./src/sass/style.scss ./src/public/css/style.css"
   },
