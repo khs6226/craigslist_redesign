@@ -47,12 +47,22 @@
     </div> -->
     <div class='container-post'>
       <p class='post-title'>Current Posting</p>
-      <div class='post'>
-        <img src="/asset/red-car.jpg" alt="red car" style="width:100%">
-        <div class='post-detail'>
-          <p class='price'>$<%= post[0].price %></p>
-          <p class='title'><%= post[0].title %></p>
-          <p class='city'>Richmond</p>
+      <div class='posts'>
+        <div class='post'>
+          <img class='post-img' src="/asset/red-car.jpg" alt="a red car">
+          <div class='post-detail'>
+            <p class='post-price'>$<%= post[0].price %></p>
+            <p class='post-title'><%= post[0].title %></p>
+            <p class='post-city'>Richmond</p>
+          </div>
+        </div>
+        <div class='post'>
+          <img class='post-img' src="/asset/audi.jpg" alt="a yellow green car">
+          <div class='post-detail'>
+            <p class='post-price'>$<%= post[1].price %></p>
+            <p class='post-title'><%= post[1].title %></p>
+            <p class='post-city'>Burnaby</p>
+          </div>
         </div>
       </div>
     </div>
