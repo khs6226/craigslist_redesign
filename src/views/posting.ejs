@@ -39,13 +39,15 @@
       <div class='post'>
         <img src="/asset/red-car.jpg" alt="red car">
         <div class='post-detail'>
-          <p class='price'>$150,000</p>
-          <p class='desc'>Porsche 911</p>
+          <p class='price'>$<%= post[0].price %></p>
+          <p class='title'><%= post[0].title %></p>
           <p class='city'>Richmond</p>
         </div>
       </div>
     </div>
   </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="/js/menu.js"></script>
 </body>
 
 </html>
