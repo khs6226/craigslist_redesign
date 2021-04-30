@@ -44,18 +44,14 @@
     <!-- <div class='nav-user-container'>
       <p><a href="">Profile</a></p>
     </div> -->
-    <div class='container-profile'>
-      <p class='profile-title'>Welcome, <%= user.nickname %>
-      </p>
-      <div class='container-profile-detail'>
-        <p class='userName'>Username: <%= user.nickname %>
-        </p>
-        <p class='email'>Email: <%= user.name %>
-        </p>
-        <p><a href="/user/posting">My Posting</a></p>
-      </div>
+    <div class='posts-container'>
+      <% posts.forEach(post => { %>
+        <div class="post-container">
+          <h3 class="post-title"><%= post.title %> <span class="post-price"> - $<%= post.price %></span></h3>
+          <p class="post-description"><%= post.description %></p>
+        </div>
+      <% }); %>
     </div>
-  </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="/js/menu.js"></script>
