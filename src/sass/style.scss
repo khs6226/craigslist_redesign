@@ -23,12 +23,25 @@ $sanchez: 'Sanchez', serif;
     cursor: pointer;
 }
 
+@mixin greenButtonActive {
+    border-top: none;
+    border-right: none;
+    border-bottom: 0px solid $dark-green;
+    border-left: 0px solid $dark-green;
+}
+
+
 // styles
 * {
     margin: 0;
     padding: 0;
     font-family: $roboto;
 }
+
+h1 {
+    font-size: 1.8rem;
+}
+
 
 // Nav
 .navbar {
@@ -73,10 +86,7 @@ $sanchez: 'Sanchez', serif;
 }
 
 .loginBtn:active {
-    border-top: none;
-    border-right: none;
-    border-bottom: 0px solid $dark-green;
-    border-left: 0px solid $dark-green;
+    @include greenButtonActive();
 }
 
 .menu-icon-container {
@@ -134,4 +144,27 @@ $sanchez: 'Sanchez', serif;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 60px 15px;
+}
+
+.header-home {
+    margin: 25px 0;
+    text-align: center;
+}
+
+.home-search-form {
+   display: flex; 
+}
+
+.home-search-input {
+
+}
+
+.home-search-submit {
+    @include greenButton();
+    margin: 0 0 0 2px;
+}
+
+.home-search-submit:active {
+    @include greenButtonActive();
 }
