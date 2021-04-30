@@ -30,6 +30,7 @@ $sanchez: 'Sanchez', serif;
     font-family: $roboto;
 }
 
+// Nav
 .navbar {
     display: grid;
     grid-template-columns: 20% 25% 40% 15%;
@@ -125,4 +126,12 @@ $sanchez: 'Sanchez', serif;
 
 .nav-menu-item:hover{
     color: rgb(56, 56, 56);
+}
+
+// Index
+.container-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
