@@ -10,12 +10,12 @@
 <body class='home'>
     <nav class="navbar">
         <div class="nav-logo-container">
-            <img class="nav-logo" src="./img/Logo.svg" alt="Craigslist Logo">
+            <img class="nav-logo" src="/img/Logo.svg" alt="Craigslist Logo">
         </div>
         <div></div>
         <div class="nav-user-container">
             <% if (user) { %>
-                <a href="/user/profile" class="nav-user"><%= user %></a>
+                <a href="/user/profile" class="nav-user"><%= user %><img src="/img/user.svg" alt="" class="nav-user-icon"></a>
             <% } else {%>
                 <form action="/login" method="GET">
                     <input class="loginBtn" type="submit" value="Login">
@@ -23,7 +23,7 @@
             <% }%>
         </div>
         <div class="menu-icon-container">
-            <img src="./img/menu.svg" alt="Mobile Menu" class="menu-icon">
+            <img src="/img/menu.svg" alt="Mobile Menu" class="menu-icon">
         </div>
         <div class="nav-menu-container">
             <ul class="nav-menu">

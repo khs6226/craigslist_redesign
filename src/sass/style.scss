@@ -32,7 +32,7 @@ $sanchez: 'Sanchez', serif;
 
 .navbar {
     display: grid;
-    grid-template-columns: 20% 30% 35% 15%;
+    grid-template-columns: 20% 25% 40% 15%;
     background-color: $blue;
     height: 8vh;
 }
@@ -53,10 +53,18 @@ $sanchez: 'Sanchez', serif;
     justify-content: center;
 }
 
-.nav-user{
+.nav-user {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 0 10px 0 0;
     text-decoration: none;
     color: rgb(0, 0, 0);
+}
+
+.nav-user-icon {
+    height: 20px;
+    margin: 0 0 5px 5px;
 }
 
 .loginBtn{
