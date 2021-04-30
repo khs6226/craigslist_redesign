@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/style.css">
+  <title>Results</title>
+</head>
+
+<body class='profile'>
+  <nav class="navbar">
+    <div class="nav-logo-container">
+        <img class="nav-logo" src="/img/Logo.svg" alt="Craigslist Logo">
+    </div>
+    <div></div>
+    <div class="nav-user-container">
+        <% if (user) { %>
+            <a href="/user/profile" class="nav-user"><%= user.nickname %><img src="/img/user.svg" alt="" class="nav-user-icon"></a>
+        <% } else {%>
+            <form action="/login" method="GET">
+                <input class="loginBtn" type="submit" value="Login">
+            </form>
+        <% }%>
+    </div>
+    <div class="menu-icon-container">
+        <img src="/img/menu.svg" alt="Mobile Menu" class="menu-icon">
+    </div>
+    <div class="nav-menu-container">
+        <ul class="nav-menu">
+            <li><a class="nav-menu-item" href="/">Home</a></li>
+            <li><a class="nav-menu-item" href="#">Explore</a></li>
+            <% if (user) { %>
+                <li><a class="nav-menu-item" href="/user/profile">Profile</a></li>
+                <li><a class="nav-menu-item" href="/logout">Logout</a></li>
+            <% } else { %>
+                <li><a class="nav-menu-item" href="/login">Login</a></li>
+            <% } %>
+        </ul>
+    </div>
+  </nav>
+  <div class='container'>
+    <!-- <div class='nav-user-container'>
+      <p><a href="">Profile</a></p>
+    </div> -->
+    <div class='posts-container'>
+      <% posts.forEach(post => { %>
+        <div class="post-container">
+          <h3 class="post-title"><%= post.title %> <span class="post-price"> - $<%= post.price %></span></h3>
+          <p class="post-description"><%= post.description %></p>
+        </div>
+      <% }); %>
+    </div>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="/js/menu.js"></script>
+</body>
+
+</html>

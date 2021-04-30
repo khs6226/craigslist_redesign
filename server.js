@@ -3,7 +3,8 @@ require('dotenv').config();
 const path = require('path');
 const express = require('express');
 const app = express();
-const user = require('./src/routes/user')
+const user = require('./src/routes/user');
+const search = require('./src/routes/search');
 const port = process.env.PORT || 8080;
 
 
@@ -33,6 +34,8 @@ if (process.env.IS_HEROKU) {
 app.use(auth(config));
 app.use(express.json());
 app.use(express.static(__dirname + '/src/public'));
+app.use(express.urlencoded());
+
 
 // Views engine
 app.set('view engine', 'ejs');
@@ -41,6 +44,7 @@ app.set('views', path.join(__dirname, './src/views'));
 
 // Routes
 app.use('/user', user);
+app.use('/search', search);
 
 
 app.get('/', function (req, res) {
