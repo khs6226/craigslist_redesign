@@ -177,12 +177,17 @@ h1 {
     flex-direction: column;
     align-items: center;
     background-color: $paleBlue;
-    padding: 10px;
+    padding: 20px;
     border-radius: 10px;
 }
 
 .new-post-input {
     width: 95%;
+    border: none;
+    padding: 7px;
+    border-radius: 5px;
+    margin: 5px 0;
+    border: 1px solid $blue;
 }
 
 .new-post-textarea {
@@ -191,4 +196,12 @@ h1 {
     font-size: .9rem;
     border-radius: 5px;
     border: none;
+    resize: none;
+    margin: 5px 0;
+    border: 1px solid $blue;
+}
+
+.form-horitontal {
+    display: flex;
+    margin: 5px 0;
 }
