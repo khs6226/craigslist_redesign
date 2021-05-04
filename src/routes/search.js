@@ -3,7 +3,6 @@ const router = express.Router();
 const dbConnection = require('../dbConnection');
 const searchQuery = require('../models/searchQuery');
 const { auth, requiresAuth } = require('express-openid-connect');
-const { search } = require('./user');
 
 router.post('/results', (req, res) => {
     let authenticated = req.oidc.isAuthenticated();

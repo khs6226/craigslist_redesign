@@ -45,6 +45,7 @@ app.set('views', path.join(__dirname, './src/views'));
 // Routes
 app.use('/user', user);
 app.use('/search', search);
+// app.use('/posts', post)
 
 
 app.get('/', function (req, res) {
