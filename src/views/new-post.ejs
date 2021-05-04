@@ -45,7 +45,11 @@
     <div class='post-form-container'>
         <form action="/posts/post-created" method="POST">
             <div class="post-form" id="step-1">
-                <h4>Step 1</h4>
+                <div class="step-container">
+                    <img src="/img/arrow-left.svg" alt="Arrow Left" class="arrow-left">
+                    <h4 class="step-header">Step 1</h4>
+                    <img src="/img/arrow-right.svg" alt="Arrow Left" class="arrow-right">
+                </div>
                 <input type="text" name="title" placeholder="Title" class="new-post-input">
                 <input type="text" name="price" placeholder="Price" class="new-post-input">
                 <textarea name="description" class="new-post-textarea" cols="30" rows="10" placeholder="Description"></textarea>
@@ -53,7 +57,11 @@
                 <input type="file" multiple accept="image/*">
             </div>
             <div class="post-form" id="step-2">
-                <h4>Step 2</h4>
+                <div class="step-container">
+                    <img src="/img/arrow-left.svg" alt="Arrow Left" class="arrow-left">
+                    <h4 class="step-header">Step 2</h4>
+                    <img src="/img/arrow-right.svg" alt="Arrow Left" class="arrow-right">
+                </div>
                 <input type="text" name="make" placeholder="Make/Manufacture" class="new-post-input">
                 <input type="text" name="model" placeholder="Model Name" class="new-post-input">
                 <input type="text" name="dimensions" placeholder="Model Name" class="new-post-input">
@@ -70,7 +78,11 @@
                 </div>
             </div>
             <div class="post-form" id="step-3">
-                <h4>Step 3</h4>
+                <div class="step-container">
+                    <img src="/img/arrow-left.svg" alt="Arrow Left" class="arrow-left">
+                    <h4 class="step-header">Step 3a</h4>
+                    <img src="/img/arrow-right.svg" alt="Arrow Left" class="arrow-right">
+                </div>
                 <input type="text" name="city" placeholder="City" class="new-post-input">
                 <input type="text" name="postal" placeholder="Postal Code" class="new-post-input">
                 <input type="text" name="email" placeholder="Email Address" class="new-post-input">
@@ -82,6 +94,7 @@
   </main>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="/js/menu.js"></script>
+  <script src="/js/cycleSteps.js"></script>
   <script src="/js/geoLocation.js"></script>
 </body>
 </html>

@@ -185,6 +185,32 @@ h4 {
     border-radius: 10px;
 }
 
+.step-container {
+    display: flex;
+    width: 60%;
+    justify-content: center;
+    margin: 0 0 10px 0;
+    visibility: visible;
+}
+
+.step-container-hidden {
+    visibility: hidden;
+}
+
+.step-header {
+    margin: 0 30px;
+}
+
+.arrow-left {
+    height: 20px;
+    cursor: pointer;
+}
+
+.arrow-right {
+    height: 20px;
+    cursor: pointer;
+}
+
 .new-post-input {
     width: 95%;
     border: none;

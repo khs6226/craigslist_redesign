@@ -144,6 +144,19 @@ h4 {
   padding: 20px;
   border-radius: 10px; }
 
+.step-container {
+  display: flex;
+  width: 60%;
+  justify-content: center;
+  margin: 0 0 10px 0; }
+
+.step-header {
+  margin: 0 30px; }
+
+.arrows {
+  height: 20px;
+  cursor: pointer; }
+
 .new-post-input {
   width: 95%;
   border: none;
