@@ -21,7 +21,7 @@ router.get('/posting', requiresAuth(), (req, res) => {
     dbConnection.getConnection((err, dbConnection) => {
       if(err) {
         console.log('error connecting to MySQL');
-        console.log(err)
+        console.log(err);
       } else {
         dbQuery.getPost((err, result) => {
           if(err) {

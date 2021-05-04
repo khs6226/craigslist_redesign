@@ -3,6 +3,7 @@
 
 // variables
 $blue: #14bcff;
+$paleBlue: #E8F6FD;
 $green: #99DA67;
 $dark-green: #6c9b48;
 $red: #FF5050;
@@ -40,6 +41,7 @@ $sanchez: 'Sanchez', serif;
 
 h1 {
     font-size: 1.8rem;
+    margin: 0 0 15px 0;
 }
 
 
@@ -148,16 +150,16 @@ h1 {
 }
 
 .header-home {
-    margin: 25px 0;
+    margin: 35px 0;
     text-align: center;
+}
+
+.search-container {
+    margin: 0 0 35px 0;
 }
 
 .home-search-form {
    display: flex; 
-}
-
-.home-search-input {
-
 }
 
 .home-search-submit {
@@ -167,4 +169,26 @@ h1 {
 
 .home-search-submit:active {
     @include greenButtonActive();
+}
+
+// new posts
+.post-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $paleBlue;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.new-post-input {
+    width: 95%;
+}
+
+.new-post-textarea {
+    width: 95%;
+    padding: 7px;
+    font-size: .9rem;
+    border-radius: 5px;
+    border: none;
 }
