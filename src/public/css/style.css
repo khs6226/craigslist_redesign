@@ -8,6 +8,9 @@ h1 {
   font-size: 1.8rem;
   margin: 0 0 15px 0; }
 
+h4 {
+  margin: 0 0 10px 0; }
+
 .navbar {
   display: grid;
   grid-template-columns: 20% 25% 40% 15%;
@@ -159,6 +162,27 @@ h1 {
   margin: 5px 0;
   border: 1px solid #14bcff; }
 
+.new-post-upload {
+  margin: 5px 0; }
+
 .form-horitontal {
   display: flex;
   margin: 5px 0; }
+
+.geo-button {
+  background-color: #99DA67;
+  border-top: none;
+  border-right: none;
+  border-bottom: 3px solid #6c9b48;
+  border-left: 3px solid #6c9b48;
+  font-size: 1.1rem;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px 0; }
+
+.geo-button:active {
+  border-top: none;
+  border-right: none;
+  border-bottom: 0px solid #6c9b48;
+  border-left: 0px solid #6c9b48; }

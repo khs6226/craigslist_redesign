@@ -44,6 +44,10 @@ h1 {
     margin: 0 0 15px 0;
 }
 
+h4 {
+    margin: 0 0 10px 0;
+}
+
 
 // Nav
 .navbar {
@@ -201,7 +205,20 @@ h1 {
     border: 1px solid $blue;
 }
 
+.new-post-upload {
+    margin: 5px 0;
+}
+
 .form-horitontal {
     display: flex;
     margin: 5px 0;
+}
+
+.geo-button {
+    @include greenButton();
+    margin: 5px 0;
+}
+
+.geo-button:active {
+    @include greenButtonActive();
 }
