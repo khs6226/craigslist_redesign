@@ -43,7 +43,7 @@
   <main class="container-center">
     <h1>Create Your Post</h1>
     <div class='post-form-container'>
-        <form action="/posts/post-created" method="POST">
+        <form action="/posts/post-created" method="POST" style="width: 100%">
             <div class="post-form" id="step-1">
                 <div class="step-container">
                     <h4 class="step-header">Step 1</h4>
@@ -77,22 +77,25 @@
                     </select>
                 </div>
                 <div class="form-buttons">
-                    <button type="button">Back</button>
-                    <button type="button">Next</button>
+                    <button type="button" class="button-back">Back</button>
+                    <button type="button" class="button-next">Next</button>
                 </div>
             </div>
             <div class="post-form" id="step-3">
                 <div class="step-container">
                     <h4 class="step-header">Step 3</h4>
                 </div>
+                <input type="text" name="email" placeholder="Email" class="new-post-input">
+                <input type="text" name="phone" placeholder="Phone Number" class="new-post-input">
+                <label for="Location">Location</label>
                 <input type="text" name="city" placeholder="City" class="new-post-input">
                 <input type="text" name="postal" placeholder="Postal Code" class="new-post-input">
-                <input type="text" name="email" placeholder="Email Address" class="new-post-input">
                 <p>Or</p>
                 <button class="geo-button" type="button">Use my current location</button>
                 <div class="form-buttons">
-                    <button type="button">Back</button>
-                    <button type="button">Next</button>
+                    <button type="button" class="button-back">Back</button>
+                    <button type="button" class="button-next">Next</button>
+                    <input type="submit" value="Post" class="black-button" id="new-post-submit">
                 </div>
             </div>
         </form>
