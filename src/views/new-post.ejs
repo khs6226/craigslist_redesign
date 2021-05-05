@@ -46,21 +46,21 @@
         <form action="/posts/post-created" method="POST">
             <div class="post-form" id="step-1">
                 <div class="step-container">
-                    <img src="/img/arrow-left.svg" alt="Arrow Left" class="arrow-left">
                     <h4 class="step-header">Step 1</h4>
-                    <img src="/img/arrow-right.svg" alt="Arrow Left" class="arrow-right">
                 </div>
                 <input type="text" name="title" placeholder="Title" class="new-post-input">
                 <input type="text" name="price" placeholder="Price" class="new-post-input">
                 <textarea name="description" class="new-post-textarea" cols="30" rows="10" placeholder="Description"></textarea>
                 <label for="form-photos" class="new-post-upload">Upload images</label>
                 <input type="file" multiple accept="image/*">
+                <div class="form-buttons">
+                    <button type="button" class="button-back">Back</button>
+                    <button type="button" class="button-next">Next</button>
+                </div>
             </div>
             <div class="post-form" id="step-2">
                 <div class="step-container">
-                    <img src="/img/arrow-left.svg" alt="Arrow Left" class="arrow-left">
                     <h4 class="step-header">Step 2</h4>
-                    <img src="/img/arrow-right.svg" alt="Arrow Left" class="arrow-right">
                 </div>
                 <input type="text" name="make" placeholder="Make/Manufacture" class="new-post-input">
                 <input type="text" name="model" placeholder="Model Name" class="new-post-input">
@@ -76,18 +76,24 @@
                         <option value="salvage">salvage</option>
                     </select>
                 </div>
+                <div class="form-buttons">
+                    <button type="button">Back</button>
+                    <button type="button">Next</button>
+                </div>
             </div>
             <div class="post-form" id="step-3">
                 <div class="step-container">
-                    <img src="/img/arrow-left.svg" alt="Arrow Left" class="arrow-left">
-                    <h4 class="step-header">Step 3a</h4>
-                    <img src="/img/arrow-right.svg" alt="Arrow Left" class="arrow-right">
+                    <h4 class="step-header">Step 3</h4>
                 </div>
                 <input type="text" name="city" placeholder="City" class="new-post-input">
                 <input type="text" name="postal" placeholder="Postal Code" class="new-post-input">
                 <input type="text" name="email" placeholder="Email Address" class="new-post-input">
                 <p>Or</p>
                 <button class="geo-button" type="button">Use my current location</button>
+                <div class="form-buttons">
+                    <button type="button">Back</button>
+                    <button type="button">Next</button>
+                </div>
             </div>
         </form>
     </div>

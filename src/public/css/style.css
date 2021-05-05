@@ -150,12 +150,8 @@ h4 {
   justify-content: center;
   margin: 0 0 10px 0; }
 
-.step-header {
-  margin: 0 30px; }
-
-.arrows {
-  height: 20px;
-  cursor: pointer; }
+.step-container-hidden {
+  display: none; }
 
 .new-post-input {
   width: 95%;
@@ -168,7 +164,7 @@ h4 {
 .new-post-textarea {
   width: 95%;
   padding: 7px;
-  font-size: .9rem;
+  font-size: .8rem;
   border-radius: 5px;
   border: none;
   resize: none;
@@ -177,6 +173,46 @@ h4 {
 
 .new-post-upload {
   margin: 5px 0; }
+
+.form-buttons {
+  margin: 25px 0 0 0;
+  display: grid;
+  grid-template-columns: 70px 70px;
+  gap: 50px; }
+
+.button-back {
+  background-color: white;
+  border-top: none;
+  border-right: none;
+  border-bottom: 3px solid #cfcfcf;
+  border-left: 3px solid #cfcfcf;
+  font-size: 1.1rem;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer; }
+
+.button-back:active {
+  border-top: none;
+  border-right: none;
+  border-bottom: 0px solid;
+  border-left: 0px solid; }
+
+.button-next {
+  background-color: #99DA67;
+  border-top: none;
+  border-right: none;
+  border-bottom: 3px solid #6c9b48;
+  border-left: 3px solid #6c9b48;
+  font-size: 1.1rem;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer; }
+
+.button-next:active {
+  border-top: none;
+  border-right: none;
+  border-bottom: 0px solid #6c9b48;
+  border-left: 0px solid #6c9b48; }
 
 .form-horitontal {
   display: flex;
