@@ -11,8 +11,14 @@ router.get('/new-post', (req, res) => {
     res.render('new-post', { user: user });
 })
 
-router.post('post-created', (req, res) => {
-    
+router.post('/post-preview', (req, res) => {
+    let authenticated = req.oidc.isAuthenticated();
+    let user = req.oidc.user;
+
+    let postData = req.body;
+    console.log(postData);
+
+    res.render('post-preview', { user: user })
 });
 
 module.exports = router;

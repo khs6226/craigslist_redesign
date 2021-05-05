@@ -291,19 +291,19 @@ h4 {
   border-bottom: 0px solid #6c9b48;
   border-left: 0px solid #6c9b48; }
 
-.black-button {
-  background-color: #1a1a1a;
+.grey-button {
+  background-color: #303030;
   border-top: none;
   border-right: none;
-  border-bottom: 3px solid #707070;
-  border-left: 3px solid #707070;
+  border-bottom: 3px solid #666666;
+  border-left: 3px solid #666666;
   font-size: 1.1rem;
   padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
   color: white; }
 
-.black-button:active {
+.grey-button:active {
   border-top: none;
   border-right: none;
   border-bottom: 0px solid;

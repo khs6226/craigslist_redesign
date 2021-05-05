@@ -17,7 +17,7 @@
         <div></div>
         <div class="nav-user-container">
             <% if (user) { %>
-                <a href="/user/profile" class="nav-user"><%= user %><img src="/img/user.svg" alt="" class="nav-user-icon"></a>
+                <a href="/user/profile" class="nav-user"><%= user.nickname %><img src="/img/user.svg" alt="" class="nav-user-icon"></a>
             <% } else {%>
                 <form action="/login" method="GET">
                     <input class="loginBtn" type="submit" value="Login">
@@ -43,10 +43,19 @@
   <main class="container-center">
     <h1>Create Your Post</h1>
     <div class='post-form-container'>
-        <form action="/posts/post-created" method="POST" style="width: 100%">
+        <form action="/posts/post-preview" method="POST" style="width: 100%">
             <div class="post-form" id="step-1">
                 <div class="step-container">
                     <h4 class="step-header">Step 1</h4>
+                </div>
+                <div class="form-horizontal">
+                    <label for="category">Category</label> 
+                    <select name="category" class="form-category">
+                        <option value="" selected disabled hidden>--</option>
+                        <option value="Cars & Trucks">Cars & Trucks</option>
+                        <option value="Computers">Computers</option>
+                        <option value="Electronics">Electronics</option>
+                    </select>
                 </div>
                 <input type="text" name="title" placeholder="Title" class="new-post-input">
                 <input type="text" name="price" placeholder="Price" class="new-post-input">
@@ -64,7 +73,7 @@
                 </div>
                 <input type="text" name="make" placeholder="Make/Manufacture" class="new-post-input">
                 <input type="text" name="model" placeholder="Model Name" class="new-post-input">
-                <input type="text" name="dimensions" placeholder="Model Name" class="new-post-input">
+                <input type="text" name="dimensions" placeholder="Dimensions" class="new-post-input">
                 <div class="form-horizontal">
                     <label for="condition">Condition</label>
                     <select name="condition" class="condition">
@@ -95,7 +104,7 @@
                 <div class="form-buttons">
                     <button type="button" class="button-back">Back</button>
                     <button type="button" class="button-next">Next</button>
-                    <input type="submit" value="Post" class="black-button" id="new-post-submit">
+                    <input type="submit" value="Post" class="grey-button" id="new-post-submit">
                 </div>
             </div>
         </form>

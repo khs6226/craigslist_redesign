@@ -50,12 +50,12 @@ $sanchez: 'Sanchez', serif;
     border-left: 0px solid;
 }
 
-@mixin blackButton {
-    background-color: rgb(26, 26, 26);
+@mixin greyButton {
+    background-color: #303030;
     border-top: none;
     border-right: none;
-    border-bottom: 3px solid #707070;
-    border-left: 3px solid #707070;
+    border-bottom: 3px solid #666666;
+    border-left: 3px solid #666666;
     font-size: 1.1rem;
     padding: 5px 10px;
     border-radius: 5px;
@@ -63,7 +63,7 @@ $sanchez: 'Sanchez', serif;
     color: white;
 }
 
-@mixin blackButtonActive {
+@mixin greyButtonActive {
     border-top: none;
     border-right: none;
     border-bottom: 0px solid;
@@ -221,7 +221,6 @@ h4 {
 }
 
 // posting
-
 .container-post {
   display: flex;
   flex-direction: column;
@@ -361,12 +360,12 @@ h4 {
     @include greenButtonActive();
 }
 
-.black-button {
-    @include blackButton();
+.grey-button {
+    @include greyButton();
 }
 
-.black-button:active {
-    @include blackButtonActive();
+.grey-button:active {
+    @include greyButtonActive();
 }
 
 
