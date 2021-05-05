@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/style.css">
+  <title>New Post</title>
+</head>
+
+<body class='posting'>
+    <nav class="navbar">
+        <div class="nav-logo-container">
+            <a href="/"><img class="nav-logo" src="/img/Logo.svg" alt="Craigslist Logo"></a>
+        </div>
+        <div></div>
+        <div class="nav-user-container">
+            <% if (user) { %>
+                <a href="/user/profile" class="nav-user"><%= user %><img src="/img/user.svg" alt="" class="nav-user-icon"></a>
+            <% } else {%>
+                <form action="/login" method="GET">
+                    <input class="loginBtn" type="submit" value="Login">
+                </form>
+            <% }%>
+        </div>
+        <div class="menu-icon-container">
+            <img src="/img/menu.svg" alt="Mobile Menu" class="menu-icon">
+        </div>
+        <div class="nav-menu-container">
+            <ul class="nav-menu">
+                <li><a class="nav-menu-item" href="/">Home</a></li>
+                <li><a class="nav-menu-item" href="#">Explore</a></li>
+                <% if (user) { %>
+                    <li><a class="nav-menu-item" href="/user/profile">Profile</a></li>
+                    <li><a class="nav-menu-item" href="/logout">Logout</a></li>
+                <% } else { %>
+                    <li><a class="nav-menu-item" href="/login">Login</a></li>
+                <% } %>
+            </ul>
+        </div>
+    </nav>
+  <main class="container-center">
+    <h1>Create Your Post</h1>
+    <div class='post-form-container'>
+        <form action="/posts/post-created" method="POST" style="width: 100%">
+            <div class="post-form" id="step-1">
+                <div class="step-container">
+                    <h4 class="step-header">Step 1</h4>
+                </div>
+                <input type="text" name="title" placeholder="Title" class="new-post-input">
+                <input type="text" name="price" placeholder="Price" class="new-post-input">
+                <textarea name="description" class="new-post-textarea" cols="30" rows="10" placeholder="Description"></textarea>
+                <label for="form-photos" class="new-post-upload">Upload images</label>
+                <input type="file" multiple accept="image/*">
+                <div class="form-buttons">
+                    <button type="button" class="button-back">Back</button>
+                    <button type="button" class="button-next">Next</button>
+                </div>
+            </div>
+            <div class="post-form" id="step-2">
+                <div class="step-container">
+                    <h4 class="step-header">Step 2</h4>
+                </div>
+                <input type="text" name="make" placeholder="Make/Manufacture" class="new-post-input">
+                <input type="text" name="model" placeholder="Model Name" class="new-post-input">
+                <input type="text" name="dimensions" placeholder="Model Name" class="new-post-input">
+                <div class="form-horizontal">
+                    <label for="condition">Condition</label>
+                    <select name="condition" class="condition">
+                        <option value="" selected disabled hidden>--</option>
+                        <option value="new">new</option>
+                        <option value="like new">like new</option>
+                        <option value="good">good</option>
+                        <option value="fair">fair</option>
+                        <option value="salvage">salvage</option>
+                    </select>
+                </div>
+                <div class="form-buttons">
+                    <button type="button" class="button-back">Back</button>
+                    <button type="button" class="button-next">Next</button>
+                </div>
+            </div>
+            <div class="post-form" id="step-3">
+                <div class="step-container">
+                    <h4 class="step-header">Step 3</h4>
+                </div>
+                <input type="text" name="email" placeholder="Email" class="new-post-input">
+                <input type="text" name="phone" placeholder="Phone Number" class="new-post-input">
+                <label for="Location">Location</label>
+                <input type="text" name="city" placeholder="City" class="new-post-input">
+                <input type="text" name="postal" placeholder="Postal Code" class="new-post-input">
+                <p>Or</p>
+                <button class="geo-button" type="button">Use my current location</button>
+                <div class="form-buttons">
+                    <button type="button" class="button-back">Back</button>
+                    <button type="button" class="button-next">Next</button>
+                    <input type="submit" value="Post" class="black-button" id="new-post-submit">
+                </div>
+            </div>
+        </form>
+    </div>
+  </main>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="/js/menu.js"></script>
+  <script src="/js/cycleSteps.js"></script>
+  <script src="/js/geoLocation.js"></script>
+</body>
+</html>
