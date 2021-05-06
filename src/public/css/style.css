@@ -271,6 +271,9 @@ h4 {
   display: flex;
   margin: 10px 0; }
 
+.geo-button-container {
+  height: 44px; }
+
 .geo-button {
   background-color: #99DA67;
   border-top: none;

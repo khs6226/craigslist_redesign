@@ -349,6 +349,10 @@ h4 {
     margin: 10px 0;
 }
 
+.geo-button-container {
+    height: 44px;
+}
+
 .geo-button {
     @include greenButton();
     padding: 10px;
