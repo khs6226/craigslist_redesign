@@ -43,14 +43,14 @@
   <main class="container-center">
     <h1>Create Your Post</h1>
     <div class='post-form-container'>
-        <form action="/posts/post-preview" method="POST" style="width: 100%">
+        <form action="/posts/post-preview" method="POST" style="width: 100%" id="post-form">
             <div class="post-form" id="step-1">
                 <div class="step-container">
                     <h4 class="step-header">Step 1</h4>
                 </div>
                 <div class="form-horizontal">
                     <label for="category">Category</label> 
-                    <select name="category" class="form-category">
+                    <select name="category" class="form-category" form="post-form">
                         <option value="" selected disabled hidden>--</option>
                         <option value="Cars & Trucks">Cars & Trucks</option>
                         <option value="Computers">Computers</option>
@@ -76,7 +76,7 @@
                 <input type="text" name="dimensions" placeholder="Dimensions" class="new-post-input">
                 <div class="form-horizontal">
                     <label for="condition">Condition</label>
-                    <select name="condition" class="condition">
+                    <select name="condition" class="condition" form="post-form">
                         <option value="" selected disabled hidden>--</option>
                         <option value="new">new</option>
                         <option value="like new">like new</option>
