@@ -43,7 +43,11 @@
   <main class="container-center">
     <h1>Create Your Post</h1>
     <div class='post-form-container'>
+        <% console.log (user) %> 
         <form action="/posts/post-preview" method="POST" style="width: 100%" id="post-form">
+            <% if(user) { %>
+                <input type="hidden" name="user_id" value="<%= user.sub %>">
+            <% } %>
             <div class="post-form" id="step-1">
                 <div class="step-container">
                     <h4 class="step-header">Step 1</h4>
