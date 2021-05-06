@@ -248,14 +248,14 @@ h4 {
 }
 
 // search results 
-.posts-container {
+.posts-card-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.post-container {
+.post-card {
     display: flex;
     flex-direction: column;
     margin-top: 30px;
@@ -268,11 +268,11 @@ h4 {
     text-overflow:ellipsis;
 }
 
-.post-title {
+.post-card-title {
     margin: 10px 0 0 0;
 }
 
-.post-description {
+.post-card-description {
     text-overflow:ellipsis;
     overflow:hidden;
     display: -webkit-box;
