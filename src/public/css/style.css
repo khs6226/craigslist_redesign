@@ -180,7 +180,8 @@ h4 {
   height: 100px;
   padding: 0px 10px;
   overflow: hidden;
-  text-overflow: ellipsis; }
+  text-overflow: ellipsis;
+  cursor: pointer; }
 
 .post-card-title {
   margin: 10px 0 0 0; }

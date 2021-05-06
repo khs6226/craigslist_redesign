@@ -48,7 +48,8 @@
       <% posts.forEach(post => { %>
         <!-- converts \n to html compatible line breaks -->
         <% let description = post.description.split("\r\n").join("<br />"); %>
-        <div class="post-card">
+        <!-- data attr stores post_id -->
+        <div class="post-card" data="<%= post.post_id %>">
           <h3 class="post-card-title"><%= post.title %> <span class="post-price"> - $<%= post.price %></span></h3>
           <p class="post-card-description"><%- description %></p>
         </div>
@@ -57,6 +58,7 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="/js/menu.js"></script>
+  <script src="/js/results.js"></script>
 </body>
 
 </html>
