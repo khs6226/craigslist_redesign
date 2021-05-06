@@ -43,7 +43,6 @@
   <main class="container-center">
     <h1>Create Your Post</h1>
     <div class='post-form-container'>
-        <% console.log (user) %> 
         <form action="/posts/post-preview" method="POST" style="width: 100%" id="post-form">
             <% if(user) { %>
                 <input type="hidden" name="user_id" value="<%= user.sub %>">
@@ -65,7 +64,7 @@
                 <input type="text" name="price" placeholder="Price" class="new-post-input">
                 <textarea name="description" class="new-post-textarea" cols="30" rows="10" placeholder="Description"></textarea>
                 <label for="form-photos" class="new-post-upload">Upload images</label>
-                <input type="file" multiple accept="image/*">
+                <input type="file" name="images" multiple accept="image/*">
                 <div class="form-buttons">
                     <button type="button" class="button-back">Back</button>
                     <button type="button" class="button-next">Next</button>

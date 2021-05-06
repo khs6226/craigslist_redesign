@@ -7,8 +7,8 @@ const { auth, requiresAuth } = require('express-openid-connect');
 router.post('/results', (req, res) => {
     let authenticated = req.oidc.isAuthenticated();
     let user = req.oidc.user;
-    let query = req.body.query;
-    searchQuery(query, (err, results) => {
+    let searchParams = req.body.query;
+    searchQuery(searchParams, (err, results) => {
         if (err) {
             console.log(err);
             return err;
