@@ -46,9 +46,12 @@
     </div> -->
     <div class='posts-container'>
       <% posts.forEach(post => { %>
+        <!-- converts \n to html compatible line breaks -->
+        <% let description = post.description.split("\r\n").join("<br />"); %>
+        <% console.log(description) %>
         <div class="post-container">
           <h3 class="post-title"><%= post.title %> <span class="post-price"> - $<%= post.price %></span></h3>
-          <p class="post-description"><%= post.description %></p>
+          <p class="post-description"><%- description %></p>
         </div>
       <% }); %>
     </div>
