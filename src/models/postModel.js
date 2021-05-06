@@ -31,7 +31,21 @@ function addPost(formData, cb) {
     })
 }
 
-module.exports = { addPost }
+function getPostById(postId, cb) {
+    let sqlQuery = `SELECT * FROM post WHERE post_id = :postId`
+    let params = { postId: postId }
+
+    db.query(sqlQuery, params, (err, results) => {
+        if (err) {
+            cb(err, null);
+        } else {
+            cb(null, results)
+        }
+    })
+}
+
+
+module.exports = { addPost, getPostById }
 
 //   user_id: 'auth0|60887546e896360069a6a5b9',
 //   title: '',

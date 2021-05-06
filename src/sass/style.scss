@@ -247,7 +247,8 @@ h4 {
   font-weight: bold;
 }
 
-// search results 
+// search results
+// use these styles to display post previews 
 .posts-card-container {
     display: flex;
     flex-direction: column;
@@ -262,7 +263,7 @@ h4 {
     box-shadow:0 5px 8px 0 rgba(0,0,0,0.2),0 4px 12px 0 rgba(0,0,0,0.19);
     border-radius: 10px;
     width: 80%;
-    height: 100px;
+    height: 120px;
     padding: 0px 10px;
     overflow: hidden;
     text-overflow:ellipsis;
