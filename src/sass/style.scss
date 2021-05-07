@@ -250,6 +250,31 @@ h4 {
     @include greenButtonActive();
 }
 
+.categories-home{
+   display: flex;
+   flex-direction: column;
+   margin: 100px 15px 30px 15px; 
+   align-items: center;
+}
+
+.category-container-home {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.category-home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 15px 15px 15px;
+    border-radius: 5px;
+    border: 1px solid #303030;
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 60%;
+}
+
 // posting
 .container-post {
   display: flex;
@@ -501,7 +526,6 @@ h4 {
 }
 
 //Profile
-
 .profile-form-container {
   width: 100%;
   display: flex;

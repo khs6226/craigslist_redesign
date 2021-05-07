@@ -150,6 +150,28 @@ h4 {
   border-bottom: 1px solid #6c9b48;
   border-left: 1px solid #6c9b48; }
 
+.categories-home {
+  display: flex;
+  flex-direction: column;
+  margin: 100px 15px 30px 15px;
+  align-items: center; }
+
+.category-container-home {
+  display: grid;
+  grid-template-columns: 1fr 1fr; }
+
+.category-home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 30px 15px 15px 15px;
+  border-radius: 5px;
+  border: 1px solid #303030;
+  padding: 10px 20px;
+  cursor: pointer;
+  width: 60%; }
+
 .container-post {
   display: flex;
   flex-direction: column;
