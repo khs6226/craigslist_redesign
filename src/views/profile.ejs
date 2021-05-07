@@ -13,37 +13,98 @@
   <nav class="navbar">
     <div class="nav-logo-container">
       <a href="/"><img class="nav-logo" src="/img/Logo.svg" alt="Craigslist Logo"></a>
-   </div>
+    </div>
     <div></div>
     <div class="nav-user-container">
-        <% if (user) { %>
-            <a href="/user/profile" class="nav-user"><%= user.nickname %><img src="/img/user.svg" alt="" class="nav-user-icon"></a>
+      <% if (user) { %>
+        <a href="/user/profile" class="nav-user">
+          <%= user.nickname %><img src="/img/user.svg" alt="" class="nav-user-icon">
+        </a>
         <% } else {%>
-            <form action="/login" method="GET">
-                <input class="loginBtn" type="submit" value="Login">
-            </form>
-        <% }%>
+          <form action="/login" method="GET">
+            <input class="loginBtn" type="submit" value="Login">
+          </form>
+          <% }%>
     </div>
     <div class="menu-icon-container">
-        <img src="/img/menu.svg" alt="Mobile Menu" class="menu-icon">
+      <img src="/img/menu.svg" alt="Mobile Menu" class="menu-icon">
     </div>
     <div class="nav-menu-container">
-        <ul class="nav-menu">
-            <li><a class="nav-menu-item" href="/">Home</a></li>
-            <li><a class="nav-menu-item" href="#">Explore</a></li>
-            <% if (user) { %>
-                <li><a class="nav-menu-item" href="/user/profile">Profile</a></li>
-                <li><a class="nav-menu-item" href="/logout">Logout</a></li>
-            <% } else { %>
-                <li><a class="nav-menu-item" href="/login">Login</a></li>
+      <ul class="nav-menu">
+        <li><a class="nav-menu-item" href="/">Home</a></li>
+        <li><a class="nav-menu-item" href="#">Explore</a></li>
+        <% if (user) { %>
+          <li><a class="nav-menu-item" href="/user/profile">Profile</a></li>
+          <li><a class="nav-menu-item" href="/logout">Logout</a></li>
+          <% } else { %>
+            <li><a class="nav-menu-item" href="/login">Login</a></li>
             <% } %>
-        </ul>
+      </ul>
     </div>
   </nav>
-  <div class='container'>
-    <!-- <div class='nav-user-container'>
-      <p><a href="">Profile</a></p>
-    </div> -->
+  <main class="container-center">
+    <h1>Profile</h1>
+    <div class='profile-form-container'>
+      <div class='profile-button-container'>
+        <button type="button" class="button-profile" id='button-settings'>Settings</button>
+        <button type="button" class="button-profile" id='button-postings'>Postings</button>
+      </div>
+      <form action="/" method="POST" style="width: 100%" id="post-form">
+        <% if(user) { %>
+          <input type="hidden" name="user_id" value="<%= user.sub %>">
+          <% } %>
+            <div class="profile-form" id="profile-settings">
+              <div class="step-container">
+                <h4 class="step-header">Welcome, User!</h4>
+              </div>
+              <div class='settings-input-container'>
+                <p>Username: </p>
+                <p><%= user.nickname %></p>
+              </div>
+              <div class='settings-input-container'>
+                <p>Email: </p>
+                <p><%= user.name %></p>
+              </div>
+              <div class='settings-input-container'>
+                <p>New Password: </p>
+                <input type="text" name='newPass' class='new-password'>
+              </div>
+              <div class='settings-input-container'>
+                <p>Confirm New Password: </p>
+                <input type="text" name='confirmPass' class='new-password'>
+              </div>
+
+                <button type="button" class="button-apply">Apply Changes</button>
+
+            </div>
+            <div class="profile-form" id="profile-posting">
+              <div class="step-container">
+                <h4 class="step-header">Current Postings</h4>
+              </div>
+              <div class='posts'>
+                <div class='post'>
+                  <img class='post-img' src="/asset/red-car.jpg" alt="a red car">
+                  <div class='post-detail'>
+                    <p class='post-price'>$<%= post[0].price %></p>
+                    <p class='post-title'><%= post[0].title %></p>
+                    <p class='post-city'>Richmond</p>
+                  </div>
+                </div>
+                <div class='post'>
+                  <img class='post-img' src="/asset/audi.jpg" alt="a yellow green car">
+                  <div class='post-detail'>
+                    <p class='post-price'>$<%= post[1].price %></p>
+                    <p class='post-title'><%= post[1].title %></p>
+                    <p class='post-city'>Burnaby</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+      </form>
+    </div>
+  </main>
+
+  <!-- <div class='container'>
     <div class='container-profile'>
       <p class='profile-title'>Welcome, <%= user.nickname %>
       </p>
@@ -55,10 +116,12 @@
         <p><a href="/user/posting">My Posting</a></p>
       </div>
     </div>
-  </div>
+  </div> -->
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="/js/menu.js"></script>
+  <script src="/js/cycleSteps.js"></script>
+
 </body>
 
 </html>
