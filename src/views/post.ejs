@@ -47,7 +47,7 @@
                 <form action="/posts/<%= postData.post_id %>/edit" class="banner-button-form">
                     <input type="submit" value="Edit" class="edit-post">
                 </form>
-                <form action="/posts/<%= postData.post_id %>/delete" class=banner-button-form>
+                <form action="/posts/<%= postData.post_id %>/delete" class="banner-button-form">
                     <input type="submit" value="Delete" class="delete-post">
                 </form>
             </div>
@@ -55,7 +55,7 @@
     <% } %>
     <main class="container-center">
     <div class="post-container">
-        <a href="/category/<%= postData.category %>" class="post-category"><p><%= postData.category %></p></a>
+        <a href="/categories/<%= postData.category %>" class="post-category"><p><%= postData.category %></p></a>
         <h2 class="post-title"><%= postData.title %> - $<%= postData.price %> (<%= postData.city %>)</h2>
         <div class="post-image"></div>
         <!-- converts \n to html compatible line breaks -->
