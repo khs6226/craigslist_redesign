@@ -7,6 +7,7 @@ $paleBlue: #E8F6FD;
 $green: #99DA67;
 $dark-green: #6c9b48;
 $red: #FF5050;
+$dark-red: #a33030;
 
 $roboto: 'Roboto', sans-serif;
 $sanchez: 'Sanchez', serif;
@@ -14,8 +15,8 @@ $sanchez: 'Sanchez', serif;
 // mixins
 @mixin greenButton {
     background-color: $green;
-    border-top: none;
-    border-right: none;
+    border-right: 1px $dark-green solid;
+    border-top: 1px $dark-green solid;
     border-bottom: 3px solid $dark-green;
     border-left: 3px solid $dark-green;
     font-size: 1.1rem;
@@ -31,10 +32,29 @@ $sanchez: 'Sanchez', serif;
     border-left: 0px solid $dark-green;
 }
 
-@mixin whiteButton {
-    background-color: white;
+@mixin redButton {
+    background-color: $red;
+    border-right: 1px $dark-red solid;
+    border-top: 1px $dark-red solid;
+    border-bottom: 3px solid $dark-red;
+    border-left: 3px solid $dark-red;
+    font-size: 1.1rem;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+@mixin redButtonActive {
     border-top: none;
     border-right: none;
+    border-bottom: 0px solid;
+    border-left: 0px solid;
+}
+
+@mixin whiteButton {
+    background-color: white;
+    border-right: 1px #cfcfcf solid;
+    border-top: 1px #cfcfcf solid;
     border-bottom: 3px solid #cfcfcf;
     border-left: 3px solid #cfcfcf;
     font-size: 1.1rem;
@@ -52,8 +72,8 @@ $sanchez: 'Sanchez', serif;
 
 @mixin greyButton {
     background-color: #303030;
-    border-top: none;
-    border-right: none;
+    border-top: 1px solid #666666;;
+    border-right: 1px solid #666666;
     border-bottom: 3px solid #666666;
     border-left: 3px solid #666666;
     font-size: 1.1rem;
@@ -80,6 +100,10 @@ $sanchez: 'Sanchez', serif;
 h1 {
     font-size: 1.8rem;
     margin: 0 0 15px 0;
+}
+
+h2 {
+    font-size: 1.4rem;
 }
 
 h4 {
@@ -393,5 +417,80 @@ h4 {
 
 
 #new-post-submit {
+    display: none;
+}
+
+// post styling
+.user-banner { // conditional class only if user owns post
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 100%;
+    background-color: $paleBlue;
+}
+
+.banner-buttons {
+    display: flex;
+    margin-left: 10%;
+}
+
+.banner-button-form {
+    height: 34px;
+    width: 55px;
+}
+
+.edit-post {
+    @include greyButton();
+    font-size: .9rem;
+}
+
+.edit-post:active {
+    @include greyButtonActive();
+    font-size: .9rem;
+}
+
+.delete-post {
+    @include redButton();
+    font-size: .9rem;
+}
+
+.delete-post:active {
+    @include redButtonActive();
+    font-size: .9rem;
+}
+
+
+.post-category {
+    text-align: left;
+    width: 100%;
+    margin: 10px 0;
+}
+
+.post-image {
+    height:300px;
+    width: 100%;
+    border: 1px black solid;
+    margin: 15px 0;
+}
+
+.post-description {
+    margin: 0 0 30px 0;
+}
+
+.post-contact-container {
+    height: 35px;
+    width: 100%;
+}
+
+.contact-seller-btn {
+    @include whiteButton();
+}
+
+.contact-seller-btn:active {
+    @include whiteButtonActive();
+}
+
+.post-contact {
     display: none;
 }

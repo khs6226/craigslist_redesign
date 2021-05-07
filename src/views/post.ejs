@@ -40,12 +40,41 @@
             </ul>
         </div>
     </nav>
-  <main class="container-center">
-    <%= postData.title %> 
-  </main>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="/js/menu.js"></script>
-  <script src="/js/cycleSteps.js"></script>
-  <script src="/js/geoLocation.js"></script>
+    <% if (user.sub == postData.user_id) {%>
+        <div class="user-banner">
+            <p>Post admin controls</p>
+            <div class="banner-buttons">
+                <form action="/posts/<%= postData.post_id %>/edit" class="banner-button-form">
+                    <input type="submit" value="Edit" class="edit-post">
+                </form>
+                <form action="/posts/<%= postData.post_id %>/delete" class=banner-button-form>
+                    <input type="submit" value="Delete" class="delete-post">
+                </form>
+            </div>
+        </div>
+    <% } %>
+    <main class="container-center">
+    <div class="post-container">
+        <a href="/category/<%= postData.category %>" class="post-category"><p><%= postData.category %></p></a>
+        <h2 class="post-title"><%= postData.title %> - $<%= postData.price %> (<%= postData.city %>)</h2>
+        <div class="post-image"></div>
+        <!-- converts \n to html compatible line breaks -->
+        <% let description = postData.description.split("\r\n").join("<br />"); %>
+        <p class="post-description"><%- description %></p>
+        <div class="post-contact-container">
+            <button type="button" class="contact-seller-btn">Contact Seller</button>
+            <div class="post-contact">
+                <a class="post-email" href="mailto:<%= postData.email %>"><%= postData.email %></a>
+                <% if (postData.phone) { %>
+                    <p class="post-phone"><%= postData.phone %></p>
+                <% } %> 
+            </div>
+        </div>
+    </div>
+    </main>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/js/menu.js"></script>
+    <script src="/js/contactBtn.js"></script>
+    <script src="/js/geoLocation.js"></script>
 </body>
 </html>

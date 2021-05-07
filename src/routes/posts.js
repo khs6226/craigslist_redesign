@@ -32,6 +32,14 @@ router.get('/:id', (req, res) => {
     });
 })
 
+router.get('/:id/edit', (req, res) => {
+    // edit post info
+})
+
+router.get('/:id/delete', (req, res) => {
+    // delete post
+})
+
 router.post('/post-preview', (req, res) => {
     let authenticated = req.oidc.isAuthenticated();
     let user = req.oidc.user;
