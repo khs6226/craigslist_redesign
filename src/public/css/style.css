@@ -492,6 +492,12 @@ h4 {
   width: 85%;
   margin: auto; }
 
+.categories {
+  display: flex;
+  flex-direction: column;
+  margin: 0 15px;
+  align-items: center; }
+
 .category-search-container {
   display: flex;
   justify-content: center;
