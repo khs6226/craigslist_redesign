@@ -63,10 +63,10 @@ h4 {
   cursor: pointer; }
 
 .loginBtn:active {
-  border-top: none;
-  border-right: none;
-  border-bottom: 0px solid #6c9b48;
-  border-left: 0px solid #6c9b48; }
+  border-top: 1px solid #6c9b48;
+  border-right: 1px solid #6c9b48;
+  border-bottom: 1px solid #6c9b48;
+  border-left: 1px solid #6c9b48; }
 
 .menu-icon-container {
   display: flex;
@@ -128,7 +128,8 @@ h4 {
   margin: 0 0 35px 0; }
 
 .home-search-form {
-  display: flex; }
+  display: flex;
+  height: 35px; }
 
 .home-search-submit {
   background-color: #99DA67;
@@ -140,13 +141,14 @@ h4 {
   padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
-  margin: 0 0 0 2px; }
+  margin: 0 0 0 2px;
+  width: 38px; }
 
 .home-search-submit:active {
-  border-top: none;
-  border-right: none;
-  border-bottom: 0px solid #6c9b48;
-  border-left: 0px solid #6c9b48; }
+  border-top: 1px solid #6c9b48;
+  border-right: 1px solid #6c9b48;
+  border-bottom: 1px solid #6c9b48;
+  border-left: 1px solid #6c9b48; }
 
 .container-post {
   display: flex;
@@ -263,10 +265,10 @@ h4 {
   cursor: pointer; }
 
 .button-back:active {
-  border-top: none;
-  border-right: none;
-  border-bottom: 0px solid;
-  border-left: 0px solid; }
+  border-top: 1px solid #cfcfcf;
+  border-right: 1px solid #cfcfcf;
+  border-bottom: 1px solid #cfcfcf;
+  border-left: 1px solid #cfcfcf; }
 
 .button-next {
   background-color: #99DA67;
@@ -280,10 +282,10 @@ h4 {
   cursor: pointer; }
 
 .button-next:active {
-  border-top: none;
-  border-right: none;
-  border-bottom: 0px solid #6c9b48;
-  border-left: 0px solid #6c9b48; }
+  border-top: 1px solid #6c9b48;
+  border-right: 1px solid #6c9b48;
+  border-bottom: 1px solid #6c9b48;
+  border-left: 1px solid #6c9b48; }
 
 .form-horitontal {
   display: flex;
@@ -307,10 +309,10 @@ h4 {
   width: 100%; }
 
 .geo-button:active {
-  border-top: none;
-  border-right: none;
-  border-bottom: 0px solid #6c9b48;
-  border-left: 0px solid #6c9b48; }
+  border-top: 1px solid #6c9b48;
+  border-right: 1px solid #6c9b48;
+  border-bottom: 1px solid #6c9b48;
+  border-left: 1px solid #6c9b48; }
 
 .grey-button {
   background-color: #303030;
@@ -325,10 +327,10 @@ h4 {
   color: white; }
 
 .grey-button:active {
-  border-top: none;
-  border-right: none;
-  border-bottom: 0px solid;
-  border-left: 0px solid; }
+  border-top: 1px solid #666666;
+  border-right: 1px solid #666666;
+  border-bottom: 1px solid #666666;
+  border-left: 1px solid #666666; }
 
 #new-post-submit {
   display: none; }
@@ -363,10 +365,10 @@ h4 {
   font-size: .9rem; }
 
 .edit-post:active {
-  border-top: none;
-  border-right: none;
-  border-bottom: 0px solid;
-  border-left: 0px solid;
+  border-top: 1px solid #666666;
+  border-right: 1px solid #666666;
+  border-bottom: 1px solid #666666;
+  border-left: 1px solid #666666;
   font-size: .9rem; }
 
 .delete-post {
@@ -382,11 +384,14 @@ h4 {
   font-size: .9rem; }
 
 .delete-post:active {
-  border-top: none;
-  border-right: none;
-  border-bottom: 0px solid;
-  border-left: 0px solid;
+  border-top: 1px solid #a33030;
+  border-right: 1px solid #a33030;
+  border-bottom: 1px solid #a33030;
+  border-left: 1px solid #a33030;
   font-size: .9rem; }
+
+.post-container {
+  width: 100%; }
 
 .post-category {
   text-align: left;
@@ -418,10 +423,10 @@ h4 {
   cursor: pointer; }
 
 .contact-seller-btn:active {
-  border-top: none;
-  border-right: none;
-  border-bottom: 0px solid;
-  border-left: 0px solid; }
+  border-top: 1px solid #cfcfcf;
+  border-right: 1px solid #cfcfcf;
+  border-bottom: 1px solid #cfcfcf;
+  border-left: 1px solid #cfcfcf; }
 
 .post-contact {
   display: none; }

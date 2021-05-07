@@ -37,7 +37,20 @@ router.get('/:id/edit', (req, res) => {
 })
 
 router.get('/:id/delete', (req, res) => {
-    // delete post
+    let authenticated = req.oidc.isAuthenticated();
+    let user = req.oidc.user;
+
+    let postId = req.params.id;
+
+    postModel.deletePost(postId, (err) => {
+        if (err) {
+            console.log(err);
+            return;
+        }
+    })
+    let message = `Post ${postId} successfully deleted...`
+    console.log(message);
+    res.render('message', { user: user, message: message });
 })
 
 router.post('/post-preview', (req, res) => {
@@ -49,12 +62,13 @@ router.post('/post-preview', (req, res) => {
     postModel.addPost(postData, (err) => {
         if (err) {
             console.log(err);
+            return;
         }
         console.log('New post added to db ' + postData);
     });
     console.log(postData);
-
     res.render('post-preview', { user: user })
+    
 });
 
 module.exports = router;
