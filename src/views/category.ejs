@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/style.css">
+  <title><%= category %></title>
+</head>
+
+<body class='posting'>
+    <nav class="navbar">
+        <div class="nav-logo-container">
+            <a href="/"><img class="nav-logo" src="/img/Logo.svg" alt="Craigslist Logo"></a>
+        </div>
+        <div></div>
+        <div class="nav-user-container">
+            <% if (user) { %>
+                <a href="/user/profile" class="nav-user"><%= user.nickname %><img src="/img/user.svg" alt="" class="nav-user-icon"></a>
+            <% } else {%>
+                <form action="/login" method="GET">
+                    <input class="loginBtn" type="submit" value="Login">
+                </form>
+            <% }%>
+        </div>
+        <div class="menu-icon-container">
+            <img src="/img/menu.svg" alt="Mobile Menu" class="menu-icon">
+        </div>
+        <div class="nav-menu-container">
+            <ul class="nav-menu">
+                <li><a class="nav-menu-item" href="/">Home</a></li>
+                <li><a class="nav-menu-item" href="#">Explore</a></li>
+                <% if (user) { %>
+                    <li><a class="nav-menu-item" href="/user/profile">Profile</a></li>
+                    <li><a class="nav-menu-item" href="/logout">Logout</a></li>
+                <% } else { %>
+                    <li><a class="nav-menu-item" href="/login">Login</a></li>
+                <% } %>
+            </ul>
+        </div>
+    </nav>
+  <main class="container">
+    <div class="category-search-container">
+        <form action="/categories/<%= category %>/results" method="GET" class="home-search-form">
+            <input type="text" name="query" class="home-search-input" placeholder="Search <%= category %>">
+            <input type="submit" value="➜" class="home-search-submit">
+        </form>
+    </div>
+    <div class='posts-card-container'>
+        <% posts.forEach(post => { %>
+            <!-- converts \n to html compatible line breaks -->
+            <% let description = post.description.split("\r\n").join("<br />"); %>
+            <!-- data attr stores post_id -->
+            <div class="post-card" onclick="location.href='/posts/<%= post.post_id %>';">
+            <h3 class="post-card-title"><%= post.title %> <span class="post-price"> - $<%= post.price %></span></h3>
+            <p class="post-card-description"><%- description %></p>
+            </div>
+        <% }); %>
+    </div>
+  </main>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="/js/menu.js"></script>
+</body>
+</html>

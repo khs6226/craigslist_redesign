@@ -232,7 +232,7 @@ h4 {
 }
 
 .search-container {
-    margin: 0 0 35px 0;
+    margin: 0 0 30px 0;
 }
 
 .home-search-form {
@@ -498,4 +498,12 @@ h4 {
 
 .post-contact {
     display: none;
+}
+
+// categories
+.category-search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 35px 0 0 0;
 }

@@ -125,7 +125,7 @@ h4 {
   text-align: center; }
 
 .search-container {
-  margin: 0 0 35px 0; }
+  margin: 0 0 30px 0; }
 
 .home-search-form {
   display: flex;
@@ -430,3 +430,9 @@ h4 {
 
 .post-contact {
   display: none; }
+
+.category-search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 35px 0 0 0; }

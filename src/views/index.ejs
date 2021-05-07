@@ -28,7 +28,7 @@
         <div class="nav-menu-container">
             <ul class="nav-menu">
                 <li><a class="nav-menu-item" href="/">Home</a></li>
-                <li><a class="nav-menu-item" href="#">Explore</a></li>
+                <li><a class="nav-menu-item" href="/categories">Explore</a></li>
                 <% if (user) { %>
                     <li><a class="nav-menu-item" href="/user/profile">Profile</a></li>
                     <li><a class="nav-menu-item" href="/logout">Logout</a></li>
@@ -45,7 +45,7 @@
             <h1 class="header-home">What are you looking for?</h1>
             <div class="search-container">
                 <form action="/search/results" method="POST" class="home-search-form">
-                    <input type="text" name="query" class="home-search-input">
+                    <input type="text" name="query" class="home-search-input" placeholder="Search Craigslsit">
                     <input type="submit" value="➜" class="home-search-submit">
                 </form>
             </div>

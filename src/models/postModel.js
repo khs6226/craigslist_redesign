@@ -32,7 +32,7 @@ function addPost(formData, cb) {
     })
 }
 
-function getPostById (postId, cb) {
+function getPostById(postId, cb) {
     let sqlQuery = `SELECT * FROM post WHERE post_id = :postId`
     let params = { postId: postId }
 
@@ -44,6 +44,20 @@ function getPostById (postId, cb) {
         }
     })
 }
+
+function getPostByCategory(category, cb) {
+    let sqlQuery = `SELECT * FROM post WHERE category = :category`
+    let params = { category: category }
+
+    db.query(sqlQuery, params, (err, results) => {
+        if (err) {
+            cb(err, null);
+        } else {
+            cb(null, results)
+        }
+    })
+}
+
 
 function deletePost(postId, cb) {
     let sqlQuery = `DELETE FROM post WHERE post_id = :postId`
@@ -57,7 +71,7 @@ function deletePost(postId, cb) {
 }
 
 
-module.exports = { addPost, getPostById, deletePost }
+module.exports = { addPost, getPostById, deletePost, getPostByCategory }
 
 //   user_id: 'auth0|60887546e896360069a6a5b9',
 //   title: '',
