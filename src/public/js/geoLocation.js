@@ -3,14 +3,21 @@ let statusMsg;
 
 
 geoBtn.on('click', () => {
-    let geoLocation = getGeo();
+    getGeo((err, results) => {
+        console.log(results);
+    });
 })
 
-function getGeo() {
-    navigator.geolocation.getCurrentPosition(() => {
-        
+function getGeo(cb) {
+    navigator.geolocation.getCurrentPosition((position) => {
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+
+        const coords = { latitude: lat, longitude: lon }
+        cb(null, coords);
+
     }, () => {
-        console.log('err');
-        statusMsg = 'Could not access your location...';
+        cb('Could not access your location...', null);
     })
 }
+
