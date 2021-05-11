@@ -1,6 +1,6 @@
 const db = require('../dbConnection');
 
-function addPost(formData, cb) {
+function addPost(formData, locationData, cb) {
     let sqlQuery;
     // pass in data from a controller that can call postal api and use 
     // if user is logged in 

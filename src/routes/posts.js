@@ -60,7 +60,7 @@ router.post('/post-preview', (req, res) => {
     let locationData = { lat: req.query.lat, lon: req.query.lon };
     let postData = req.body;
     // have controller layer in between to return new object with proper location data
-    postModel.addPost(postData, (err) => {
+    postModel.addPost(postData, locationData, (err) => {
         if (err) {
             console.log(err);
             return;
