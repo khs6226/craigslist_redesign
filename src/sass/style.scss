@@ -26,10 +26,10 @@ $sanchez: 'Sanchez', serif;
 }
 
 @mixin greenButtonActive {
-    border-top: none;
-    border-right: none;
-    border-bottom: 0px solid $dark-green;
-    border-left: 0px solid $dark-green;
+    border-top: 1px solid $dark-green;
+    border-right: 1px solid $dark-green;
+    border-bottom: 1px solid $dark-green;
+    border-left: 1px solid $dark-green;
 }
 
 @mixin redButton {
@@ -45,10 +45,10 @@ $sanchez: 'Sanchez', serif;
 }
 
 @mixin redButtonActive {
-    border-top: none;
-    border-right: none;
-    border-bottom: 0px solid;
-    border-left: 0px solid;
+    border-top: 1px solid $dark-red;
+    border-right: 1px solid $dark-red;
+    border-bottom: 1px solid $dark-red;
+    border-left: 1px solid $dark-red;
 }
 
 @mixin whiteButton {
@@ -64,10 +64,10 @@ $sanchez: 'Sanchez', serif;
 }
 
 @mixin whiteButtonActive {
-    border-top: none;
-    border-right: none;
-    border-bottom: 0px solid;
-    border-left: 0px solid;
+    border-top: 1px solid #cfcfcf;
+    border-right: 1px solid #cfcfcf;
+    border-bottom: 1px solid #cfcfcf;
+    border-left: 1px solid #cfcfcf;
 }
 
 @mixin greyButton {
@@ -84,10 +84,10 @@ $sanchez: 'Sanchez', serif;
 }
 
 @mixin greyButtonActive {
-    border-top: none;
-    border-right: none;
-    border-bottom: 0px solid;
-    border-left: 0px solid;
+    border-top: 1px solid #666666;
+    border-right: 1px solid #666666;
+    border-bottom: 1px solid #666666;
+    border-left: 1px solid #666666;
 }
 
 // styles
@@ -232,20 +232,47 @@ h4 {
 }
 
 .search-container {
-    margin: 0 0 35px 0;
+    margin: 0 0 30px 0;
 }
 
 .home-search-form {
    display: flex; 
+   height: 35px;
 }
 
 .home-search-submit {
     @include greenButton();
     margin: 0 0 0 2px;
+    width: 38px; 
 }
 
 .home-search-submit:active {
     @include greenButtonActive();
+}
+
+.categories-home{
+   display: flex;
+   flex-direction: column;
+   margin: 100px 15px 30px 15px; 
+   align-items: center;
+}
+
+.category-container-home {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.category-home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 15px 15px 15px;
+    border-radius: 5px;
+    border: 1px solid #303030;
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 60%;
 }
 
 // posting
@@ -460,6 +487,9 @@ h4 {
     font-size: .9rem;
 }
 
+.post-container {
+    width: 100%;
+}
 
 .post-category {
     text-align: left;
@@ -496,7 +526,6 @@ h4 {
 }
 
 //Profile
-
 .profile-form-container {
   width: 100%;
   display: flex;
@@ -532,3 +561,20 @@ h4 {
   width: 85%;
   margin: auto;
 }
+
+// explore
+.categories {
+    display: flex;
+    flex-direction: column;
+    margin: 0 15px; 
+    align-items: center;
+}
+
+// categories
+.category-search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 35px 0 0 0;
+}
+
