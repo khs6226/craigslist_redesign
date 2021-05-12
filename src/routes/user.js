@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const dbConnection = require('../dbConnection');
 const dbQuery = require('../dbQuery');
+const postModel = require('../models/postModel');
 const { auth, requiresAuth } = require('express-openid-connect');
 
 router.get('/profile', requiresAuth(), function (req, res) {
@@ -14,12 +15,13 @@ router.get('/profile', requiresAuth(), function (req, res) {
           console.log('error connecting to MySQL');
           console.log(err);
         } else {
-          dbQuery.getPost((err, result) => {
+          postModel.getPostByUserId(user.sub, (err, result) => {
+            console.log('result', result);
             if(err) {
               console.log('error reading from mysql');
               console.log(err);
             } else {
-              res.render('profile', { user: user, post: result });
+              res.render('profile', { user: user, posts: result });
             }
           });
           dbConnection.release();
