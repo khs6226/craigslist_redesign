@@ -44,7 +44,12 @@ function addPost(formData, locationData, cb) {
 }
 
 function getPostById(postId, cb) {
-    let sqlQuery = `SELECT * FROM post WHERE post_id = :postId`
+    let sqlQuery = `SELECT post_id, category, title, description, user_id, price, email, phone, make, model, dimensions, prod_condition, city, latitude, longitude
+	                    FROM post
+                    LEFT JOIN contact ON post.contact_id = contact.contact_id
+                    LEFT JOIN details ON post.details_id = details.details_id
+                    LEFT JOIN location ON post.location_id = location.location_id
+                    WHERE post_id = :postId;`
     let params = { postId: postId }
 
     db.query(sqlQuery, params, (err, results) => {
