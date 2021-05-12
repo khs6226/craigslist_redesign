@@ -10,8 +10,8 @@ geoBtn.on('click', () => {
 
 function getGeo(cb) {
     navigator.geolocation.getCurrentPosition((position) => {
-        const lat = position.coords.latitude;
-        const lon = position.coords.longitude;
+        const lat = position.coords.latitude.toFixed(7);
+        const lon = position.coords.longitude.toFixed(7);
 
         const coords = { latitude: lat, longitude: lon }
         cb(null, coords);

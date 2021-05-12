@@ -5,8 +5,19 @@ function addPost(formData, cb) {
     // pass in data from a controller that can call postal api and use 
     // if user is logged in 
     if (formData.user_id) {
-        sqlQuery = `INSERT INTO post (user_id, category, title, price, description, make, model, dimensions, email, phone, city)
-                    VALUES (:user_id, :category, :title, :price, :description, :make, :model, :dimensions, :email, :phone, :city);`;
+        sqlQuery = `BEGIN;
+                    INSERT INTO contact (email, phone) 
+                        VALUES ('omatteomiceli@gmail.com', '6048424310');
+                        SET @contact_id = LAST_INSERT_ID();
+                    INSERT INTO location (city, latitude, longitude) 
+                        VALUES ('Vancouver', 40.4345632, 123.2345234);
+                        SET @location_id = LAST_INSERT_ID();
+                    INSERT INTO details (make, model, dimensions, prod_condition) 
+                        VALUES ('apple', 'macbook', '25x25', 'good');
+                        SET @details_id = LAST_INSERT_ID();
+                    INSERT INTO post (user_id, category, title, description, price, contact_id, details_id, location_id)
+                        VALUES (:user_id, 'Computers', 'test insert', 'testsetsetset', '40', @contact_id, @details_id, @location_id);
+                    COMMIT;`;
     }
     // include query for users not logged in? 
 
@@ -85,3 +96,7 @@ module.exports = { addPost, getPostById, deletePost, getPostByCategory }
 //   phone: '',
 //   city: '',
 //   postal: ''
+
+
+// `INSERT INTO post (user_id, category, title, price, description, make, model, dimensions, email, phone, city)
+//             VALUES (:user_id, :category, :title, :price, :description, :make, :model, :dimensions, :email, :phone, :city);`
