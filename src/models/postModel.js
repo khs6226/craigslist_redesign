@@ -3,7 +3,7 @@ const db = require('../dbConnection');
 function addPost(formData, locationData, cb) {
     let sqlQuery;
     // pass in data from a controller that can call postal api and use 
-    // if user is logged in 
+    // if user is logged in
     if (formData.user_id) {
         sqlQuery = `BEGIN;
                     INSERT INTO contact (email, phone) 
@@ -21,7 +21,7 @@ function addPost(formData, locationData, cb) {
     }
     // include query for users not logged in? 
 
-    let params = {
+    let params = { 
         user_id: formData.user_id,
         category: formData.category,
         title: formData.title,
