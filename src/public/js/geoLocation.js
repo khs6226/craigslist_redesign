@@ -1,9 +1,9 @@
 const geoBtn = $('.geo-button');
-let statusMsg;
 
 
 geoBtn.on('click', () => {
     getGeo((err, results) => {
+        $('form').attr('action', `/posts/post-preview/?lat=${results.latitude}&lon=${results.longitude}`);
         console.log(results);
     });
 })

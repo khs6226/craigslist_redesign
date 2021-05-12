@@ -368,10 +368,24 @@ h4 {
 
 .new-post-input {
     width: 95%;
-    border: none;
     padding: 7px;
     border-radius: 5px;
     margin: 10px 0;
+    border: 1px solid $blue;
+}
+
+.new-post-price {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    width: 95%;
+}
+
+.new-post-input-price {
+    width: 25%;
+    padding: 7px;
+    border-radius: 5px;
+    margin: 10px 0 10px 5px;
     border: 1px solid $blue;
 }
 
