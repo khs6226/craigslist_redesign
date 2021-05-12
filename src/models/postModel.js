@@ -45,6 +45,19 @@ function getPostById(postId, cb) {
     })
 }
 
+function getPostByUserId(userId, cb) {
+  let sqlQuery = `SELECT * FROM post WHERE user_id = :userId`
+    let params = { userId: userId }
+
+    db.query(sqlQuery, params, (err, results) => {
+        if (err) {
+            cb(err, null);
+        } else {
+            cb(null, results)
+        }
+    })
+}
+
 function getPostByCategory(category, cb) {
     let sqlQuery = `SELECT * FROM post WHERE category = :category`
     let params = { category: category }
@@ -70,8 +83,8 @@ function deletePost(postId, cb) {
     })
 }
 
+module.exports = { addPost, getPostById, deletePost, getPostByCategory, getPostByUserId }
 
-module.exports = { addPost, getPostById, deletePost, getPostByCategory }
 
 //   user_id: 'auth0|60887546e896360069a6a5b9',
 //   title: '',
