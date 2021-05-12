@@ -7,16 +7,16 @@ function addPost(formData, locationData, cb) {
     if (formData.user_id) {
         sqlQuery = `BEGIN;
                     INSERT INTO contact (email, phone) 
-                        VALUES ('omatteomiceli@gmail.com', '6048424310');
+                        VALUES (:email, :phone);
                         SET @contact_id = LAST_INSERT_ID();
                     INSERT INTO location (city, latitude, longitude) 
-                        VALUES ('Vancouver', 40.4345632, 123.2345234);
+                        VALUES (:city, :latitude, :longitude);
                         SET @location_id = LAST_INSERT_ID();
                     INSERT INTO details (make, model, dimensions, prod_condition) 
-                        VALUES ('apple', 'macbook', '25x25', 'good');
+                        VALUES (:make, :model, :dimensions, :condition);
                         SET @details_id = LAST_INSERT_ID();
                     INSERT INTO post (user_id, category, title, description, price, contact_id, details_id, location_id)
-                        VALUES (:user_id, 'Computers', 'test insert', 'testsetsetset', '40', @contact_id, @details_id, @location_id);
+                        VALUES (:user_id, :category, :title, :description, :price, @contact_id, @details_id, @location_id);
                     COMMIT;`;
     }
     // include query for users not logged in? 
@@ -33,7 +33,9 @@ function addPost(formData, locationData, cb) {
         condition: formData.condition,
         email: formData.email,
         phone: formData.phone,
-        city: formData.city
+        city: formData.city,
+        latitude: locationData.lat,
+        longitude: locationData.lon
     }
 
     db.query(sqlQuery, params, (err) => {
