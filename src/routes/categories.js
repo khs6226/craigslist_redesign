@@ -3,6 +3,7 @@ const router = express.Router();
 const dbConnection = require('../dbConnection');
 const postModel = require('../models/postModel');
 const { auth, requiresAuth } = require('express-openid-connect');
+const { categorySearch } = require('../models/searchModel');
 
 router.get('/', (req, res) => {
     let user = req.oidc.user;
@@ -23,5 +24,6 @@ router.get('/:category', (req, res) => {
     });
 })
 
+router.get('/:category/')
 
 module.exports = router;

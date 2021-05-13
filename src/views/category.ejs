@@ -17,7 +17,7 @@
         <div></div>
         <div class="nav-user-container">
             <% if (user) { %>
-                <a href="/user/profile" class="nav-user"><%= user.nickname %><img src="/img/user.svg" alt="" class="nav-user-icon"></a>
+                <a href="/user/profile" class="nav-user"><%= user.nickname %><img src="/img/user.svg" alt="user image" class="nav-user-icon"></a>
             <% } else {%>
                 <form action="/login" method="GET">
                     <input class="loginBtn" type="submit" value="Login">

@@ -1,14 +1,15 @@
 const express = require('express');
 const router = express.Router();
 const dbConnection = require('../dbConnection');
-const searchQuery = require('../models/searchQuery');
+const { searchModel } = require('../models/searchModel');
 const { auth, requiresAuth } = require('express-openid-connect');
 
-router.post('/results', (req, res) => {
+router.get('/results', (req, res) => {
     let authenticated = req.oidc.isAuthenticated();
     let user = req.oidc.user;
-    let searchParams = req.body.query;
-    searchQuery(searchParams, (err, results) => {
+
+    let searchParams = req.query.query;
+    searchModel(searchParams, (err, results) => {
         if (err) {
             console.log(err);
             return err;

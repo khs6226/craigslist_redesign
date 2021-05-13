@@ -1,6 +1,6 @@
 const db = require('../dbConnection');
 
-function searchQuery(queryString, cb) {
+function searchModel(queryString, cb) {
     let searchParam = `%${queryString}%`
 
     // returns post review data 
@@ -20,4 +20,8 @@ function searchQuery(queryString, cb) {
     })
 }
 
-module.exports = searchQuery;
+function categorySearch () {
+
+}
+
+module.exports = { searchModel, categorySearch };
