@@ -326,7 +326,9 @@ h4 {
   margin: 10px 0; }
 
 .geo-button-container {
-  height: 44px; }
+  height: 44px;
+  display: flex;
+  align-items: center; }
 
 .geo-button {
   background-color: #99DA67;
