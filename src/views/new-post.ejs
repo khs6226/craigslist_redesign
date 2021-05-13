@@ -102,7 +102,18 @@
                 </div>
                 <input type="text" name="email" placeholder="Email" class="new-post-input">
                 <input type="text" name="phone" placeholder="Phone Number" class="new-post-input">
-                <input type="text" name="city" placeholder="City" class="new-post-input">
+                <div class="form-vertical">
+                    <label for="condition">Choose the location that best fits:</label>
+                    <select name="city" class="region" form="post-form">
+                        <option value="" selected disabled hidden>--</option>
+                        <option value="new">Vancouver</option>
+                        <option value="like new">North Shore</option>
+                        <option value="good">Burnaby/Newwest</option>
+                        <option value="fair">Delta/Surrey/Langley</option>
+                        <option value="salvage">Tricities/Pitt/Maple</option>
+                        <option value="salvage">Richmond</option>
+                    </select>
+                </div>
                 <!-- <label for="Location">Location</label>
                 <input type="text" name="postal" placeholder="Postal Code" class="new-post-input"> -->
                 <!-- <p>Or</p> -->

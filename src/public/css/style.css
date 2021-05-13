@@ -17,6 +17,9 @@ h4 {
 .nav-logo-container a {
   height: 45px; }
 
+label {
+  margin: 5px 0; }
+
 .navbar {
   display: grid;
   grid-template-columns: 20% 25% 40% 15%;
@@ -258,13 +261,13 @@ h4 {
   display: flex;
   align-items: center;
   text-align: left;
-  width: 95%; }
+  width: 100%; }
 
 .new-post-input-price {
   width: 25%;
   padding: 7px;
   border-radius: 5px;
-  margin: 10px 0 10px 5px;
+  margin: 10px 0 10px 2px;
   border: 1px solid #14bcff; }
 
 .new-post-textarea {
@@ -321,9 +324,18 @@ h4 {
   border-bottom: 1px solid #6c9b48;
   border-left: 1px solid #6c9b48; }
 
-.form-horitontal {
+.form-horizontal {
   display: flex;
-  margin: 10px 0; }
+  margin: 10px 0;
+  align-items: center;
+  justify-content: space-around;
+  width: 65%; }
+
+.form-vertical {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0 25px 0;
+  align-items: center; }
 
 .geo-button-container {
   height: 44px;

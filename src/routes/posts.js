@@ -66,9 +66,8 @@ router.post('/post-preview', (req, res) => {
             return;
         }
         console.log('New post added to db ' + postData);
+        res.render('post-preview', { user: user })
     });
-    console.log(postData);
-    res.render('post-preview', { user: user })
     
 });
 
