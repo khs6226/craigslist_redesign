@@ -24,6 +24,20 @@ router.get('/:category', (req, res) => {
     });
 })
 
-router.get('/:category/')
+router.get('/:category/results', (req, res) => {
+    let user = req.oidc.user;
+
+    let searchParams = req.query.query;
+    let category = req.params.category;
+    categorySearch(searchParams, category, (err, results) => {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        console.log(results);
+        res.render('category', { user: user, category: category, posts: results });
+    });
+
+});
 
 module.exports = router;
