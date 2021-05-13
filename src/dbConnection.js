@@ -5,8 +5,8 @@ const dbConfig = {
 	user: process.env.DB_USER,
 	password: process.env.DB_PASSWORD,
 	database: process.env.DB_SCHEMA,
-	multipleStatements: false,
-  namedPlaceholders: true
+	multipleStatements: true,
+ 	namedPlaceholders: true
 };
 
 let database = mysql.createPool(dbConfig);
