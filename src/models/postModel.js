@@ -92,7 +92,6 @@ function getPostByCategory(category, cb) {
     })
 }
 
-
 function deletePost(postId, cb) {
     let sqlQuery = `DELETE FROM post WHERE post_id = :postId`
     let params = { postId: postId }
@@ -122,4 +121,4 @@ module.exports = { addPost, getPostById, deletePost, getPostByCategory, getPostB
 
 
 // `INSERT INTO post (user_id, category, title, price, description, make, model, dimensions, email, phone, city)
-//             VALUES (:user_id, :category, :title, :price, :description, :make, :model, :dimensions, :email, :phone, :city);`
+// VALUES (:user_id, :category, :title, :price, :description, :make, :model, :dimensions, :email, :phone, :city);`  
