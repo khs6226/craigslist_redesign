@@ -5,6 +5,9 @@ geoBtn.on('click', () => {
     getGeo((err, results) => {
         $('form').attr('action', `/posts/post-preview/?lat=${results.latitude}&lon=${results.longitude}`);
         console.log(results);
+        geoBtn.css('display', 'none ');
+        $('.geo-button-container').append('Access successful');
+        // perhaps show map here
     });
 })
 
