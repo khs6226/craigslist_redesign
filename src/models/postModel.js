@@ -6,17 +6,15 @@ function addPost(formData, locationData, cb) {
     // if user is logged in
     if (formData.user_id) {
         sqlQuery = `BEGIN;
-                    INSERT INTO contact (email, phone) 
-                        VALUES (:email, :phone);
-                        SET @contact_id = LAST_INSERT_ID();
-                    INSERT INTO location (city, latitude, longitude) 
-                        VALUES (:city, :latitude, :longitude);
-                        SET @location_id = LAST_INSERT_ID();
-                    INSERT INTO details (make, model, dimensions, prod_condition) 
-                        VALUES (:make, :model, :dimensions, :condition);
-                        SET @details_id = LAST_INSERT_ID();
-                    INSERT INTO post (user_id, category, title, description, price, contact_id, details_id, location_id)
-                        VALUES (:user_id, :category, :title, :description, :price, @contact_id, @details_id, @location_id);
+                    INSERT INTO post (user_id, category, title, description, price)
+                        VALUES (:user_id, :category, :title, :description, :price);
+                        SET @post_id = LAST_INSERT_ID();
+                    INSERT INTO contact (post_id, email, phone) 
+                        VALUES (@post_id, :email, :phone);
+                    INSERT INTO location (post_id, city, latitude, longitude) 
+                        VALUES (@post_id, :city, :latitude, :longitude);
+                    INSERT INTO details (post_id, make, model, dimensions, prod_condition) 
+                        VALUES (@post_id, :make, :model, :dimensions, :condition);
                     COMMIT;`;
     }
     // include query for users not logged in? 
@@ -29,7 +27,7 @@ function addPost(formData, locationData, cb) {
         description: formData.description,
         make: formData.make,
         model: formData.model,
-        dimsnsions: formData.dimsnsions,
+        dimensions: formData.dimensions,
         condition: formData.condition,
         email: formData.email,
         phone: formData.phone,
