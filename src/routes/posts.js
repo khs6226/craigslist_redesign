@@ -65,7 +65,6 @@ router.post('/post-preview', upload.array('imageFiles'), async (req, res) => {
     let authenticated = req.oidc.isAuthenticated();
     let user = req.oidc.user;
     let uploadedFiles = req.files;
-    console.log('req', req);
 
     let locationData = { lat: req.query.lat, lon: req.query.lon };
     let postData = req.body;
