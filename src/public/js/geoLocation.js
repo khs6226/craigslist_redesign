@@ -11,7 +11,7 @@ geoBtn.on('click', () => {
     });
 })
 
-export default function getGeo(cb) {
+function getGeo(cb) {
     navigator.geolocation.getCurrentPosition((position) => {
         const lat = position.coords.latitude.toFixed(7);
         const lon = position.coords.longitude.toFixed(7);
