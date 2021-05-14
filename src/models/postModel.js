@@ -44,10 +44,9 @@ async function addPost(formData, locationData, cb) {
 }
 
 function addImageKey(formData, key, postId, cb) {
-  let sqlQuery = "INSERT INTO image (user_id, imageKey, post_id) VALUES (:user_id, :key, :post_id);";
+  let sqlQuery = "INSERT INTO image (imageKey, post_id) VALUES (:key, :post_id);";
 
   let params = {
-    user_id: formData.user_id,
     key: key,
     post_id: postId[0][1].insertId
   }
@@ -56,11 +55,12 @@ function addImageKey(formData, key, postId, cb) {
 }
 
 function getPostById(postId, cb) {
-    let sqlQuery = `SELECT post.post_id, category, title, description, user_id, price, email, phone, make, model, dimensions, prod_condition, city, latitude, longitude
+    let sqlQuery = `SELECT post.post_id, category, title, description, user_id, price, email, phone, make, model, dimensions, prod_condition, city, latitude, longitude, imageKey
                         FROM post
                     LEFT JOIN contact ON post.post_id = contact.post_id
                     LEFT JOIN details ON post.post_id = details.post_id
                     LEFT JOIN location ON post.post_id = location.post_id
+                    LEFT JOIN image ON post.post_id = image.post_id
                     WHERE post.post_id = :postId;`
     let params = { postId: postId }
 
