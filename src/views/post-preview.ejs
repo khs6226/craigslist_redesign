@@ -43,6 +43,9 @@
   <main class="container-center">
       <div class="banner">
           <p class="banner-text">This is a preview of your post</p>
+          <% imagePath.forEach(path => { %>
+            <img src="post-preview/<%= path %>" alt="image">
+          <% }); %>
       </div>
   </main>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
