@@ -478,6 +478,11 @@ label {
 .post-contact {
   display: none; }
 
+#map {
+  margin: 20px 0;
+  width: 100%;
+  height: 300px; }
+
 .profile-form-container {
   width: 100%;
   display: flex;
