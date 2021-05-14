@@ -91,11 +91,10 @@ router.post('/post-preview', upload.array('imageFiles'), async (req, res) => {
   }).then(result => {
     uploadResult.forEach((key) => {
       postModel.addImageKey(postData, key, result, (err) => {
-      if(err) {
-        console.log(err);
-        return;
-      }
-    // have controller layer in between to return new object with proper location data
+        if(err) {
+            console.log(err);
+            return;
+        }
       })
     })
     res.redirect(`/posts/${result}`)
