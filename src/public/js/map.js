@@ -7,4 +7,4 @@ var map = L.map('map', {
     zoom: 13
 });
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png?{foo}', {foo: 'bar', attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'}).addTo(map);
-L.circle([lat,lon], 1000).addTo(map)
+L.circle([lat, lon], 1000).addTo(map)
