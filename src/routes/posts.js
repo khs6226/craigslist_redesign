@@ -66,13 +66,14 @@ router.get('/:id/delete', (req, res) => {
   res.render('message', { user: user, message: message });
 })
 
+
 router.post('/post-preview', upload.array('imageFiles'), async (req, res) => {
   let authenticated = req.oidc.isAuthenticated();
   let user = req.oidc.user;
   let uploadedFiles = req.files;
-
   let locationData = { lat: req.query.lat, lon: req.query.lon };
   let postData = req.body;
+
 
   const uploadResult = await uploadFile(uploadedFiles);
   uploadedFiles.forEach((files) => {
@@ -90,15 +91,17 @@ router.post('/post-preview', upload.array('imageFiles'), async (req, res) => {
   }).then(result => {
     uploadResult.forEach((key) => {
       postModel.addImageKey(postData, key, result, (err) => {
-        if (err) {
-          console.log(err);
-          return;
-        }
+      if(err) {
+        console.log(err);
+        return;
+      }
+    // have controller layer in between to return new object with proper location data
       })
     })
+    res.redirect(`/posts/${result}`)
   });
   console.log('postData', postData);
-  res.render('post-preview', { user: user, imagePath: uploadResult });
+//   res.render('post-preview', { user: user, imagePath: uploadResult });
 });
 
 router.get('/post-preview/:key', (req, res) => {
