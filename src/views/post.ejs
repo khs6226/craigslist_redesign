@@ -63,7 +63,7 @@
         <div class="post-image">
           <img src="data:image/png;base64,<%= image %>" alt="image for <%= postData.title %>">
         </div>
-        <!-- converts \n to html compatible line breaks -->
+        <!--  converts \n to html compatible line breaks  -->
         <% let description = postData.description.split("\r\n").join("<br />"); %>
         <p class="post-description"><%- description %></p>
         <div id="map" data-lat="<%= postData.latitude %>" data-lon="<%= postData.longitude %>"></div>
