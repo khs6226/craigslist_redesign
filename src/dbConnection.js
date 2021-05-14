@@ -9,7 +9,7 @@ const dbConfig = {
  	namedPlaceholders: true
 };
 
-let database = mysql.createPool(dbConfig).promise();
+let database = mysql.createPool(dbConfig);
 
 module.exports = database;
 		
