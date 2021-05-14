@@ -9,7 +9,8 @@ function searchModel(queryString, cb) {
                     LEFT JOIN contact ON post.post_id = contact.post_id
                     LEFT JOIN details ON post.post_id = details.post_id
                     LEFT JOIN location ON post.post_id = location.post_id
-                    WHERE title LIKE :queryString OR description LIKE :queryString OR category LIKE :queryString OR make LIKE :queryString OR model LIKE :queryString;`;
+                    WHERE title LIKE :queryString OR description LIKE :queryString OR category LIKE :queryString OR make LIKE :queryString OR model LIKE :queryString
+                    ORDER BY post.post_id desc;`;
     let params = { queryString: searchParam }
     db.query(sqlQuery, params, (err, results) => {
         if (err) {
