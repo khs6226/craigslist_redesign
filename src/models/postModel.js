@@ -1,4 +1,5 @@
 const db = require('../dbConnection');
+const dbPromise = require('../dbPromise');
 
 
 async function addPost(formData, locationData, cb) {
@@ -37,7 +38,7 @@ async function addPost(formData, locationData, cb) {
         longitude: locationData.lon
     }
 
-    let createdPost = await db.query(sqlQuery, params);
+    let createdPost = await dbPromise.query(sqlQuery, params);
     console.log('createdPost', createdPost);
     return createdPost;
 }
@@ -48,7 +49,7 @@ function addImageKey(formData, key, postId, cb) {
   let params = {
     user_id: formData.user_id,
     key: key,
-    post_id: postId[0].insertId
+    post_id: postId[0][1].insertId
   }
 
   db.query(sqlQuery, params);
