@@ -61,7 +61,7 @@
         <a href="/categories/<%= postData.category %>" class="post-category"><p><%= postData.category %></p></a>
         <h2 class="post-title"><%= postData.title %> - $<%= postData.price %> (<%= postData.city %>)</h2>
         <div class="post-image">
-          <img src="posts/<%= postData.imageKey %>" alt="image for <%= postData.title %>">
+          <img src="data:image/png;base64,<%= image %>" alt="image for <%= postData.title %>">
         </div>
         <!-- converts \n to html compatible line breaks -->
         <% let description = postData.description.split("\r\n").join("<br />"); %>
