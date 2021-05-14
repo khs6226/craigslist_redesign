@@ -17,7 +17,7 @@
         <div></div>
         <div class="nav-user-container">
             <% if (user) { %>
-                <a href="/user/profile" class="nav-user"><%= user.nickname %><img src="/img/user.svg" alt="" class="nav-user-icon"></a>
+                <a href="/user/profile" class="nav-user"><%= user.nickname %><img src="/img/user.svg" alt="user image" class="nav-user-icon"></a>
             <% } else {%>
                 <form action="/login" method="GET">
                     <input class="loginBtn" type="submit" value="Login">
@@ -40,7 +40,10 @@
             </ul>
         </div>
     </nav>
-  <main class="container">
+  <main>
+      <div class="container-header">
+          <h2>Category: <span><a href="/categories/<%= category %>"><%= category %></a></span></h2>
+      </div>
     <div class="category-search-container">
         <form action="/categories/<%= category %>/results" method="GET" class="home-search-form">
             <input type="text" name="query" class="home-search-input" placeholder="Search <%= category %>">

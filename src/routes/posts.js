@@ -67,6 +67,7 @@ router.post('/post-preview', upload.array('imageFiles'), async (req, res) => {
     let uploadedFiles = req.files;
     console.log('req', req);
 
+    let locationData = { lat: req.query.lat, lon: req.query.lon };
     let postData = req.body;
 
     const uploadResult = await uploadFile(uploadedFiles);
@@ -76,7 +77,7 @@ router.post('/post-preview', upload.array('imageFiles'), async (req, res) => {
     console.log('uploadResult', uploadResult);
     
     // have controller layer in between to return new object with proper location data
-    await postModel.addPost(postData, uploadResult, (err) => {
+    await postModel.addPost(postData, locationData, (err) => {
         if (err) {
             console.log(err);
             return;

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@0,700;1,400&family=Sanchez&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Sanchez&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -17,6 +17,9 @@ h4 {
 .nav-logo-container a {
   height: 45px; }
 
+label {
+  margin: 5px 0; }
+
 .navbar {
   display: grid;
   grid-template-columns: 20% 25% 40% 15%;
@@ -29,10 +32,10 @@ h4 {
   justify-content: center; }
 
 .nav-logo-container a {
-  height: 45px; }
+  height: 6vh; }
 
 .nav-logo {
-  height: 45px; }
+  height: 6vh; }
 
 .nav-user-container {
   display: flex;
@@ -74,7 +77,7 @@ h4 {
   justify-content: center; }
 
 .menu-icon {
-  height: 40px;
+  height: 5vh;
   cursor: pointer; }
 
 .nav-menu-container {
@@ -150,6 +153,9 @@ h4 {
   border-bottom: 1px solid #6c9b48;
   border-left: 1px solid #6c9b48; }
 
+.create-posting-container {
+  height: 45px; }
+
 .categories-home {
   display: flex;
   flex-direction: column;
@@ -201,8 +207,6 @@ h4 {
   align-items: center; }
 
 .post-card {
-  display: flex;
-  flex-direction: column;
   margin-top: 30px;
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 12px 0 rgba(0, 0, 0, 0.19);
   border-radius: 10px;
@@ -220,7 +224,7 @@ h4 {
   text-overflow: ellipsis;
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical; }
 
 .post-form-container {
@@ -249,10 +253,22 @@ h4 {
 
 .new-post-input {
   width: 95%;
-  border: none;
   padding: 7px;
   border-radius: 5px;
   margin: 10px 0;
+  border: 1px solid #14bcff; }
+
+.new-post-price {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  width: 100%; }
+
+.new-post-input-price {
+  width: 25%;
+  padding: 7px;
+  border-radius: 5px;
+  margin: 10px 0 10px 2px;
   border: 1px solid #14bcff; }
 
 .new-post-textarea {
@@ -309,12 +325,23 @@ h4 {
   border-bottom: 1px solid #6c9b48;
   border-left: 1px solid #6c9b48; }
 
-.form-horitontal {
+.form-horizontal {
   display: flex;
-  margin: 10px 0; }
+  margin: 10px 0;
+  align-items: center;
+  justify-content: space-around;
+  width: 65%; }
+
+.form-vertical {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0 25px 0;
+  align-items: center; }
 
 .geo-button-container {
-  height: 44px; }
+  height: 44px;
+  display: flex;
+  align-items: center; }
 
 .geo-button {
   background-color: #99DA67;
@@ -403,6 +430,7 @@ h4 {
   padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
+  color: white;
   font-size: .9rem; }
 
 .delete-post:active {
@@ -453,6 +481,11 @@ h4 {
 .post-contact {
   display: none; }
 
+#map {
+  margin: 20px 0;
+  width: 100%;
+  height: 300px; }
+
 .profile-form-container {
   width: 100%;
   display: flex;
@@ -502,4 +535,7 @@ h4 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 35px 0 0 0; }
+  margin: 0 0 25px 0; }
+
+.container-header {
+  margin: 40px 15px; }

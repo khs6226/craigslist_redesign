@@ -1,16 +1,26 @@
 const db = require('../dbConnection');
 
-async function addPost(formData, cb) {
+
+async function addPost(formData, locationData, cb) {
     let sqlQuery;
     // pass in data from a controller that can call postal api and use 
-    // if user is logged in 
+    // if user is logged in
     if (formData.user_id) {
-        sqlQuery = `INSERT INTO post (user_id, category, title, price, description, make, model, dimensions, email, phone, city)
-                    VALUES (:user_id, :category, :title, :price, :description, :make, :model, :dimensions, :email, :phone, :city);`;
+        sqlQuery = `BEGIN;
+                    INSERT INTO post (user_id, category, title, description, price)
+                        VALUES (:user_id, :category, :title, :description, :price);
+                        SET @post_id = LAST_INSERT_ID();
+                    INSERT INTO contact (post_id, email, phone) 
+                        VALUES (@post_id, :email, :phone);
+                    INSERT INTO location (post_id, city, latitude, longitude) 
+                        VALUES (@post_id, :city, :latitude, :longitude);
+                    INSERT INTO details (post_id, make, model, dimensions, prod_condition) 
+                        VALUES (@post_id, :make, :model, :dimensions, :condition);
+                    COMMIT;`;
     }
     // include query for users not logged in? 
 
-    let params = {
+    let params = { 
         user_id: formData.user_id,
         category: formData.category,
         title: formData.title,
@@ -18,11 +28,13 @@ async function addPost(formData, cb) {
         description: formData.description,
         make: formData.make,
         model: formData.model,
-        dimsnsions: formData.dimsnsions,
+        dimensions: formData.dimensions,
         condition: formData.condition,
         email: formData.email,
         phone: formData.phone,
-        city: formData.city
+        city: formData.city,
+        latitude: locationData.lat,
+        longitude: locationData.lon
     }
 
     let createdPost = await db.query(sqlQuery, params);
@@ -43,7 +55,12 @@ function addImageKey(formData, key, postId, cb) {
 }
 
 function getPostById(postId, cb) {
-    let sqlQuery = `SELECT * FROM post WHERE post_id = :postId`
+    let sqlQuery = `SELECT post.post_id, category, title, description, user_id, price, email, phone, make, model, dimensions, prod_condition, city, latitude, longitude
+                        FROM post
+                    LEFT JOIN contact ON post.post_id = contact.post_id
+                    LEFT JOIN details ON post.post_id = details.post_id
+                    LEFT JOIN location ON post.post_id = location.post_id
+                    WHERE post.post_id = :postId;`
     let params = { postId: postId }
 
     db.query(sqlQuery, params, (err, results) => {
@@ -69,7 +86,12 @@ function getPostByUserId(userId, cb) {
 }
 
 function getPostByCategory(category, cb) {
-    let sqlQuery = `SELECT * FROM post WHERE category = :category`
+    let sqlQuery = `SELECT post.post_id, category, title, description, user_id, price, email, phone, make, model, dimensions, prod_condition, city, latitude, longitude
+                        FROM post
+                    LEFT JOIN contact ON post.post_id = contact.post_id
+                    LEFT JOIN details ON post.post_id = details.post_id
+                    LEFT JOIN location ON post.post_id = location.post_id
+                    WHERE category = :category`
     let params = { category: category }
 
     db.query(sqlQuery, params, (err, results) => {
@@ -80,7 +102,6 @@ function getPostByCategory(category, cb) {
         }
     })
 }
-
 
 function deletePost(postId, cb) {
     let sqlQuery = `DELETE FROM post WHERE post_id = :postId`
@@ -108,3 +129,7 @@ module.exports = { addPost, getPostById, deletePost, getPostByCategory, getPostB
 //   phone: '',
 //   city: '',
 //   postal: ''
+
+
+// `INSERT INTO post (user_id, category, title, price, description, make, model, dimensions, email, phone, city)
+// VALUES (:user_id, :category, :title, :price, :description, :make, :model, :dimensions, :email, :phone, :city);`  

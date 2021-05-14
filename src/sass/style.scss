@@ -1,5 +1,5 @@
 // imports
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@0,700;1,400&family=Sanchez&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Sanchez&display=swap');
 
 // variables
 $blue: #14bcff;
@@ -42,6 +42,7 @@ $sanchez: 'Sanchez', serif;
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
+    color: white;
 }
 
 @mixin redButtonActive {
@@ -114,6 +115,10 @@ h4 {
     height: 45px;
 }
 
+label {
+    margin: 5px 0;
+}
+
 // Nav
 .navbar {
     display: grid;
@@ -129,11 +134,11 @@ h4 {
 }
 
 .nav-logo-container a {
-    height: 45px;
+    height: 6vh;
 }
 
 .nav-logo {
-    height: 45px;
+    height: 6vh;
 }
 
 .nav-user-container {
@@ -171,7 +176,7 @@ h4 {
 }
 
 .menu-icon {
-    height: 40px;
+    height: 5vh;
     cursor: pointer;
 }
 
@@ -250,6 +255,10 @@ h4 {
     @include greenButtonActive();
 }
 
+.create-posting-container {
+    height:45px;
+}
+
 .categories-home{
    display: flex;
    flex-direction: column;
@@ -312,8 +321,6 @@ h4 {
 }
 
 .post-card {
-    display: flex;
-    flex-direction: column;
     margin-top: 30px;
     box-shadow:0 5px 8px 0 rgba(0,0,0,0.2),0 4px 12px 0 rgba(0,0,0,0.19);
     border-radius: 10px;
@@ -333,7 +340,7 @@ h4 {
     text-overflow:ellipsis;
     overflow:hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 4;
+    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
 }
 
@@ -368,10 +375,24 @@ h4 {
 
 .new-post-input {
     width: 95%;
-    border: none;
     padding: 7px;
     border-radius: 5px;
     margin: 10px 0;
+    border: 1px solid $blue;
+}
+
+.new-post-price {
+    display: flex;
+    align-items: center;
+    text-align: left;
+    width: 100%;
+}
+
+.new-post-input-price {
+    width: 25%;
+    padding: 7px;
+    border-radius: 5px;
+    margin: 10px 0 10px 2px;
     border: 1px solid $blue;
 }
 
@@ -414,13 +435,26 @@ h4 {
     @include greenButtonActive();
 }
 
-.form-horitontal {
+.form-horizontal {
     display: flex;
     margin: 10px 0;
+    align-items: center;
+    justify-content: space-around;
+    width: 65%;
 }
+
+.form-vertical {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0 25px 0;
+    align-items: center;
+}
+
 
 .geo-button-container {
     height: 44px;
+    display: flex;
+    align-items: center;
 }
 
 .geo-button {
@@ -525,6 +559,12 @@ h4 {
     display: none;
 }
 
+#map {
+    margin: 20px 0;
+    width: 100%;
+    height: 300px;
+}
+
 //Profile
 .profile-form-container {
   width: 100%;
@@ -575,6 +615,9 @@ h4 {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 35px 0 0 0;
+    margin: 0 0 25px 0;
 }
 
+.container-header {
+    margin: 40px 15px;
+}

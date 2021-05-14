@@ -44,14 +44,16 @@
             <h3>Craigslist</h3>
             <h1 class="header-home">What are you looking for?</h1>
             <div class="search-container">
-                <form action="/search/results" method="POST" class="home-search-form">
+                <form action="/search/results" method="GET" class="home-search-form">
                     <input type="text" name="query" class="home-search-input" placeholder="Search Craigslist">
                     <input type="submit" value="➜" class="home-search-submit">
                 </form>
             </div>
-            <form action="/posts/new-post" method="GET">
-                <input type="submit" value="Create A Posting!" class="loginBtn">
-            </form>
+            <div class="create-posting-container">
+                <form action="/posts/new-post" method="GET">
+                    <input type="submit" value="Create A Posting!" class="loginBtn">
+                </form>
+            </div>    
         </div>
         <div class="categories-home">
             <h2>Popular Categories</h2>
