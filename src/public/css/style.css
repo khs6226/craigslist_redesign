@@ -160,11 +160,13 @@ label {
   display: flex;
   flex-direction: column;
   margin: 100px 15px 30px 15px;
-  align-items: center; }
+  align-items: center;
+  justify-content: center; }
 
 .category-container-home {
   display: grid;
-  grid-template-columns: 1fr 1fr; }
+  grid-template-columns: 1fr 1fr;
+  justify-content: center; }
 
 .category-home {
   display: flex;
