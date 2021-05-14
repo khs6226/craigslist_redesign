@@ -64,6 +64,7 @@
         <!-- converts \n to html compatible line breaks -->
         <% let description = postData.description.split("\r\n").join("<br />"); %>
         <p class="post-description"><%- description %></p>
+        <div id="map" data-lat="<%= postData.latitude %>" data-lon="<%= postData.longitude %>"></div>
         <div class="post-contact-container">
             <button type="button" class="contact-seller-btn">Contact Seller</button>
             <div class="post-contact">
@@ -73,7 +74,6 @@
                 <% } %> 
             </div>
         </div>
-        <div id="map" data-lat="<%= postData.latitude %>" data-lon="<%= postData.longitude %>"><div>
     </div>
     </main>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
