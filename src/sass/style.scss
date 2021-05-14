@@ -255,6 +255,10 @@ label {
     @include greenButtonActive();
 }
 
+.create-posting-container {
+    height:45px;
+}
+
 .categories-home{
    display: flex;
    flex-direction: column;

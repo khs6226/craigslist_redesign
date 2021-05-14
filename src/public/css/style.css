@@ -153,6 +153,9 @@ label {
   border-bottom: 1px solid #6c9b48;
   border-left: 1px solid #6c9b48; }
 
+.create-posting-container {
+  height: 45px; }
+
 .categories-home {
   display: flex;
   flex-direction: column;
