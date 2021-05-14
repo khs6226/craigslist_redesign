@@ -32,9 +32,7 @@ router.get('/:id', (req, res) => {
     } else {
       if (results[0].imageKey) {
         const key = results[0].imageKey
-        const readStream = await getFileStream(key);
-        // readStream.pipe(res);
-        readStream.catch(err => err);
+        const readStream = await getFileStream(key).catch(err => err);
         console.log('readStream', readStream);
 
         console.log(results[0])
