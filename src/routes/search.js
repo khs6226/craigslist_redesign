@@ -14,7 +14,6 @@ router.get('/results', (req, res) => {
             console.log(err);
             return err;
         } else {
-            console.log(results);
             if (authenticated) {
                 res.render('results', { user: user, posts: results });
             } else {
