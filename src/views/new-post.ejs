@@ -43,7 +43,7 @@
   <main class="container-center">
     <h1>Create Your Post</h1>
     <div class='post-form-container'>
-        <form action="/posts/post-preview" method="POST" style="width: 100%" id="post-form">
+        <form action="/posts/post-preview" method="POST" style="width: 100%" id="post-form" enctype="multipart/form-data">
             <% if(user) { %>
                 <input type="hidden" name="user_id" value="<%= user.sub %>">
             <% } %>
@@ -67,7 +67,7 @@
                 </div>
                 <textarea name="description" class="new-post-textarea" cols="30" rows="10" placeholder="Description"></textarea>
                 <label for="form-photos" class="new-post-upload">Upload images</label>
-                <input type="file" name="images" multiple accept="image/*">
+                <input type="file" name="imageFiles" accept="image/*" multiple>
                 <div class="form-buttons">
                     <button type="button" class="button-back">Back</button>
                     <button type="button" class="button-next">Next</button>

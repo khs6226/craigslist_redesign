@@ -1,6 +1,7 @@
 const db = require('../dbConnection');
 
-function addPost(formData, locationData, cb) {
+
+async function addPost(formData, locationData, cb) {
     let sqlQuery;
     // pass in data from a controller that can call postal api and use 
     // if user is logged in
@@ -36,11 +37,21 @@ function addPost(formData, locationData, cb) {
         longitude: locationData.lon
     }
 
-    db.query(sqlQuery, params, (err) => {
-        if (err) {
-            cb(err);
-        }
-    })
+    let createdPost = await db.query(sqlQuery, params);
+    console.log('createdPost', createdPost);
+    return createdPost;
+}
+
+function addImageKey(formData, key, postId, cb) {
+  let sqlQuery = "INSERT INTO image (user_id, imageKey, post_id) VALUES (:user_id, :key, :post_id);";
+
+  let params = {
+    user_id: formData.user_id,
+    key: key,
+    post_id: postId[0].insertId
+  }
+
+  db.query(sqlQuery, params);
 }
 
 function getPostById(postId, cb) {
@@ -103,7 +114,7 @@ function deletePost(postId, cb) {
     })
 }
 
-module.exports = { addPost, getPostById, deletePost, getPostByCategory, getPostByUserId }
+module.exports = { addPost, getPostById, deletePost, getPostByCategory, getPostByUserId, addImageKey }
 
 
 //   user_id: 'auth0|60887546e896360069a6a5b9',

@@ -4,6 +4,14 @@ const dbConnection = require('../dbConnection');
 const { auth, requiresAuth } = require('express-openid-connect');
 const postModel = require('../models/postModel');
 const { post } = require('./user');
+const fs = require('fs');
+const multer = require('multer');
+const upload = multer({ dest: 'uploads/'});
+const util = require('util')
+const unlinkFile = util.promisify(fs.unlink)
+
+const { uploadFile, getFileStream } = require('../models/S3');
+const { create } = require('domain');
 
 
 router.get('/new-post', (req, res) => {
@@ -53,22 +61,48 @@ router.get('/:id/delete', (req, res) => {
     res.render('message', { user: user, message: message });
 })
 
-router.post('/post-preview', (req, res) => {
+router.post('/post-preview', upload.array('imageFiles'), async (req, res) => {
     let authenticated = req.oidc.isAuthenticated();
     let user = req.oidc.user;
+    let uploadedFiles = req.files;
+    console.log('req', req);
 
     let locationData = { lat: req.query.lat, lon: req.query.lon };
     let postData = req.body;
+
+    const uploadResult = await uploadFile(uploadedFiles);
+    uploadedFiles.forEach((files) => {
+      unlinkFile(files.path);
+    })
+    console.log('uploadResult', uploadResult);
+    
     // have controller layer in between to return new object with proper location data
-    postModel.addPost(postData, locationData, (err) => {
+    await postModel.addPost(postData, locationData, (err) => {
         if (err) {
             console.log(err);
             return;
         }
         console.log('New post added to db ' + postData);
-        res.render('post-preview', { user: user })
+    }).then(result => {
+      uploadResult.forEach((key) => {
+        postModel.addImageKey(postData, key, result, (err) => {
+          if (err) {
+            console.log(err);
+            return;
+          }
+        })
+      })
     });
-    
+    console.log('postData', postData);
+    res.render('post-preview', { user: user, imagePath: uploadResult });
 });
+
+router.get('/post-preview/:key', (req, res) => {
+  console.log('req.params',req.params);
+  const key = req.params.key
+  const readStream = getFileStream(key);
+
+  readStream.pipe(res);
+})
 
 module.exports = router;
