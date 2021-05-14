@@ -30,7 +30,7 @@ router.get('/:id', (req, res) => {
     if (err) {
       console.log(err);
     } else {
-      if (authenticated) {
+      if (results[0].imageKey) {
         const key = results[0].imageKey
         const readStream = await getFileStream(key);
         // readStream.pipe(res);
@@ -39,7 +39,7 @@ router.get('/:id', (req, res) => {
         console.log(results[0])
         res.render('post', { user: user, postData: results[0], image: readStream[0].toString('base64') })
       } else {
-        res.render('post', { user: false, postData: results[0] })
+        res.render('post', { user: false, image: false, postData: results[0] })
       }
     }
   });
