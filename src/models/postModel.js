@@ -38,9 +38,15 @@ async function addPost(formData, locationData, cb) {
         longitude: locationData.lon
     }
 
-    let createdPost = await dbPromise.query(sqlQuery, params);
-    console.log('createdPost', createdPost);
-    return createdPost;
+    db.query(sqlQuery, params, (err) => {
+        if (err) {
+            cb(err);
+        }
+    })
+
+    // let createdPost = await dbPromise.query(sqlQuery, params);
+    // console.log('createdPost', createdPost);
+    // return createdPost;
 }
 
 function addImageKey(formData, key, postId, cb) {

@@ -76,24 +76,27 @@ router.post('/post-preview', upload.array('imageFiles'), async (req, res) => {
     console.log('uploadResult', uploadResult);
     
     // have controller layer in between to return new object with proper location data
-    await postModel.addPost(postData, locationData, (err) => {
-        if (err) {
-            console.log(err);
-            return;
-        }
-        console.log('New post added to db ' + postData);
-    }).then(result => {
-      uploadResult.forEach((key) => {
-        postModel.addImageKey(postData, key, result, (err) => {
-          if (err) {
-            console.log(err);
-            return;
-          }
-        })
-      })
-    });
-    console.log('postData', postData);
-    res.render('post-preview', { user: user, imagePath: uploadResult });
+
+
+    
+    // await postModel.addPost(postData, locationData, (err) => {
+    //     if (err) {
+    //         console.log(err);
+    //         return;
+    //     }
+    //     console.log('New post added to db ' + postData);
+    // }).then(result => {
+    //   uploadResult.forEach((key) => {
+    //     postModel.addImageKey(postData, key, result, (err) => {
+    //       if (err) {
+    //         console.log(err);
+    //         return;
+    //       }
+    //     })
+    //   })
+    // });
+    // console.log('postData', postData);
+    // res.render('post-preview', { user: user, imagePath: uploadResult });
 });
 
 router.get('/post-preview/:key', (req, res) => {
