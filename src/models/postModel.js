@@ -2,7 +2,7 @@ const db = require('../dbConnection');
 const dbPromise = require('../dbPromise');
 
 
-async function addPost(formData, locationData, cb) {
+function addPost(formData, locationData, cb) {
     let sqlQuery;
     // pass in data from a controller that can call postal api and use 
     // if user is logged in
@@ -40,8 +40,17 @@ async function addPost(formData, locationData, cb) {
 
     db.query(sqlQuery, params, (err) => {
         if (err) {
-            cb(err);
+            cb(err, null);
+            return;
         }
+        db.query(`SELECT post_id FROM post WHERE user_id = '${formData.user_id}' AND title = '${formData.title}' AND description = '${formData.description}';`, (err, result) => {
+            if (err) {
+                cb(err, null);
+                return;
+            }
+            cb(null, result[0])
+            return;
+        })
     })
 
     // let createdPost = await dbPromise.query(sqlQuery, params);

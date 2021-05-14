@@ -61,7 +61,7 @@ router.get('/:id/delete', (req, res) => {
     res.render('message', { user: user, message: message });
 })
 
-router.post('/post-preview', upload.array('imageFiles'), async (req, res) => {
+router.post('/post-preview', async (req, res) => {
     let authenticated = req.oidc.isAuthenticated();
     let user = req.oidc.user;
     let uploadedFiles = req.files;
@@ -69,34 +69,15 @@ router.post('/post-preview', upload.array('imageFiles'), async (req, res) => {
     let locationData = { lat: req.query.lat, lon: req.query.lon };
     let postData = req.body;
 
-    const uploadResult = await uploadFile(uploadedFiles);
-    uploadedFiles.forEach((files) => {
-      unlinkFile(files.path);
-    })
-    console.log('uploadResult', uploadResult);
-    
     // have controller layer in between to return new object with proper location data
-
-
-    
-    // await postModel.addPost(postData, locationData, (err) => {
-    //     if (err) {
-    //         console.log(err);
-    //         return;
-    //     }
-    //     console.log('New post added to db ' + postData);
-    // }).then(result => {
-    //   uploadResult.forEach((key) => {
-    //     postModel.addImageKey(postData, key, result, (err) => {
-    //       if (err) {
-    //         console.log(err);
-    //         return;
-    //       }
-    //     })
-    //   })
-    // });
-    // console.log('postData', postData);
-    // res.render('post-preview', { user: user, imagePath: uploadResult });
+    postModel.addPost(postData, locationData, (err, result) => {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        console.log(result);
+        res.redirect(`/posts/${result.post_id}`);
+    });
 });
 
 router.get('/post-preview/:key', (req, res) => {
