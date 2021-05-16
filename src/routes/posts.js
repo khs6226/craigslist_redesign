@@ -27,18 +27,25 @@ router.get('/:id', (req, res) => {
   let postId = req.params.id;
 
   postModel.getPostById(postId, async (err, results) => {
+    const key = results[0].imageKey;
+    const readStream = await getFileStream(key).catch(err => err);
+
+    let image;
+    if (results[0].imageKey) {
+      image = readStream[0].toString('base64');
+    } else {
+      image = false;
+    }
+  
+    console.log('readStream', readStream);
     if (err) {
       console.log(err);
     } else {
-      if (results[0].imageKey) {
-        const key = results[0].imageKey
-        const readStream = await getFileStream(key).catch(err => err);
-        console.log('readStream', readStream);
-
-        console.log(results[0])
-        res.render('post', { user: user, postData: results[0], image: readStream[0].toString('base64') })
+      if (user) {  
+          console.log(results[0])
+          res.render('post', { user: user, postData: results[0], image: image })
       } else {
-        res.render('post', { user: false, image: false, postData: results[0] })
+        res.render('post', { user: false, image: image , postData: results[0] })
       }
     }
   });

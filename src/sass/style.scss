@@ -532,11 +532,14 @@ label {
     margin: 10px 0;
 }
 
-.post-image {
+.post-image-container {
     height:300px;
     width: 100%;
-    border: 1px black solid;
     margin: 15px 0;
+}
+
+.post-image {
+    width: 100%;
 }
 
 .post-description {

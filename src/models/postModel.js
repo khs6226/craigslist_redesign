@@ -2,7 +2,7 @@ const db = require('../dbConnection');
 const dbPromise = require('../dbPromise');
 
 
-function addPost(formData, locationData, cb) {
+async function addPost(formData, locationData, cb) {
     let sqlQuery;
     // pass in data from a controller that can call postal api and use 
     // if user is logged in
@@ -38,24 +38,24 @@ function addPost(formData, locationData, cb) {
         longitude: locationData.lon
     }
 
-    db.query(sqlQuery, params, (err) => {
-        if (err) {
-            cb(err, null);
-            return;
-        }
-        db.query(`SELECT post_id FROM post WHERE user_id = '${formData.user_id}' AND title = '${formData.title}' AND description = '${formData.description}';`, (err, result) => {
-            if (err) {
-                cb(err, null);
-                return;
-            }
-            cb(null, result[0])
-            return;
-        })
-    })
+    // db.query(sqlQuery, params, (err) => {
+    //     if (err) {
+    //         cb(err, null);
+    //         return;
+    //     }
+    //     db.query(`SELECT post_id FROM post WHERE user_id = '${formData.user_id}' AND title = '${formData.title}' AND description = '${formData.description}';`, (err, result) => {
+    //         if (err) {
+    //             cb(err, null);
+    //             return;
+    //         }
+    //         cb(null, result[0])
+    //         return;
+    //     })
+    // })
 
-    // let createdPost = await dbPromise.query(sqlQuery, params);
-    // console.log('createdPost', createdPost);
-    // return createdPost;
+    let createdPost = await dbPromise.query(sqlQuery, params);
+    console.log('createdPost', createdPost);
+    return createdPost;
 }
 
 function addImageKey(formData, key, postId, cb) {
