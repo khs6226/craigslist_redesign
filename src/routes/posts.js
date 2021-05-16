@@ -25,8 +25,10 @@ router.get('/:id', (req, res) => {
   let user = req.oidc.user;
 
   let postId = req.params.id;
+  console.log('postId', postId);
 
   postModel.getPostById(postId, async (err, results) => {
+    console.log('getPostResult', results);
     const key = results[0].imageKey;
     const readStream = await getFileStream(key).catch(err => err);
 
@@ -95,6 +97,7 @@ router.post('/post-preview', upload.array('imageFiles'), async (req, res) => {
     }
     console.log('New post added to db ' + postData);
   }).then(result => {
+    console.log('addPostResult', result);
     uploadResult.forEach((key) => {
       postModel.addImageKey(postData, key, result, (err) => {
         if(err) {
@@ -106,7 +109,7 @@ router.post('/post-preview', upload.array('imageFiles'), async (req, res) => {
     res.redirect(`/posts/${result}`)
   });
   console.log('postData', postData);
-  res.render('post-preview', { user: user, imagePath: uploadResult });
+  // res.render('post-preview', { user: user, imagePath: uploadResult });
 });
 
 router.get('/post-preview/:key', (req, res) => {
