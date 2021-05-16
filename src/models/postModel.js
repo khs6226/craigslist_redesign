@@ -63,7 +63,7 @@ function addImageKey(formData, key, postId, cb) {
 
   let params = {
     key: key,
-    post_id: postId[0][1].insertId
+    post_id: postId
   }
 
   db.query(sqlQuery, params);
