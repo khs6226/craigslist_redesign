@@ -55,7 +55,7 @@ async function addPost(formData, locationData, cb) {
 
     let createdPost = await dbPromise.query(sqlQuery, params);
     console.log('createdPost', createdPost);
-    return createdPost;
+    return createdPost[0][1].insertId;
 }
 
 function addImageKey(formData, key, postId, cb) {

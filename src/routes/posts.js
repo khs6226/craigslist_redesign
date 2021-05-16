@@ -105,8 +105,8 @@ router.post('/post-preview', upload.array('imageFiles'), async (req, res) => {
     })
     res.redirect(`/posts/${result}`)
   });
-  console.log('postData', postData);
-  res.render('post-preview', { user: user, imagePath: uploadResult });
+  // console.log('postData', postData);
+  // res.render('post-preview', { user: user, imagePath: uploadResult });
 });
 
 router.get('/post-preview/:key', (req, res) => {
