@@ -450,12 +450,16 @@ label {
   margin: 10px 0; }
 
 .post-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: 300px;
   width: 100%;
   margin: 15px 0; }
 
 .post-image {
-  width: 100%; }
+  max-width: 100%;
+  max-height: 100%; }
 
 .post-description {
   margin: 0 0 30px 0; }
