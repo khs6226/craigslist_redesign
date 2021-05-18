@@ -15,9 +15,9 @@ router.get('/results', (req, res) => {
             return err;
         } else {
             if (authenticated) {
-                res.render('results', { user: user, posts: results });
+                res.render('results', { user: user, posts: results, query: searchParams });
             } else {
-                res.render('results', { user: false, posts: results });
+                res.render('results', { user: false, posts: results, query: searchParams });
             }
         }
     });
