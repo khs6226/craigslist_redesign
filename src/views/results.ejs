@@ -41,9 +41,15 @@
     </div>
   </nav>
   <div class='container'>
-    <!-- <div class='nav-user-container'>
-      <p><a href="">Profile</a></p>
-    </div> -->
+    <div class="category-search-container">
+      <form action="/search/results" method="GET" class="home-search-form" id="filter-form">
+        <input type="text" name="query" class="home-search-input" placeholder="Search Craigslist">
+        <input type="submit" value="➜" class="home-search-submit">
+      </form>
+    </div>
+    <div class="filter-container">
+
+    </div>
     <div class='posts-card-container'>
       <% posts.forEach(post => { %>
         <!-- converts \n to html compatible line breaks -->

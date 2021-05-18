@@ -34,7 +34,7 @@ router.get('/:id', (req, res) => {
 
     let image;
     if (results[0].imageKey) {
-      image = readStream[0].toString('base64');
+      image = readStream[0].toString('base64').catch(err => err);
     } else {
       image = false;
     }
