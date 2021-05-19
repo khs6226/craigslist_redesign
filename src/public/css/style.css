@@ -214,7 +214,7 @@ label {
   margin: auto;
   padding-bottom: 10px;
   height: 30px;
-  transition: all .2s ease-in-out; }
+  transition: all .1s ease-in-out; }
 
 .filter-top-bar {
   display: flex;
@@ -224,11 +224,9 @@ label {
 
 .filter-dropdown {
   visibility: hidden;
-  opacity: 0%;
-  transition: all .2s ease-in-out; }
+  opacity: 0%; }
 
 .filter-dropdown-visibile {
-  transition: all .2s ease-in-out;
   visibility: visible;
   opacity: 100%; }
 
