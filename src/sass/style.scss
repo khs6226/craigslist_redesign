@@ -112,7 +112,7 @@ h2 {
 }
 
 h4 {
-    margin: 0 0 10px 0;
+    margin: 10px 0 10px 0;
 }
 
 .nav-logo-container a {
@@ -318,6 +318,87 @@ label {
 
 // search results
 // use these styles to display post previews 
+.result-search-container {
+    margin: 30px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.filter-container {
+    background-color: $paleBlue;
+    border-radius: 10px;
+    width: 80%;
+    margin: auto;
+    padding-bottom: 10px;
+    height: 30px;
+    transition: all .1s ease-in-out;
+}
+
+.filter-top-bar {
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
+}
+
+.filter-dropdown {
+    visibility: hidden;
+    opacity: 0%;
+}
+
+.filter-dropdown-visibile {
+    visibility: visible;
+    opacity: 100%;
+}
+
+.filter-price-container {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.filter-price {
+    width: 60px;
+    margin-left: 5px;
+}
+
+.filter-category-container {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+#filter-category {
+    margin-left: 5px;
+}
+
+.filter-condition-container {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+#filter-condition {
+    margin-left: 5px;
+}
+
+.filter-location-container {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+#filter-location {
+    margin-left: 5px;
+}
+
+.filter-submit{
+    display: flex;
+    justify-content: center;
+    height: 35px;
+}
+
 .posts-card-container {
     display: flex;
     flex-direction: column;
