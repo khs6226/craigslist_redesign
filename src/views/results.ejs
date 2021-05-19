@@ -60,7 +60,7 @@
         </div>
         <div class="filter-category-container">
           <label for="category">Category</label> 
-          <select name="category" id="filter-category" form="post-form">
+          <select name="category" id="filter-category" form="filter-form">
               <option value="" selected disabled hidden>--</option>
               <option value="Cars & Trucks">Cars & Trucks</option>
               <option value="Computers">Computers</option>
@@ -80,7 +80,7 @@
         </div>
         <div class="filter-location-container">
           <label for="location">Location</label>
-          <select name="location" id="filter-location" form="post-form">
+          <select name="location" id="filter-location" form="filter-form">
             <option value="" selected disabled hidden>--</option>
             <option value="Vancouver">Vancouver</option>
             <option value="North Shore">North Shore</option>
@@ -100,14 +100,19 @@
     </div>
     <div class='posts-card-container'>
       <% if (filter.minPrice || filter.maxPrice || filter.category || filter.condition || filter.location) { %>
-        <% let filtered = []; %>
+        <% let filtered = posts; %>
         <% if (filter.minPrice) { %>
-          <% let priceMatch = posts.filter((post) => { return (parseInt(post.price) >= filter.minPrice && parseInt(post.price) <= filter.maxPrice) }) %>
-          <% priceMatch.forEach(post => { %>
-            <% filtered.push(post) %>
-          <% }); %>
+          <% let priceMatch = filtered.filter((post) => { return (parseInt(post.price) >= filter.minPrice && parseInt(post.price) <= filter.maxPrice) }) %>
+          <% filtered = priceMatch %>
         <% } %>
-        <% console.log(filtered) %>
+        <% if (filter.category) {%>
+          <% let catMatch = filtered.filter((post) => { return (post.category == filter.category) }) %>
+          <% filtered = catMatch %>
+        <% } %>
+        <% if (filter.condition) {%>
+          <% let conMatch = filtered.filter((post) => { return (post.prod_condition == filter.condition) }) %>
+          <% filtered = conMatch %>
+        <% } %>
         <% filtered.forEach(post => { %>
           <!-- converts \n to html compatible line breaks -->
           <% let description = post.description.split("\r\n").join("<br />"); %>
