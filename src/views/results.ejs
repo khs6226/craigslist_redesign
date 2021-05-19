@@ -113,6 +113,10 @@
           <% let conMatch = filtered.filter((post) => { return (post.prod_condition == filter.condition) }) %>
           <% filtered = conMatch %>
         <% } %>
+        <% if (filter.location) {%>
+          <% let locMatch = filtered.filter((post) => { return (post.city == filter.location) }) %>
+          <% filtered = locMatch %>
+        <% } %>
         <% filtered.forEach(post => { %>
           <!-- converts \n to html compatible line breaks -->
           <% let description = post.description.split("\r\n").join("<br />"); %>
