@@ -356,6 +356,17 @@ label {
 
 .filter-price {
     width: 60px;
+    margin-left: 5px;
+}
+
+.filter-category-container {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+#filter-category {
+    margin-left: 5px;
 }
 
 .filter-condition-container {
@@ -364,10 +375,18 @@ label {
     margin: 10px 0;
 }
 
+#filter-condition {
+    margin-left: 5px;
+}
+
 .filter-location-container {
     display: flex;
     justify-content: center;
     margin: 10px 0;
+}
+
+#filter-location {
+    margin-left: 5px;
 }
 
 .filter-submit{

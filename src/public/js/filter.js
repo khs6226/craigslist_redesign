@@ -7,7 +7,7 @@ topBar.on('click' ,() => {
     filterDropdown.toggleClass('filter-dropdown filter-dropdown-visible');
     if (filterArrow.html() == '⯆') {
         filterArrow.html('⯅')
-        filterContainer.css('height', '216px');
+        filterContainer.css('height', '250px');
         return;
     } 
         filterArrow.html('⯆')

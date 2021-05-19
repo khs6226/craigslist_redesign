@@ -58,6 +58,15 @@
           <input type="text" name="min-price" class="filter-price" form="filter-form" placeholder="min">
           <input type="text" name="max-price" class="filter-price" form="filter-form" placeholder="max">
         </div>
+        <div class="filter-category-container">
+          <label for="category">Category</label> 
+          <select name="category" id="filter-category" form="post-form">
+              <option value="" selected disabled hidden>--</option>
+              <option value="Cars & Trucks">Cars & Trucks</option>
+              <option value="Computers">Computers</option>
+              <option value="Electronics">Electronics</option>
+          </select>
+        </div>
         <div class="filter-condition-container">
           <label for="condition">Condition</label>
           <select name="condition" id="filter-condition" form="filter-form">
@@ -71,7 +80,7 @@
         </div>
         <div class="filter-location-container">
           <label for="location">Location</label>
-          <select name="location" class="location" form="post-form">
+          <select name="location" id="filter-location" form="post-form">
             <option value="" selected disabled hidden>--</option>
             <option value="Vancouver">Vancouver</option>
             <option value="North Shore">North Shore</option>
@@ -90,15 +99,35 @@
       </div>
     </div>
     <div class='posts-card-container'>
-      <% posts.forEach(post => { %>
-        <!-- converts \n to html compatible line breaks -->
-        <% let description = post.description.split("\r\n").join("<br />"); %>
-        <!-- data attr stores post_id -->
-        <div class="post-card" onclick="location.href='/posts/<%= post.post_id %>';">
-          <h3 class="post-card-title"><%= post.title %> <span class="post-price"> - $<%= post.price %></span></h3>
-          <p class="post-card-description"><%- description %></p>
-        </div>
+      <% if (filter.minPrice || filter.maxPrice || filter.category || filter.condition || filter.location) { %>
+        <% let filtered = []; %>
+        <% if (filter.minPrice) { %>
+          <% let priceMatch = posts.filter((post) => { return (parseInt(post.price) >= filter.minPrice && parseInt(post.price) <= filter.maxPrice) }) %>
+          <% priceMatch.forEach(post => { %>
+            <% filtered.push(post) %>
+          <% }); %>
+        <% } %>
+        <% console.log(filtered) %>
+        <% filtered.forEach(post => { %>
+          <!-- converts \n to html compatible line breaks -->
+          <% let description = post.description.split("\r\n").join("<br />"); %>
+          <!-- data attr stores post_id -->
+          <div class="post-card" onclick="location.href='/posts/<%= post.post_id %>';">
+            <h3 class="post-card-title"><%= post.title %> <span class="post-price"> - $<%= post.price %></span></h3>
+            <p class="post-card-description"><%- description %></p>
+          </div>
       <% }); %>
+      <% } else { %>
+        <% posts.forEach(post => { %>
+            <!-- converts \n to html compatible line breaks -->
+            <% let description = post.description.split("\r\n").join("<br />"); %>
+            <!-- data attr stores post_id -->
+            <div class="post-card" onclick="location.href='/posts/<%= post.post_id %>';">
+              <h3 class="post-card-title"><%= post.title %> <span class="post-price"> - $<%= post.price %></span></h3>
+              <p class="post-card-description"><%- description %></p>
+            </div>
+        <% }); %>
+      <% } %>
     </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
