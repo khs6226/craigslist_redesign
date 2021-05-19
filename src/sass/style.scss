@@ -326,17 +326,27 @@ label {
     border-radius: 10px;
     width: 80%;
     margin: auto;
-    padding: 10px;
+    padding-bottom: 10px;
+    height: 30px;
+    transition: all .2s ease-in-out;
 }
 
 .filter-top-bar {
     display:flex;
     justify-content: space-around;
     align-items: center;
+    cursor: pointer;
 }
 
-.filter-arrow {
-    cursor: pointer;
+.filter-dropdown {
+    visibility: hidden;
+    opacity: 0%;
+    transition: all .2s ease-in-out;
+}
+
+.filter-dropdown-visibile {
+    visibility: visible;
+    opacity: 100%;
 }
 
 .filter-price-container {
