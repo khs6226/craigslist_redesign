@@ -613,6 +613,17 @@ label {
     margin: 10px 0;
 }
 
+.post-title {
+    text-align: left;
+    width: 100%;
+}
+
+.post-date {
+    color:rgb(109, 109, 109);
+    width: 100%;
+    font-size: .9rem;
+}
+
 .post-image-container {
     display: flex;
     justify-content: center;

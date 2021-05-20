@@ -8,8 +8,8 @@ async function addPost(formData, locationData, cb) {
     // if user is logged in
     if (formData.user_id) {
         sqlQuery = `BEGIN;
-                    INSERT INTO post (user_id, category, title, description, price)
-                        VALUES (:user_id, :category, :title, :description, :price);
+                    INSERT INTO post (user_id, category, title, description, price, date)
+                        VALUES (:user_id, :category, :title, :description, :price, :date);
                         SET @post_id = LAST_INSERT_ID();
                     INSERT INTO contact (post_id, email, phone) 
                         VALUES (@post_id, :email, :phone);
@@ -26,6 +26,7 @@ async function addPost(formData, locationData, cb) {
         category: formData.category,
         title: formData.title,
         price: formData.price,
+        date: new Date(),
         description: formData.description,
         make: formData.make,
         model: formData.model,
@@ -70,7 +71,7 @@ function addImageKey(formData, key, postId, cb) {
 }
 
 function getPostById(postId, cb) {
-    let sqlQuery = `SELECT post.post_id, category, title, description, user_id, price, email, phone, make, model, dimensions, prod_condition, city, latitude, longitude, imageKey
+    let sqlQuery = `SELECT post.post_id, category, title, description, user_id, price, date, email, phone, make, model, dimensions, prod_condition, city, latitude, longitude, imageKey
                         FROM post
                     LEFT JOIN contact ON post.post_id = contact.post_id
                     LEFT JOIN details ON post.post_id = details.post_id

@@ -56,14 +56,22 @@
             </div>
         </div>
     <% } %>
+    <% let currentDate = new Date(); %>
+    <% let minutesElapsed = parseInt(((currentDate - postData.date)/1000)/60) %>
+    <% let hoursElapsed = parseInt(minutesElapsed/60) %>
+    <% let daysElapsed = parseInt(hoursElapsed/24) %>
+    <% let elapsed; %>
     <main class="container-center">
-    <div class="post-container">
+    <div class="post-container"></div>
         <a href="/categories/<%= postData.category %>" class="post-category"><p><%= postData.category %></p></a>
         <h2 class="post-title"><%= postData.title %> - $<%= postData.price %> (<%= postData.city %>)</h2>
+        <div class="post-date"><%= daysElapsed %>hr ago</div>
         <div class="post-image-container">
             <% if (image) { %>
                 <img src="data:image/png;base64,<%= image %>" alt="image for <%= postData.title %>" class="post-image">
-            <% } %>
+            <% } else { %>
+                <p>No image</p>
+            <% } %> 
         </div>
         <!--  converts \n to html compatible line breaks  -->
         <% let description = postData.description.split("\r\n").join("<br />"); %>

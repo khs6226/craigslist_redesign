@@ -516,6 +516,15 @@ label {
   width: 100%;
   margin: 10px 0; }
 
+.post-title {
+  text-align: left;
+  width: 100%; }
+
+.post-date {
+  color: #6d6d6d;
+  width: 100%;
+  font-size: .9rem; }
+
 .post-image-container {
   display: flex;
   justify-content: center;
