@@ -279,7 +279,7 @@ label {
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 12px 0 rgba(0, 0, 0, 0.19);
   border-radius: 10px;
   width: 80%;
-  height: 120px;
+  height: 150px;
   padding: 0px 10px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -289,6 +289,7 @@ label {
   margin: 10px 0 0 0; }
 
 .post-card-description {
+  margin-top: 10px;
   text-overflow: ellipsis;
   overflow: hidden;
   display: -webkit-box;
@@ -538,7 +539,8 @@ label {
   max-height: 100%; }
 
 .post-description {
-  margin: 0 0 30px 0; }
+  margin: 0 0 30px 0;
+  width: 100%; }
 
 .post-contact-container {
   height: 35px;

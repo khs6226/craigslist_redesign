@@ -4,7 +4,7 @@ function searchModel(queryString, cb) {
     let searchParam = `%${queryString}%`
 
     // returns post review data 
-    let sqlQuery = `SELECT post.post_id, category, title, description, user_id, price, email, phone, make, model, dimensions, prod_condition, city, latitude, longitude
+    let sqlQuery = `SELECT post.post_id, category, title, description, user_id, price, date, email, phone, make, model, dimensions, prod_condition, city, latitude, longitude
                         FROM post
                     LEFT JOIN contact ON post.post_id = contact.post_id
                     LEFT JOIN details ON post.post_id = details.post_id
@@ -24,7 +24,7 @@ function searchModel(queryString, cb) {
 function categorySearch (queryString, category, cb) {
     let searchParam = `%${queryString}%`
 
-    let sqlQuery = `SELECT post.post_id, category, title, description, user_id, price, email, phone, make, model, dimensions, prod_condition, city, latitude, longitude
+    let sqlQuery = `SELECT post.post_id, category, title, description, user_id, price, date, email, phone, make, model, dimensions, prod_condition, city, latitude, longitude
                         FROM post
                     LEFT JOIN contact ON post.post_id = contact.post_id
                     LEFT JOIN details ON post.post_id = details.post_id
