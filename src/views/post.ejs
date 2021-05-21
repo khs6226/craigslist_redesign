@@ -82,8 +82,10 @@
         <h2 class="post-title"><%= postData.title %> - $<%= postData.price %> (<%= postData.city %>)</h2>
         <div class="post-date">Posted <%= elapsed %> ago</div>
         <div class="post-image-container">
-            <% if (image) { %>
-                <img src="data:image/png;base64,<%= image %>" alt="image for <%= postData.title %>" class="post-image">
+            <% if (images) { %>
+                <% images.forEach(image => { %>
+                  <img src="data:image/png;base64,<%= image %>" alt="image for <%= postData.title %>" class="post-image">
+                <% }); %>
             <% } else { %>
                 <p>No image</p>
             <% } %> 
