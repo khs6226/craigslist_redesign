@@ -43,7 +43,7 @@ label {
   padding: 5px 10px;
   border-radius: 5px;
   cursor: pointer;
-  transition: all .1s ease-in-out; }
+  transition: visibility .1s ease-in-out; }
 
 .back-btn-hide {
   visibility: hidden; }
