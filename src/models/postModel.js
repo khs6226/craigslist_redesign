@@ -26,7 +26,7 @@ async function addPost(formData, locationData, cb) {
         category: formData.category,
         title: formData.title,
         price: formData.price,
-        date: new Date(),
+        date: new Date(new Date().toUTCString().substr(0, 25)),
         description: formData.description,
         make: formData.make,
         model: formData.model,
