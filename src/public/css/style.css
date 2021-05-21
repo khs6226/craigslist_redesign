@@ -186,7 +186,7 @@ label {
   border: 1px solid #666; }
 
 .category-img {
-  width: 50px;
+  height: 35px;
   margin-bottom: 10px; }
 
 .category-text {
@@ -544,9 +544,11 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 300px;
-  width: 100%;
+  height: 500px;
+  width: 75%;
   margin: 15px 0; }
+  .post-image-container a {
+    position: absolute; }
 
 .post-image {
   max-width: 100%;
@@ -579,6 +581,29 @@ label {
 
 .post-contact {
   display: none; }
+
+.image-container {
+  display: none;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  animation-name: fade;
+  animation-duration: 1.5s; }
+  .image-container img {
+    width: auto;
+    height: auto; }
+
+@keyframes fade {
+  from {
+    opacity: .4; }
+  to {
+    opacity: 1; } }
+
+.preBtn {
+  left: 5%; }
+
+.nxtBtn {
+  right: 5%; }
 
 #map {
   margin: 20px 0;
