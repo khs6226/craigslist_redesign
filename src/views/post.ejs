@@ -82,13 +82,17 @@
         <h2 class="post-title"><%= postData.title %> - $<%= postData.price %> (<%= postData.city %>)</h2>
         <div class="post-date">Posted <%= elapsed %> ago</div>
         <div class="post-image-container">
-            <% if (images) { %>
-                <% images.forEach(image => { %>
-                  <img src="data:image/png;base64,<%= image %>" alt="image for <%= postData.title %>" class="post-image">
-                <% }); %>
-            <% } else { %>
-                <p>No image</p>
-            <% } %> 
+          <% if (images) { %>
+            <% images.forEach(image => { %>
+              <div class="image-container">
+                <img src="data:image/png;base64,<%= image %>" alt="image for <%= postData.title %>" class="post-image">
+              </div>
+            <% }); %>
+          <% } else { %>
+            <p>No image</p>
+          <% } %>
+          <a class="preBtn" onClick="plusSlides(-1)"><img src="/img/arrow-left.svg" alt="left-arrow"></a>
+          <a class="nxtBtn" onClick="plusSlides(1)"><img src="/img/arrow-right.svg" alt="right-arrow"></a>
         </div>
         <!--  converts \n to html compatible line breaks  -->
         <% let description = postData.description.split("\r\n").join("<br />"); %>
@@ -111,6 +115,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="/js/menu.js"></script>
     <script src="/js/contactBtn.js"></script>
+    <script src="/js/imageSlide.js"></script>
     <script type='module' src="/js/geoLocation.js"></script>
     <script type='module' src="/js/map.js"></script>
 </body>
