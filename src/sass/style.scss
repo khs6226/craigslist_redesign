@@ -272,8 +272,7 @@ label {
 }
 
 .category-container-home {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
 }
 
 .category-home {
@@ -281,12 +280,17 @@ label {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 30px 15px 15px 15px;
+    margin: 30px 10px 10px 10px;
     border-radius: 5px;
     border: 1px solid #303030;
-    padding: 10px 20px;
+    padding: 10px;
     cursor: pointer;
-    width: 60%;
+    width: 8rem;
+}
+
+.category-img {
+    width: 50px;
+    margin-bottom: 10px;
 }
 
 // posting
