@@ -167,7 +167,8 @@ label {
   justify-content: center; }
 
 .category-container-home {
-  display: flex; }
+  display: flex;
+  flex-wrap: wrap; }
 
 .category-home {
   display: flex;
@@ -179,7 +180,7 @@ label {
   border: 1px solid #666;
   padding: 10px;
   cursor: pointer;
-  width: 8rem; }
+  width: 7.5rem; }
 
 .category-home:active {
   border: 1px solid #666; }
@@ -626,7 +627,7 @@ label {
 .categories {
   display: flex;
   flex-direction: column;
-  margin: 0 15px;
+  margin: 40px 15px;
   align-items: center; }
 
 .category-search-container {

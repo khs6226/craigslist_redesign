@@ -30,7 +30,7 @@
         <div class="nav-menu-container">
             <ul class="nav-menu">
                 <li><a class="nav-menu-item" href="/">Home</a></li>
-                <li><a class="nav-menu-item" href="#">Explore</a></li>
+                <li><a class="nav-menu-item" href="/categories">Explore</a></li>
                 <% if (user) { %>
                     <li><a class="nav-menu-item" href="/user/profile">Profile</a></li>
                     <li><a class="nav-menu-item" href="/logout">Logout</a></li>
@@ -40,15 +40,21 @@
             </ul>
         </div>
     </nav>
-  <main class="container-center">
+  <main>
     <div class="categories">
         <h2>Categories</h2>
         <div class="category-container-home">
             <div class="category-home" onclick="location.href='/categories/Computers';">
-                Computers
+                <img src="/img/computers.svg" alt="Computers Category Icon" class="category-img">
+                <p class="category-text">Computers</p> 
             </div>
             <div class="category-home" onclick="location.href='/categories/Cars & Trucks';">
-                Cars & Trucks
+                <img src="/img/cars&trucks.svg" alt="Cars & Trucks Category Icon" class="category-img">
+                <p class="category-text">Cars & Trucks</p>   
+            </div>
+            <div class="category-home" onclick="location.href='/categories/Cars & Trucks';">
+                <img src="/img/cars&trucks.svg" alt="Cars & Trucks Category Icon" class="category-img">
+                <p class="category-text">Cars & Trucks</p>   
             </div>
         </div>
     </div>
