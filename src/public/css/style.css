@@ -174,16 +174,23 @@ label {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 30px 10px 10px 10px;
+  margin: 25px 10px 10px 10px;
   border-radius: 5px;
-  border: 1px solid #303030;
+  border: 1px solid #666;
   padding: 10px;
   cursor: pointer;
   width: 8rem; }
 
+.category-home:active {
+  border: 1px solid #666; }
+
 .category-img {
   width: 50px;
   margin-bottom: 10px; }
+
+.category-text {
+  color: #666666;
+  font-weight: bold; }
 
 .container-post {
   display: flex;
