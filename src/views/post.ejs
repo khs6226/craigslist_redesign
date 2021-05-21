@@ -56,21 +56,44 @@
             </div>
         </div>
     <% } %>
+    <% let currentDate = new Date(); %>
+    <% let minutesElapsed = parseInt(((currentDate - postData.date)/1000)/60) %>
+    <% let hoursElapsed = parseInt(minutesElapsed/60) %>
+    <% let daysElapsed = parseInt(hoursElapsed/24) %>
+    <% let elapsed; %>
+
+    <% if (daysElapsed < 1) { %>
+        <% if (hoursElapsed < 1) { %>
+            <% if (minutesElapsed < 1) { %>
+                <% elapsed = 'less than a minute' %>
+            <% } else if (minutesElapsed == 1 ) {%>
+                <% elapsed = `${minutesElapsed} minute` %>
+            <% } else { elapsed = `${minutesElapsed} minutes` }%> 
+        <% } else if (hoursElapsed == 1 ) {%>
+            <% elapsed = `${hoursElapsed} hour` %>
+        <% } else { elapsed = `${hoursElapsed} hours` }%> 
+    <% } else if (daysElapsed == 1) { %>
+        <% elapsed = `${daysElapsed} day` %>
+    <% } else { elapsed = `${daysElapsed} days`} %>
+
     <main class="container-center">
-    <div class="post-container">
+    <div class="post-container"></div>
         <a href="/categories/<%= postData.category %>" class="post-category"><p><%= postData.category %></p></a>
         <h2 class="post-title"><%= postData.title %> - $<%= postData.price %> (<%= postData.city %>)</h2>
+        <div class="post-date">Posted <%= elapsed %> ago</div>
         <div class="post-image-container">
             <% if (image) { %>
                 <img src="data:image/png;base64,<%= image %>" alt="image for <%= postData.title %>" class="post-image">
-            <% } %>
+            <% } else { %>
+                <p>No image</p>
+            <% } %> 
         </div>
         <!--  converts \n to html compatible line breaks  -->
         <% let description = postData.description.split("\r\n").join("<br />"); %>
         <p class="post-description"><%- description %></p>
         <div id="map" data-lat="<%= postData.latitude %>" data-lon="<%= postData.longitude %>"></div>
         <div class="post-contact-container">
-            <button type="button" class="contact-seller-btn">Contact Seller</button>
+            <button type="button" class="contact-seller-btn">Reply</button>
             <div class="post-contact">
                 <a class="post-email" href="mailto:<%= postData.email %>"><%= postData.email %></a>
                 <% if (postData.phone) { %>

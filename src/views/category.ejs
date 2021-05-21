@@ -52,11 +52,31 @@
     </div>
     <div class='posts-card-container'>
         <% posts.forEach(post => { %>
+            <% let currentDate = new Date(); %>
+            <% let minutesElapsed = parseInt(((currentDate - post.date)/1000)/60) %>
+            <% let hoursElapsed = parseInt(minutesElapsed/60) %>
+            <% let daysElapsed = parseInt(hoursElapsed/24) %>
+            <% let elapsed; %>
+
+            <% if (daysElapsed < 1) { %>
+                <% if (hoursElapsed < 1) { %>
+                    <% if (minutesElapsed < 1) { %>
+                        <% elapsed = 'less than a minute' %>
+                    <% } else if (minutesElapsed == 1 ) {%>
+                        <% elapsed = `${minutesElapsed} minute` %>
+                    <% } else { elapsed = `${minutesElapsed} minutes` }%>
+                <% } else if (hoursElapsed == 1 ) {%>
+                    <% elapsed = `${hoursElapsed} hour` %>
+                <% } else { elapsed = `${hoursElapsed} hours` }%> 
+            <% } else if (daysElapsed == 1) { %>
+                <% elapsed = `${daysElapsed} day` %>
+            <% } else { elapsed = `${daysElapsed} days`} %>
             <!-- converts \n to html compatible line breaks -->
             <% let description = post.description.split("\r\n").join("<br />"); %>
             <!-- data attr stores post_id -->
             <div class="post-card" onclick="location.href='/posts/<%= post.post_id %>';">
             <h3 class="post-card-title"><%= post.title %> <span class="post-price"> - $<%= post.price %></span></h3>
+            <div class="post-date">Posted <%= elapsed %> ago</div>
             <p class="post-card-description"><%- description %></p>
             </div>
         <% }); %>
