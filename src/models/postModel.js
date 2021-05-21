@@ -103,7 +103,7 @@ function getPostByUserId(userId, cb) {
 }
 
 function getPostByCategory(category, cb) {
-    let sqlQuery = `SELECT post.post_id, category, title, description, user_id, price, email, phone, make, model, dimensions, prod_condition, city, latitude, longitude
+    let sqlQuery = `SELECT post.post_id, category, title, description, user_id, price, date, email, phone, make, model, dimensions, prod_condition, city, latitude, longitude
                         FROM post
                     LEFT JOIN contact ON post.post_id = contact.post_id
                     LEFT JOIN details ON post.post_id = details.post_id
