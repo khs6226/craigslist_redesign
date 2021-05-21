@@ -1,14 +1,16 @@
 
 $('.menu-icon').click((e) => {
   // let isIndex = $('body').hasClass('home');
+
+  $('.back-btn').toggleClass('back-btn-hide');
+  $('.nav-menu-container').toggleClass('show-menu');
   
-  $('.nav-menu-container').toggleClass('show-menu', 500);
   if ($('.menu-icon').attr('src') == '/img/menu.svg') {
     $('.menu-icon').attr('src', '/img/close.svg');
-    $('.back-btn').css('visibility', 'hidden');
+    $('#map').css('display', 'none');
   } else {
     $('.menu-icon').attr('src', '/img/menu.svg');
-    $('.back-btn').css('visibility', 'visibile');
+    $('#map').css('display', 'block');
   }
   
 })

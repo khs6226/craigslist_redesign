@@ -38,7 +38,11 @@ label {
   font-size: 1.1rem;
   padding: 5px 10px;
   border-radius: 5px;
-  cursor: pointer; }
+  cursor: pointer;
+  transition: all .1s ease-in-out; }
+
+.back-btn-hide {
+  visibility: hidden; }
 
 .back-btn:active {
   border-top: 1px solid #cfcfcf;
@@ -47,10 +51,13 @@ label {
   border-left: 1px solid #cfcfcf; }
 
 .navbar {
+  position: sticky;
+  top: 0px;
   display: grid;
   grid-template-columns: 20% 25% 40% 15%;
   background-color: #14bcff;
-  height: 8vh; }
+  height: 8vh;
+  z-index: 1; }
 
 .nav-logo-container {
   display: flex;
@@ -115,7 +122,7 @@ label {
   height: 92vh;
   transform: translate(0, 8vh);
   text-align: right;
-  transition: all .2s ease-in-out; }
+  transition: all .1s ease-in-out; }
 
 .nav-menu {
   display: flex;
@@ -185,7 +192,7 @@ label {
 .categories-home {
   display: flex;
   flex-direction: column;
-  margin: 100px 15px 30px 15px;
+  margin: 60px 15px 0 15px;
   align-items: center;
   justify-content: center; }
 
