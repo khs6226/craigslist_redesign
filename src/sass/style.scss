@@ -633,9 +633,12 @@ label {
     display: flex;
     justify-content: center;
     align-items: center;
-    height:300px;
-    width: 100%;
+    height: 500px;
+    width: 75%;
     margin: 15px 0;
+    a {
+      position: absolute;
+    }
 }
 
 .post-image {
@@ -663,6 +666,32 @@ label {
 
 .post-contact {
     display: none;
+}
+
+.image-container {
+  display: none;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  animation-name: fade;
+  animation-duration: 1.5s;
+  img {
+    width: auto;
+    height: auto;
+  }
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+.preBtn {
+  left: 5%;
+}
+
+.nxtBtn {
+  right: 5%;
 }
 
 #map {
