@@ -23,6 +23,10 @@ h4 {
 label {
   margin: 5px 0; }
 
+.big-anchor {
+  text-decoration: none;
+  color: #14bcff; }
+
 .back-btn-container {
   height: 35px; }
 
