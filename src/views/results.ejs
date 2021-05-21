@@ -41,23 +41,107 @@
     </div>
   </nav>
   <div class='container'>
-    <!-- <div class='nav-user-container'>
-      <p><a href="">Profile</a></p>
-    </div> -->
-    <div class='posts-card-container'>
-      <% posts.forEach(post => { %>
-        <!-- converts \n to html compatible line breaks -->
-        <% let description = post.description.split("\r\n").join("<br />"); %>
-        <!-- data attr stores post_id -->
-        <div class="post-card" onclick="location.href='/posts/<%= post.post_id %>';">
-          <h3 class="post-card-title"><%= post.title %> <span class="post-price"> - $<%= post.price %></span></h3>
-          <p class="post-card-description"><%- description %></p>
+    <div class="result-search-container">
+      <form action="/search/results" method="GET" class="home-search-form">
+        <input type="text" name="query" class="home-search-input" placeholder="Search Craigslist">
+        <input type="submit" value="➜" class="home-search-submit">
+      </form>
+    </div>
+    <div class="filter-container">
+      <div class="filter-top-bar">
+        <h4>Filter options</h4>
+        <div class="filter-arrow">⯆</div>
+      </div>
+      <div class="filter-dropdown">
+        <div class="filter-price-container">
+          <label for="min-price">Price</label>
+          <input type="text" name="min-price" class="filter-price" form="filter-form" placeholder="min">
+          <input type="text" name="max-price" class="filter-price" form="filter-form" placeholder="max">
         </div>
+        <div class="filter-category-container">
+          <label for="category">Category</label> 
+          <select name="category" id="filter-category" form="filter-form">
+              <option value="" selected disabled hidden>--</option>
+              <option value="Cars & Trucks">Cars & Trucks</option>
+              <option value="Computers">Computers</option>
+              <option value="Electronics">Electronics</option>
+          </select>
+        </div>
+        <div class="filter-condition-container">
+          <label for="condition">Condition</label>
+          <select name="condition" id="filter-condition" form="filter-form">
+            <option value="" selected disabled hidden>--</option>
+            <option value="new">new</option>
+            <option value="like new">like new</option>
+            <option value="good">good</option>
+            <option value="fair">fair</option>
+            <option value="salvage">salvage</option>        
+          </select>
+        </div>
+        <div class="filter-location-container">
+          <label for="location">Location</label>
+          <select name="location" id="filter-location" form="filter-form">
+            <option value="" selected disabled hidden>--</option>
+            <option value="Vancouver">Vancouver</option>
+            <option value="North Shore">North Shore</option>
+            <option value="Burnaby/Newwest">Burnaby/Newwest</option>
+            <option value="Delta/Surrey/Langley">Delta/Surrey/Langley</option>
+            <option value="Tricities/Pitt/Maple">Tricities/Pitt/Maple</option>
+            <option value="Richmond">Richmond</option>
+          </select>
+        </div>
+        <div>
+          <form action="/search/results" method="GET" id="filter-form" class="filter-submit">
+            <input type="hidden" name="query" value="<%= query %>">
+            <input type="submit" value="Filter" class="contact-seller-btn">
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class='posts-card-container'>
+      <% if (filter.minPrice || filter.maxPrice || filter.category || filter.condition || filter.location) { %>
+        <% let filtered = posts; %>
+        <% if (filter.minPrice) { %>
+          <% let priceMatch = filtered.filter((post) => { return (parseInt(post.price) >= filter.minPrice && parseInt(post.price) <= filter.maxPrice) }) %>
+          <% filtered = priceMatch %>
+        <% } %>
+        <% if (filter.category) {%>
+          <% let catMatch = filtered.filter((post) => { return (post.category == filter.category) }) %>
+          <% filtered = catMatch %>
+        <% } %>
+        <% if (filter.condition) {%>
+          <% let conMatch = filtered.filter((post) => { return (post.prod_condition == filter.condition) }) %>
+          <% filtered = conMatch %>
+        <% } %>
+        <% if (filter.location) {%>
+          <% let locMatch = filtered.filter((post) => { return (post.city == filter.location) }) %>
+          <% filtered = locMatch %>
+        <% } %>
+        <% filtered.forEach(post => { %>
+          <!-- converts \n to html compatible line breaks -->
+          <% let description = post.description.split("\r\n").join("<br />"); %>
+          <!-- data attr stores post_id -->
+          <div class="post-card" onclick="location.href='/posts/<%= post.post_id %>';">
+            <h3 class="post-card-title"><%= post.title %> <span class="post-price"> - $<%= post.price %></span></h3>
+            <p class="post-card-description"><%- description %></p>
+          </div>
       <% }); %>
+      <% } else { %>
+        <% posts.forEach(post => { %>
+            <!-- converts \n to html compatible line breaks -->
+            <% let description = post.description.split("\r\n").join("<br />"); %>
+            <!-- data attr stores post_id -->
+            <div class="post-card" onclick="location.href='/posts/<%= post.post_id %>';">
+              <h3 class="post-card-title"><%= post.title %> <span class="post-price"> - $<%= post.price %></span></h3>
+              <p class="post-card-description"><%- description %></p>
+            </div>
+        <% }); %>
+      <% } %>
     </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="/js/menu.js"></script>
+  <script src="/js/filter.js"></script>
 </body>
 
 </html>
