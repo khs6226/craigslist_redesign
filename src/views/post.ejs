@@ -81,19 +81,27 @@
         <a href="/categories/<%= postData.category %>" class="post-category"><p><%= postData.category %></p></a>
         <h2 class="post-title"><%= postData.title %> - $<%= postData.price %> (<%= postData.city %>)</h2>
         <div class="post-date">Posted <%= elapsed %> ago</div>
-        <div class="post-image-container">
-          <% if (images) { %>
-            <% images.forEach(image => { %>
-              <div class="image-container">
-                <img src="data:image/png;base64,<%= image %>" alt="image for <%= postData.title %>" class="post-image">
+        <% if (images) { %>
+          <% if (images.length > 1) { %>
+            <div class="post-image-container">
+              <% images.forEach(image => { %>
+                <div class="image-container">
+                  <img src="data:image/png;base64,<%= image %>" alt="image for <%= postData.title %>" class="post-image">
+                </div>
+                <% }); %>
+                <a class="preBtn" onClick="plusSlides(-1)"><img src="/img/arrow-left.svg" alt="left-arrow"></a>
+                <a class="nxtBtn" onClick="plusSlides(1)"><img src="/img/arrow-right.svg" alt="right-arrow"></a>
               </div>
-            <% }); %>
+            <% } else { %>
+              <div class="post-image-container">
+                <div class="image-container">
+                  <img src="data:image/png;base64,<%= images[0] %>" alt="image for <%= postData.title %>" class="post-image">
+                </div>
+              </div>
+            <% } %>
           <% } else { %>
-            <p>No image</p>
+              <p>No image</p>
           <% } %>
-          <a class="preBtn" onClick="plusSlides(-1)"><img src="/img/arrow-left.svg" alt="left-arrow"></a>
-          <a class="nxtBtn" onClick="plusSlides(1)"><img src="/img/arrow-right.svg" alt="right-arrow"></a>
-        </div>
         <!--  converts \n to html compatible line breaks  -->
         <% let description = postData.description.split("\r\n").join("<br />"); %>
         <p class="post-description"><%- description %></p>
