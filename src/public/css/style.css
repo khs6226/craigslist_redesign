@@ -23,6 +23,29 @@ h4 {
 label {
   margin: 5px 0; }
 
+.back-btn-container {
+  height: 35px; }
+
+.back-btn {
+  position: relative;
+  left: 15px;
+  top: 15px;
+  background-color: white;
+  border-right: 1px #cfcfcf solid;
+  border-top: 1px #cfcfcf solid;
+  border-bottom: 3px solid #cfcfcf;
+  border-left: 3px solid #cfcfcf;
+  font-size: 1.1rem;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer; }
+
+.back-btn:active {
+  border-top: 1px solid #cfcfcf;
+  border-right: 1px solid #cfcfcf;
+  border-bottom: 1px solid #cfcfcf;
+  border-left: 1px solid #cfcfcf; }
+
 .navbar {
   display: grid;
   grid-template-columns: 20% 25% 40% 15%;
@@ -216,7 +239,7 @@ label {
   font-weight: bold; }
 
 .result-search-container {
-  margin: 30px 0;
+  margin: 40px 0;
   display: flex;
   justify-content: center;
   align-items: center; }
@@ -544,7 +567,7 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 500px;
+  height: 300px;
   width: 75%;
   margin: 15px 0; }
   .post-image-container a {
@@ -552,7 +575,10 @@ label {
 
 .post-image {
   max-width: 100%;
-  max-height: 100%; }
+  max-height: 100%;
+  min-height: 100px;
+  display: flex;
+  align-items: center; }
 
 .post-description {
   margin: 0 0 30px 0;

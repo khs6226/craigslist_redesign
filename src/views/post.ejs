@@ -76,6 +76,9 @@
         <% elapsed = `${daysElapsed} day` %>
     <% } else { elapsed = `${daysElapsed} days`} %>
 
+    <div class="back-btn-container">
+        <button class="back-btn">Back</button>
+    </div>
     <main class="container-center">
     <div class="post-container"></div>
         <a href="/categories/<%= postData.category %>" class="post-category"><p><%= postData.category %></p></a>
@@ -100,7 +103,7 @@
               </div>
             <% } %>
           <% } else { %>
-              <p>No image</p>
+              <p class="post-image">No image</p>
           <% } %>
         <!--  converts \n to html compatible line breaks  -->
         <% let description = postData.description.split("\r\n").join("<br />"); %>
@@ -121,6 +124,7 @@
     integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
     crossorigin=""></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/js/back.js"></script>
     <script src="/js/menu.js"></script>
     <script src="/js/contactBtn.js"></script>
     <script src="/js/imageSlide.js"></script>

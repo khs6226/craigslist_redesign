@@ -123,8 +123,19 @@ label {
     margin: 5px 0;
 }
 
+.back-btn-container {
+    height: 35px;
+}
+
 .back-btn {
-    
+    position: relative;
+    left: 15px;
+    top: 15px;
+    @include whiteButton();
+}
+
+.back-btn:active {
+    @include whiteButtonActive();
 }
 
 // Nav
@@ -337,7 +348,7 @@ label {
 // search results
 // use these styles to display post previews 
 .result-search-container {
-    margin: 30px 0;
+    margin: 40px 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -651,7 +662,7 @@ label {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 500px;
+    height: 300px;
     width: 75%;
     margin: 15px 0;
     a {
@@ -662,6 +673,9 @@ label {
 .post-image {
     max-width: 100%;
     max-height: 100%;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
 }
 
 .post-description {

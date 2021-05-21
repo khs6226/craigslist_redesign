@@ -5,8 +5,10 @@ $('.menu-icon').click((e) => {
   $('.nav-menu-container').toggleClass('show-menu', 500);
   if ($('.menu-icon').attr('src') == '/img/menu.svg') {
     $('.menu-icon').attr('src', '/img/close.svg');
+    $('.back-btn').css('visibility', 'hidden');
   } else {
     $('.menu-icon').attr('src', '/img/menu.svg');
+    $('.back-btn').css('visibility', 'visibile');
   }
   
 })
