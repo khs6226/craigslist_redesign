@@ -214,7 +214,11 @@ label {
   border: 1px solid #666;
   padding: 10px;
   cursor: pointer;
-  width: 7.5rem; }
+  width: 7.5rem;
+  transition: all .2s ease-in-out; }
+
+.category-home:hover {
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 2px 6px 0 rgba(0, 0, 0, 0.19); }
 
 .category-home:active {
   border: 1px solid #666; }
