@@ -351,7 +351,8 @@ label {
 .post-form-container {
   width: 100%;
   display: flex;
-  justify-content: center; }
+  justify-content: center;
+  margin-top: 15px; }
 
 .post-form {
   display: flex;
@@ -451,7 +452,7 @@ label {
   margin: 10px 0;
   align-items: center;
   justify-content: space-around;
-  width: 65%; }
+  width: 70%; }
 
 .form-vertical {
   display: flex;
@@ -504,6 +505,23 @@ label {
 
 #new-post-submit {
   display: none; }
+
+.error-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffc8c8;
+  padding: 8px;
+  border-radius: 5px;
+  width: 85%;
+  margin-bottom: 2px; }
+
+.error {
+  font-size: .8rem; }
+
+.validation-close {
+  height: 10px;
+  cursor: pointer; }
 
 .user-banner {
   display: flex;

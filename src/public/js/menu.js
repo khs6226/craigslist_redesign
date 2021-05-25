@@ -15,6 +15,13 @@ $('.menu-icon').click((e) => {
   
 })
 
+$('.validation-close').click((e) => {
+  console.log($(e.currentTarget).parent())
+  $(e.currentTarget).parent().fadeOut(300, () => {
+    $(e.target).parent().css('display', 'none')
+  }) 
+})
+
 
 // if(isIndex) {
 //   $('.nav-menu-container').toggleClass('show-menu', 500);

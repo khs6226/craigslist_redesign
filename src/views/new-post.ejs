@@ -45,6 +45,14 @@
     </div>
   <main class="container-center">
     <h1>Create Your Post</h1>
+    <% if (errors) { %>
+        <% errors.forEach(error => { %>
+            <div class="error-container">
+                <p class="error"><%= error.msg %></p>
+                <img src="/img/close.svg" alt="close button" class="validation-close">
+            </div>
+        <% }); %>
+    <% } %>
     <div class='post-form-container'>
         <form action="/posts/post-preview" method="POST" style="width: 100%" id="post-form" enctype="multipart/form-data">
             <% if(user) { %>
