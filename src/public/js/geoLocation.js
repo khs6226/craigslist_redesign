@@ -6,7 +6,7 @@ geoBtn.on('click', () => {
         $('form').attr('action', `/posts/post-preview/?lat=${results.latitude}&lon=${results.longitude}`);
         console.log(results);
         geoBtn.css('display', 'none ');
-        $('.geo-button-container').append('Access successful');
+        $('.geo-button-container').append('Location found!');
         // perhaps show map here
     });
 })

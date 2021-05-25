@@ -84,15 +84,25 @@ router.get('/:id/delete', (req, res) => {
 
 
 router.post('/post-preview', upload.array('imageFiles'), [
-  check('category', 'please choose a relevant category')
+  // form validation
+  check('category', 'choose a relevant category')
     .exists(),
-  check('title', 'please enter a title for your post')
+  check('city', 'choose the region nearest to you')
     .exists(),
-  check('price', 'enter a valid number')
-    .isNumeric(),
-  check('lon', 'longitude')
+  check('title', 'enter a title for your post')
     .exists()
-
+    .isLength({ min: 1 }),
+  check('price', 'price must be a valid number')
+    .exists()
+    .isNumeric(),
+  check('description', 'include a post description')
+    .exists()
+    .isLength({ min: 1 }),
+  check('email', 'enter a valid email address')
+    .exists()
+    .isEmail(),
+  check('lat', 'location required')
+    .exists()
 ], async (req, res) => {
   let authenticated = req.oidc.isAuthenticated();
   let user = req.oidc.user;

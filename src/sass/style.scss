@@ -156,6 +156,7 @@ label {
     grid-template-columns: 20% 25% 40% 15%;
     background-color: $blue;
     height: 8vh;
+    min-height: 45px;
     z-index: 1;
 }
 
@@ -167,10 +168,12 @@ label {
 
 .nav-logo-container a {
     height: 6vh;
+    min-height: 35px;
 }
 
 .nav-logo {
     height: 6vh;
+    min-height: 35px;
 }
 
 .nav-user-container {
@@ -210,6 +213,7 @@ label {
 .menu-icon {
     height: 5vh;
     cursor: pointer;
+    min-height: 30px;
 }
 
 .nav-menu-container {
@@ -301,6 +305,7 @@ label {
 
 .category-container-home {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
@@ -581,21 +586,25 @@ label {
 .form-vertical {
     display: flex;
     flex-direction: column;
-    margin: 10px 0 25px 0;
+    margin: 10px 0;
     align-items: center;
 }
 
+.input-flex {
+    display: flex;
+    width: 99%;
+}
 
 .geo-button-container {
     height: 44px;
     display: flex;
+    margin: 25px 0;
     align-items: center;
 }
 
 .geo-button {
     @include greenButton();
     padding: 10px;
-    margin: 5px 0;
     width: 100%;
 }
 
@@ -623,7 +632,7 @@ label {
     background-color: #ffc8c8;
     padding: 8px;
     border-radius: 5px;
-    width: 85%;
+    width: 90%;
     margin-bottom: 2px;
 }
 
@@ -634,7 +643,11 @@ label {
 .validation-close {
     height: 10px;
     cursor: pointer;
-//    opacity: 50%;
+}
+
+.required {
+    color: $red;
+    transform: translateY(-10px);
 }
 
 // post styling
@@ -764,6 +777,17 @@ label {
 
 .nxtBtn {
   right: 5%;
+}
+
+.additional-post-info-container {
+    background-color: $paleBlue;
+    border-radius: 10px;
+    width: 90%;
+    padding: 15px;
+}
+
+.additional-post-info {
+    margin: 10px 0;
 }
 
 #map {

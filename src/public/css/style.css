@@ -61,6 +61,7 @@ label {
   grid-template-columns: 20% 25% 40% 15%;
   background-color: #14bcff;
   height: 8vh;
+  min-height: 45px;
   z-index: 1; }
 
 .nav-logo-container {
@@ -69,10 +70,12 @@ label {
   justify-content: center; }
 
 .nav-logo-container a {
-  height: 6vh; }
+  height: 6vh;
+  min-height: 35px; }
 
 .nav-logo {
-  height: 6vh; }
+  height: 6vh;
+  min-height: 35px; }
 
 .nav-user-container {
   display: flex;
@@ -115,7 +118,8 @@ label {
 
 .menu-icon {
   height: 5vh;
-  cursor: pointer; }
+  cursor: pointer;
+  min-height: 30px; }
 
 .nav-menu-container {
   visibility: hidden;
@@ -202,6 +206,7 @@ label {
 
 .category-container-home {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap; }
 
 .category-home {
@@ -457,12 +462,17 @@ label {
 .form-vertical {
   display: flex;
   flex-direction: column;
-  margin: 10px 0 25px 0;
+  margin: 10px 0;
   align-items: center; }
+
+.input-flex {
+  display: flex;
+  width: 99%; }
 
 .geo-button-container {
   height: 44px;
   display: flex;
+  margin: 25px 0;
   align-items: center; }
 
 .geo-button {
@@ -476,7 +486,6 @@ label {
   border-radius: 5px;
   cursor: pointer;
   padding: 10px;
-  margin: 5px 0;
   width: 100%; }
 
 .geo-button:active {
@@ -513,7 +522,7 @@ label {
   background-color: #ffc8c8;
   padding: 8px;
   border-radius: 5px;
-  width: 85%;
+  width: 90%;
   margin-bottom: 2px; }
 
 .error {
@@ -522,6 +531,10 @@ label {
 .validation-close {
   height: 10px;
   cursor: pointer; }
+
+.required {
+  color: #FF5050;
+  transform: translateY(-10px); }
 
 .user-banner {
   display: flex;
@@ -663,6 +676,15 @@ label {
 
 .nxtBtn {
   right: 5%; }
+
+.additional-post-info-container {
+  background-color: #E8F6FD;
+  border-radius: 10px;
+  width: 90%;
+  padding: 15px; }
+
+.additional-post-info {
+  margin: 10px 0; }
 
 #map {
   margin: 20px 0;
