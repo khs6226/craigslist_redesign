@@ -57,9 +57,7 @@ label {
   display: grid;
   grid-template-columns: 20% 25% 40% 15%;
   background-color: #14bcff;
-  height: 8vh;
-  min-height: 45px;
-  max-height: 60px;
+  height: 60px;
   z-index: 1; }
 
 .nav-logo-container {
@@ -68,14 +66,10 @@ label {
   justify-content: center; }
 
 .nav-logo-container a {
-  height: 6vh;
-  min-height: 35px;
-  max-height: 45px; }
+  height: 40px; }
 
 .nav-logo {
-  height: 6vh;
-  min-height: 35px;
-  max-height: 45px; }
+  height: 40px; }
 
 .nav-user-container {
   display: flex;
@@ -117,9 +111,8 @@ label {
   justify-content: center; }
 
 .menu-icon {
-  height: 5vh;
-  cursor: pointer;
-  min-height: 30px; }
+  height: 35px;
+  cursor: pointer; }
 
 .nav-menu-container {
   visibility: hidden;
@@ -127,8 +120,8 @@ label {
   background: #14bcff;
   width: 100%;
   position: absolute;
-  height: 92vh;
-  transform: translate(0, 8vh);
+  height: calc(100vh - 60px);
+  transform: translate(0, 60px);
   text-align: right;
   transition: all .1s ease-in-out; }
 
@@ -169,11 +162,15 @@ label {
   text-align: center; }
 
 .search-container {
+  width: 80%;
   margin: 0 0 30px 0; }
 
 .home-search-form {
   display: flex;
   height: 35px; }
+
+.home-search-input {
+  width: 100%; }
 
 .home-search-submit {
   background-color: #99DA67;
@@ -200,7 +197,7 @@ label {
 .categories-home {
   display: flex;
   flex-direction: column;
-  margin: 60px 15px 0 15px;
+  margin: 60px 15px 20px 15px;
   align-items: center;
   justify-content: center; }
 
@@ -259,7 +256,7 @@ label {
   font-weight: bold; }
 
 .result-search-container {
-  margin: 40px 0;
+  margin: 40px auto;
   display: flex;
   justify-content: center;
   align-items: center; }
@@ -409,7 +406,7 @@ label {
   border: 1px solid #14bcff; }
 
 .new-post-upload {
-  margin: 5px 0; }
+  margin: 20px 0 5px 0; }
 
 .form-buttons {
   margin: 25px 0 0 0;
@@ -744,3 +741,52 @@ label {
 
 .container-header {
   margin: 40px 15px; }
+
+@media only screen and (min-width: 600px) {
+  .container-center {
+    margin: 100px 60px; }
+  p {
+    font-size: 1.2rem; }
+  h3 {
+    font-size: 1.4rem; }
+  .back-btn {
+    left: 25px;
+    top: 25px; }
+  .logo-map {
+    height: 150px; }
+  .search-container {
+    width: 65%; }
+  .home-search-input {
+    width: 100%;
+    font-size: 1.1rem;
+    padding: 20px 5px; }
+  .home-search-form {
+    width: 100%; }
+  .home-search-submit {
+    height: 40px;
+    width: 40px; }
+  .category-home {
+    margin: 35px 20px 20px 20px;
+    width: 9rem; }
+  .nav-user-container {
+    justify-content: flex-end; }
+  .result-search-container {
+    width: 65%; }
+  .posts-card-container {
+    flex-direction: row;
+    flex-wrap: wrap; }
+  .post-card {
+    width: 20rem;
+    margin: 15px;
+    height: 180px; }
+  .filter-container {
+    margin: 25px auto; }
+  .category-search-container {
+    width: 65%;
+    margin: 25px auto; }
+  label {
+    font-size: 1.1rem; }
+  .new-post-input, .new-post-input-price, .new-post-textarea {
+    font-size: 1.1rem; }
+  .form-horizontal {
+    width: 250px; } }

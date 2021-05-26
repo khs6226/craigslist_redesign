@@ -151,9 +151,7 @@ label {
     display: grid;
     grid-template-columns: 20% 25% 40% 15%;
     background-color: $blue;
-    height: 8vh;
-    min-height: 45px;
-    max-height: 60px;
+    height: 60px;
     z-index: 1;
 }
 
@@ -164,15 +162,11 @@ label {
 }
 
 .nav-logo-container a {
-    height: 6vh;
-    min-height: 35px;
-    max-height: 45px;
+    height: 40px;
 }
 
 .nav-logo {
-    height: 6vh;
-    min-height: 35px;
-    max-height: 45px;
+    height: 40px;
 }
 
 .nav-user-container {
@@ -210,9 +204,8 @@ label {
 }
 
 .menu-icon {
-    height: 5vh;
+    height: 35px;
     cursor: pointer;
-    min-height: 30px;
 }
 
 .nav-menu-container {
@@ -221,8 +214,8 @@ label {
     background: $blue;
     width: 100%;
     position: absolute;
-    height: 92vh;
-    transform: translate(0, 8vh);
+    height: calc(100vh - 60px);
+    transform: translate(0, 60px);
     text-align: right;
     transition: all .1s ease-in-out;
 }
@@ -272,12 +265,17 @@ label {
 }
 
 .search-container {
+    width: 80%;
     margin: 0 0 30px 0;
 }
 
 .home-search-form {
    display: flex; 
    height: 35px;
+}
+
+.home-search-input {
+    width: 100%;
 }
 
 .home-search-submit {
@@ -297,7 +295,7 @@ label {
 .categories-home{
    display: flex;
    flex-direction: column;
-   margin: 60px 15px 0 15px; 
+   margin: 60px 15px 20px 15px; 
    align-items: center;
    justify-content: center;
 }
@@ -370,7 +368,7 @@ label {
 // search results
 // use these styles to display post previews 
 .result-search-container {
-    margin: 40px 0;
+    margin: 40px auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -547,7 +545,7 @@ label {
 }
 
 .new-post-upload {
-    margin: 5px 0;
+    margin: 20px 0 5px 0;
 }
 
 .form-buttons {
@@ -850,4 +848,105 @@ label {
 
 .container-header {
     margin: 40px 15px;
+}
+
+
+@media only screen and (min-width: 600px) {
+    .container-center {
+        margin: 100px 60px;
+    }
+
+    p {
+        font-size: 1.2rem;
+    }
+
+    h3 {
+        font-size: 1.4rem;
+    }
+
+    .back-btn {
+        left: 25px;
+        top: 25px;
+    }
+
+    // index
+    .logo-map {
+        height: 150px;
+    }    
+
+    .search-container { 
+        width: 65%;
+    }
+
+    .home-search-input {
+        width: 100%;
+        font-size: 1.1rem;
+        padding: 20px 5px;
+    }
+
+    .home-search-form {
+        width: 100%;
+    }
+
+    .home-search-submit {
+        height: 40px;
+        width: 40px;
+    }
+
+    .category-home {
+        margin: 35px 20px 20px 20px;
+        width: 9rem;
+    }
+
+    .nav-user-container {
+        justify-content: flex-end;
+    }
+
+    // search results
+    .result-search-container {
+        width: 65%;
+    }
+    
+    .posts-card-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .post-card {
+        width: 20rem;
+        margin: 15px;
+        height: 180px;
+    }
+
+    .filter-container {
+        margin: 25px auto;
+    }
+
+    // category
+    .category-search-container {
+        width: 65%;
+        margin: 25px auto;
+    }
+
+    // new-post
+    label {
+        font-size: 1.1rem;
+    }
+
+    .new-post-input, .new-post-input-price, .new-post-textarea {
+        font-size: 1.1rem;
+    }
+
+    .form-horizontal {
+        width: 250px;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+
+}
+
+
+@media only screen and (min-width: 1200px) {
+
 }
