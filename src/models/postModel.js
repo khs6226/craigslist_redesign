@@ -103,12 +103,14 @@ function getPostByUserId(userId, cb) {
 }
 
 function getPostByCategory(category, cb) {
-    let sqlQuery = `SELECT post.post_id, category, title, description, user_id, price, date, email, phone, make, model, dimensions, prod_condition, city, latitude, longitude
+    let sqlQuery = `SELECT post.post_id, category, title, description, user_id, price, date, email, phone, make, model, dimensions, prod_condition, city, latitude, longitude, imageKey
                         FROM post
                     LEFT JOIN contact ON post.post_id = contact.post_id
                     LEFT JOIN details ON post.post_id = details.post_id
                     LEFT JOIN location ON post.post_id = location.post_id
-                    WHERE category = :category`
+                    LEFT JOIN image ON post.post_id = image.post_id
+                    WHERE category = :category
+                    GROUP BY post.post_id`
     let params = { category: category }
 
     db.query(sqlQuery, params, (err, results) => {
