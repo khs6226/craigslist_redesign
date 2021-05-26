@@ -147,14 +147,14 @@
           <% let description = post.description.split("\r\n").join("<br />"); %>
           <!-- data attr stores post_id -->
           <div class="post-card" onclick="location.href='/posts/<%= post.post_id %>';">
-            <h3 class="post-card-title"><%= post.title %> <span class="post-price"> - $<%= post.price %></span></h3>
-            <div class="post-date">Posted <%= elapsed %> ago</div>
-            <p class="post-card-description"><%- description %></p>
             <% if (post.image) { %>
               <div class="thumbnail-container"></div>
                 <img src="data:image/png;base64,<%= post.image %>" alt="image for <%= post.title %>" class="thumbnail">
               </div>
             <% } %>
+            <h3 class="post-card-title"><%= post.title %> <span class="post-price"> - $<%= post.price %></span></h3>
+            <div class="post-date">Posted <%= elapsed %> ago</div>
+            <p class="post-card-description"><%- description %></p>
           </div>
       <% }); %>
       <% } else { %>
@@ -182,14 +182,18 @@
             <% let description = post.description.split("\r\n").join("<br />"); %>
             <!-- data attr stores post_id -->
             <div class="post-card" onclick="location.href='/posts/<%= post.post_id %>';">
-              <h3 class="post-card-title"><%= post.title %> <span class="post-price"> - $<%= post.price %></span></h3>
-              <div class="post-date">Posted <%= elapsed %> ago</div>
-              <p class="post-card-description"><%- description %></p>
               <% if (post.image) { %>
                 <div class="thumbnail-container">
                   <img src="data:image/png;base64,<%= post.image %>" alt="image for <%= post.title %>" class="thumbnail">
                 </div>
+              <% } else {%>
+                <div class="thumbnail-container">
+                  <p class="thumbnail-no-image">No image</p>
+                </div>
               <% } %>
+              <h3 class="post-card-title"><%= post.title %> <span class="post-price"> - $<%= post.price %></span></h3>
+              <div class="post-date">Posted <%= elapsed %> ago</div>
+              <p class="post-card-description"><%- description %></p>
             </div>
         <% }); %>
       <% } %>
