@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const dbConnection = require('../dbConnection');
 const { searchModel } = require('../models/searchModel');
-const { getFileStream } = require('../models/s3');
+const { getFileStream } = require('../models/S3');
 const { auth, requiresAuth } = require('express-openid-connect');
 const { check, validationResult  } = require('express-validator');
 
