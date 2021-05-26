@@ -852,6 +852,8 @@ label {
   .container-center {
     max-width: 944px;
     margin: 100px auto; }
+  .back-btn {
+    display: none; }
   .posts-card-container {
     max-width: 1200px;
     margin: auto; }
