@@ -334,7 +334,7 @@ label {
   border-radius: 10px;
   width: 80%;
   max-width: 310px;
-  height: 400px;
+  height: 415px;
   padding: 0px 10px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -832,11 +832,6 @@ label {
     flex-direction: row;
     align-items: center;
     width: 100%; }
-  .nav-menu-item {
-    font-size: 1.1rem;
-    transition: all .2s ease-in-out; }
-  .nav-menu-item:hover {
-    color: #505050; }
   .nav-user-container {
     grid-row-start: 1;
     grid-column-start: 3;
