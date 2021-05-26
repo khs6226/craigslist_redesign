@@ -460,6 +460,7 @@ label {
     box-shadow:0 5px 8px 0 rgba(0,0,0,0.2),0 4px 12px 0 rgba(0,0,0,0.19);
     border-radius: 10px;
     width: 80%;
+    max-width: 310px;
     height: 375px;
     padding: 0px 10px;
     overflow: hidden;
@@ -938,7 +939,6 @@ label {
     .post-card {
         width: 20rem;
         margin: 15px;
-        height: 180px;
     }
 
     .filter-container {
@@ -1029,12 +1029,6 @@ label {
     }
 
     // search results
-    .post-card {
-        width: 24rem;
-        margin: 15px;
-        height: 180px;
-    }
-
     .post-description {
         margin-bottom: 40px;
     }

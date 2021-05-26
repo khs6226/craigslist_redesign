@@ -333,6 +333,7 @@ label {
   box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 12px 0 rgba(0, 0, 0, 0.19);
   border-radius: 10px;
   width: 80%;
+  max-width: 310px;
   height: 375px;
   padding: 0px 10px;
   overflow: hidden;
@@ -792,8 +793,7 @@ label {
     flex-wrap: wrap; }
   .post-card {
     width: 20rem;
-    margin: 15px;
-    height: 180px; }
+    margin: 15px; }
   .filter-container {
     margin: 25px auto; }
   .category-search-container {
@@ -844,10 +844,6 @@ label {
     display: none; }
   #login {
     display: none; }
-  .post-card {
-    width: 24rem;
-    margin: 15px;
-    height: 180px; }
   .post-description {
     margin-bottom: 40px; }
   .condition-map-container {
