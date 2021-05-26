@@ -110,7 +110,8 @@ function getPostByCategory(category, cb) {
                     LEFT JOIN location ON post.post_id = location.post_id
                     LEFT JOIN image ON post.post_id = image.post_id
                     WHERE category = :category
-                    GROUP BY post.post_id`
+                    GROUP BY post.post_id
+                    ORDER BY post.date desc;`
     let params = { category: category }
 
     db.query(sqlQuery, params, (err, results) => {
