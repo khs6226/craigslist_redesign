@@ -23,7 +23,7 @@ router.get('/results', (req, res) => {
             console.log(err);
             return err;
         } else {
-            if (authenticated) {
+           
               await Promise.all(results.map( async (result) => {
                 if(result.imageKey) {
                   keySet[0] = result.imageKey;
@@ -33,10 +33,8 @@ router.get('/results', (req, res) => {
                   result.image = undefined;
                 }
               }));
-                res.render('results', { user: user, posts: results, query: searchParams, filter: { minPrice: minPrice, maxPrice: maxPrice, category: category, condition: condition, location: location }});
-            } else {
-                res.render('results', { user: false, posts: results, query: searchParams, filter: { minPrice: minPrice, maxPrice: maxPrice, category: category, condition: condition, location: location }});
-            }
+              res.render('results', { user: user, posts: results, query: searchParams, filter: { minPrice: minPrice, maxPrice: maxPrice, category: category, condition: condition, location: location }});
+            
         }
     });
 })
