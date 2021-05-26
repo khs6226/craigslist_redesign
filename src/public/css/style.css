@@ -624,7 +624,7 @@ label {
   align-items: center;
   height: 300px;
   width: 75%;
-  margin: 15px 0; }
+  margin: 25px 0; }
   .post-image-container a {
     position: absolute; }
 
@@ -636,7 +636,7 @@ label {
   align-items: center; }
 
 .post-description {
-  margin: 0 0 30px 0;
+  margin: 15px 0 30px 0;
   width: 100%; }
 
 .post-contact-container {
@@ -772,6 +772,10 @@ label {
     font-size: 1.1rem; }
   h3 {
     font-size: 1.4rem; }
+  .preBtn {
+    left: 15%; }
+  .nxtBtn {
+    right: 15%; }
   .back-btn {
     left: 25px;
     top: 25px; }
@@ -870,6 +874,10 @@ label {
   .container-center {
     max-width: 944px;
     margin: 100px auto; }
+  .preBtn {
+    left: 20%; }
+  .nxtBtn {
+    right: 20%; }
   .back-btn {
     display: none; }
   .posts-card-container {
