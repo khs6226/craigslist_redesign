@@ -36,9 +36,9 @@
                 <li><a class="nav-menu-item" href="/categories">Explore</a></li>
                 <% if (user) { %>
                     <li><a class="nav-menu-item" href="/user/profile">Profile</a></li>
-                    <li><a class="nav-menu-item" href="/logout">Logout</a></li>
+                    <li><a class="nav-menu-item" id="logout" href="/logout">Logout</a></li>
                 <% } else { %>
-                    <li><a class="nav-menu-item" href="/login">Login</a></li>
+                    <li  id="login"><a class="nav-menu-item" href="/login">Login</a></li>
                 <% } %>
             </ul>
         </div>
@@ -107,12 +107,14 @@
         <!--  converts \n to html compatible line breaks  -->
         <% let description = postData.description.split("\r\n").join("<br />"); %>
         <p class="post-description"><%- description %></p>
-        <div class="additional-post-info-container">
-            <p class="additional-post-info"><strong>Condition:</strong> <%= postData.prod_condition? postData.prod_condition : 'n/a' %></p>
-            <p class="additional-post-info"><strong>Make:</strong> <%= postData.make? postData.make : 'n/a' %></p>
-            <p class="additional-post-info"><strong>Model:</strong> <%= postData.model? postData.model : 'n/a' %></p>
+        <div class="condition-map-container">
+            <div class="additional-post-info-container">
+                <p class="additional-post-info"><strong>Condition:</strong> <%= postData.prod_condition? postData.prod_condition : 'n/a' %></p>
+                <p class="additional-post-info"><strong>Make:</strong> <%= postData.make? postData.make : 'n/a' %></p>
+                <p class="additional-post-info"><strong>Model:</strong> <%= postData.model? postData.model : 'n/a' %></p>
+            </div>
+            <div id="map" data-lat="<%= postData.latitude %>" data-lon="<%= postData.longitude %>"></div>
         </div>
-        <div id="map" data-lat="<%= postData.latitude %>" data-lon="<%= postData.longitude %>"></div>
         <div class="post-contact-container">
             <button type="button" class="contact-seller-btn">Reply</button>
             <div class="post-contact">

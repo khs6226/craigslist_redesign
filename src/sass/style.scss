@@ -783,13 +783,18 @@ label {
     padding: 15px;
 }
 
+.condition-map-container{
+    width: 100%;
+}
+
 .additional-post-info {
     margin: 10px 0;
 }
 
 #map {
-    margin: 20px 0;
+    margin: 20px auto;
     width: 100%;
+    max-width: 400px;
     height: 300px;
 }
 
@@ -857,12 +862,13 @@ label {
     }
 
     p {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 
     h3 {
         font-size: 1.4rem;
     }
+
 
     .back-btn {
         left: 25px;
@@ -928,6 +934,10 @@ label {
         margin: 25px auto;
     }
 
+    #map {
+        height: 400px;
+    }
+
     // new-post
     label {
         font-size: 1.1rem;
@@ -940,13 +950,118 @@ label {
     .form-horizontal {
         width: 250px;
     }
+
+    // explore
+    .categories {
+        margin: 80px 60px;
+    }
 }
 
 @media only screen and (min-width: 900px) {
 
+    .container-center {
+        margin: 100px 8rem;
+    }
+
+    // nav and menu
+    .navbar {
+        grid-template-columns: 20% 60% 20%;
+        grid-template-rows: 1fr;
+    }
+    
+    .nav-menu-container {
+        visibility: visible;
+        opacity: 1;
+        position: static;
+        transform: none;
+        height: auto;
+        width: auto;
+        grid-row-start: 1;
+        grid-column-start: 2;
+        display: flex;
+        align-items: center;    
+        justify-content: space-around;
+    }
+
+    .nav-menu {
+        flex-direction: row;
+        align-items: center;
+        width: 100%;
+    }
+
+    .nav-menu-item {
+        font-size: 1.1rem;
+    }
+
+    .nav-user-container {
+        grid-row-start: 1;
+        grid-column-start: 3;
+        justify-content: center;
+    }
+
+    .nav-user {
+        width: 100%;
+    }
+
+    .menu-icon-container {
+        display: none;
+    }
+
+    #login {
+        display: none;
+    }
+
+    // search results
+    .post-card {
+        width: 24rem;
+        margin: 15px;
+        height: 180px;
+    }
+
+    .post-description {
+        margin-bottom: 40px;
+    }
+
+    .condition-map-container {
+        display: flex;
+    }
+
+    .additional-post-info-container {
+        margin: 20px 20px 20px 0;
+        height: 50%;
+        max-width: 400px;
+    }
+
+    // explore
+    .categories {
+        margin: 80px 7rem;
+    }
 }
 
 
 @media only screen and (min-width: 1200px) {
+    .container-center {
+        max-width: 944px;
+        margin: 100px auto;
+    }
 
+    // search results
+    .posts-card-container {
+        max-width: 1200px;
+        margin: auto;
+    }
+
+    .home-search-form {
+        max-width: 780px;
+    }
+    
+    .filter-container {
+        max-width: 960px;
+    }
+
+    // explore
+    .categories {
+        margin: 80px auto;
+        max-width: 976px;
+    }
 }
