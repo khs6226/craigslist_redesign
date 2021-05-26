@@ -85,6 +85,8 @@ router.get('/:id/delete', (req, res) => {
 
 router.post('/post-preview', upload.array('imageFiles'), [
   // form validation
+  check('user_id', 'you must be logged in to make a post')
+    .exists(),
   check('category', 'choose a relevant category')
     .exists(),
   check('city', 'choose the region nearest to you')
