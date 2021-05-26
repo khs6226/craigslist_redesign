@@ -150,6 +150,11 @@
             <h3 class="post-card-title"><%= post.title %> <span class="post-price"> - $<%= post.price %></span></h3>
             <div class="post-date">Posted <%= elapsed %> ago</div>
             <p class="post-card-description"><%- description %></p>
+            <% if (post.image) { %>
+              <div class="thumbnail-container"></div>
+                <img src="data:image/png;base64,<%= post.image %>" alt="image for <%= post.title %>" class="thumbnail">
+              </div>
+            <% } %>
           </div>
       <% }); %>
       <% } else { %>
@@ -180,6 +185,11 @@
               <h3 class="post-card-title"><%= post.title %> <span class="post-price"> - $<%= post.price %></span></h3>
               <div class="post-date">Posted <%= elapsed %> ago</div>
               <p class="post-card-description"><%- description %></p>
+              <% if (post.image) { %>
+                <div class="thumbnail-container">
+                  <img src="data:image/png;base64,<%= post.image %>" alt="image for <%= post.title %>" class="thumbnail">
+                </div>
+              <% } %>
             </div>
         <% }); %>
       <% } %>

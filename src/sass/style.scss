@@ -460,11 +460,12 @@ label {
     box-shadow:0 5px 8px 0 rgba(0,0,0,0.2),0 4px 12px 0 rgba(0,0,0,0.19);
     border-radius: 10px;
     width: 80%;
-    height: 150px;
+    height: 200px;
     padding: 0px 10px;
     overflow: hidden;
     text-overflow:ellipsis;
     cursor: pointer;
+
 }
 
 .post-card-title {
@@ -479,6 +480,18 @@ label {
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
 }
+
+.thumbnail-container {
+  height: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .thumbnail {
+    max-height: 75%;
+  }
+}
+
 
 // new posts
 .post-form-container {
