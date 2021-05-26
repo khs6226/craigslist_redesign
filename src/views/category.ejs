@@ -45,7 +45,7 @@
         <button class="back-btn">Back</button>
       </div>
       <div class="container-header">
-          <h2>Category: <span><a href="/categories/<%= category %>" class="big-anchor"><%= category %></a></span></h2>
+          <h2 class="category-title"><a class="category-anchor" href="/categories"> Category</a> > <span><a href="/categories/<%= category %>" class="big-anchor"><%= category %></a></span></h2>
       </div>
     <div class="category-search-container">
         <form action="/categories/<%= category %>/results" method="GET" class="home-search-form">

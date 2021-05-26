@@ -854,6 +854,15 @@ label {
 }
 
 // explore
+.category-title {
+    margin: 15px;
+}
+
+.category-anchor {
+    text-decoration: none;
+    color: black;
+}
+
 .categories {
     display: flex;
     flex-direction: column;
@@ -969,6 +978,11 @@ label {
     }
 
     // explore
+    .category-title {
+        margin: 15px 60px;
+    }
+    
+
     .categories {
         margin: 80px 60px;
     }
@@ -1044,6 +1058,10 @@ label {
     }
 
     // explore
+    .category-title {
+        margin: 15px 8rem;
+    }
+    
     .categories {
         margin: 80px 7rem;
     }
@@ -1075,6 +1093,10 @@ label {
     }
 
     // explore
+    .category-title {
+        margin: 15px 10rem;
+    }
+
     .categories {
         margin: 80px auto;
         max-width: 976px;

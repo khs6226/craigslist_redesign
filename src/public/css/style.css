@@ -743,6 +743,13 @@ label {
   width: 85%;
   margin: auto; }
 
+.category-title {
+  margin: 15px; }
+
+.category-anchor {
+  text-decoration: none;
+  color: black; }
+
 .categories {
   display: flex;
   flex-direction: column;
@@ -807,6 +814,8 @@ label {
     font-size: 1.1rem; }
   .form-horizontal {
     width: 250px; }
+  .category-title {
+    margin: 15px 60px; }
   .categories {
     margin: 80px 60px; } }
 
@@ -852,6 +861,8 @@ label {
     margin: 20px 20px 20px 0;
     height: 50%;
     max-width: 400px; }
+  .category-title {
+    margin: 15px 8rem; }
   .categories {
     margin: 80px 7rem; } }
 
@@ -868,6 +879,8 @@ label {
     max-width: 780px; }
   .filter-container {
     max-width: 960px; }
+  .category-title {
+    margin: 15px 10rem; }
   .categories {
     margin: 80px auto;
     max-width: 976px; } }
