@@ -45,6 +45,14 @@
     </div>
   <main class="container-center">
     <h1>Create Your Post</h1>
+    <% if (errors) { %>
+        <% errors.forEach(error => { %>
+            <div class="error-container">
+                <p class="error"><%= error.msg %></p>
+                <img src="/img/close.svg" alt="close button" class="validation-close">
+            </div>
+        <% }); %>
+    <% } %>
     <div class='post-form-container'>
         <form action="/posts/post-preview" method="POST" style="width: 100%" id="post-form" enctype="multipart/form-data">
             <% if(user) { %>
@@ -61,14 +69,41 @@
                         <option value="Cars & Trucks">Cars & Trucks</option>
                         <option value="Computers">Computers</option>
                         <option value="Electronics">Electronics</option>
+                        <option value="Furniture">Furniture</option>
+                        <option value="Appliances">Appliances</option>
+                        <option value="Clothing">Clothing</option>
+                    </select>
+                    <div class="required">
+                        *
+                    </div>
+                </div>
+                <div class="form-vertical">
+                    <label for="city">Choose the region that best fits: <span class="required">*</span> </label>
+                    <select name="city" class="region" form="post-form">
+                        <option value="" selected disabled hidden>--</option>
+                        <option value="Vancouver">Vancouver</option>
+                        <option value="North Shore">North Shore</option>
+                        <option value="Burnaby/Newwest">Burnaby/Newwest</option>
+                        <option value="Delta/Surrey/Langley">Delta/Surrey/Langley</option>
+                        <option value="Tricities/Pitt/Maple">Tricities/Pitt/Maple</option>
+                        <option value="Richmond">Richmond</option>
                     </select>
                 </div>
-                <input type="text" name="title" placeholder="Title" class="new-post-input">
+                <div class="input-flex">
+                    <input type="text" name="title" placeholder="Title" class="new-post-input">
+                    <span style="color:red">*</span>
+                </div>
+                
                 <div class="new-post-price">
                     <div>$</div>
                     <input type="text" name="price" placeholder="Price" class="new-post-input-price">
+                    <span class="required">*</span>
                 </div>
-                <textarea name="description" class="new-post-textarea" cols="30" rows="10" placeholder="Description"></textarea>
+                <div class="input-flex">
+                     <textarea name="description" class="new-post-textarea" cols="30" rows="10" placeholder="Description"></textarea>
+                     <span style="color:red">*</span>
+                </div>
+               
                 <label for="form-photos" class="new-post-upload">Upload images</label>
                 <input type="file" name="imageFiles" accept="image/*" multiple>
                 <div class="form-buttons">
@@ -103,20 +138,11 @@
                 <div class="step-container">
                     <h4 class="step-header">Step 3</h4>
                 </div>
-                <input type="text" name="email" placeholder="Email" class="new-post-input">
-                <input type="text" name="phone" placeholder="Phone Number" class="new-post-input">
-                <div class="form-vertical">
-                    <label for="city">Choose the location that best fits:</label>
-                    <select name="city" class="region" form="post-form">
-                        <option value="" selected disabled hidden>--</option>
-                        <option value="Vancouver">Vancouver</option>
-                        <option value="North Shore">North Shore</option>
-                        <option value="Burnaby/Newwest">Burnaby/Newwest</option>
-                        <option value="Delta/Surrey/Langley">Delta/Surrey/Langley</option>
-                        <option value="Tricities/Pitt/Maple">Tricities/Pitt/Maple</option>
-                        <option value="Richmond">Richmond</option>
-                    </select>
+                <div class="input-flex">
+                    <input type="text" name="email" placeholder="Email" class="new-post-input">
+                    <span style="color:red">*</span>
                 </div>
+                <input type="text" name="phone" placeholder="Phone Number" class="new-post-input" style="width: 92%">
                 <!-- <label for="Location">Location</label>
                 <input type="text" name="postal" placeholder="Postal Code" class="new-post-input"> -->
                 <!-- <p>Or</p> -->
@@ -131,6 +157,7 @@
             </div>
         </form>
     </div>
+    <p style="font-size: .9rem; font-style: italic;"><span class='required'>*</span> Indicates a required field</p>
   </main>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="/js/back.js"></script>

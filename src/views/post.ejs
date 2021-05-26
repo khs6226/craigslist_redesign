@@ -80,7 +80,6 @@
         <button class="back-btn">Back</button>
     </div>
     <main class="container-center">
-    <div class="post-container"></div>
         <a href="/categories/<%= postData.category %>" class="post-category"><p><%= postData.category %></p></a>
         <h2 class="post-title"><%= postData.title %> - $<%= postData.price %> (<%= postData.city %>)</h2>
         <div class="post-date">Posted <%= elapsed %> ago</div>
@@ -108,6 +107,11 @@
         <!--  converts \n to html compatible line breaks  -->
         <% let description = postData.description.split("\r\n").join("<br />"); %>
         <p class="post-description"><%- description %></p>
+        <div class="additional-post-info-container">
+            <p class="additional-post-info"><strong>Condition:</strong> <%= postData.prod_condition? postData.prod_condition : 'n/a' %></p>
+            <p class="additional-post-info"><strong>Make:</strong> <%= postData.make? postData.make : 'n/a' %></p>
+            <p class="additional-post-info"><strong>Model:</strong> <%= postData.model? postData.model : 'n/a' %></p>
+        </div>
         <div id="map" data-lat="<%= postData.latitude %>" data-lon="<%= postData.longitude %>"></div>
         <div class="post-contact-container">
             <button type="button" class="contact-seller-btn">Reply</button>

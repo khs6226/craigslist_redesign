@@ -7,8 +7,10 @@ const { post } = require('./user');
 const fs = require('fs');
 const multer = require('multer');
 const upload = multer({ dest: 'uploads/' });
-const util = require('util')
-const unlinkFile = util.promisify(fs.unlink)
+const util = require('util');
+const unlinkFile = util.promisify(fs.unlink);
+const { check, validationResult  } = require('express-validator');
+
 
 const { uploadFile, getFileStream } = require('../models/S3');
 const { create } = require('domain');
@@ -17,7 +19,7 @@ const { create } = require('domain');
 router.get('/new-post', (req, res) => {
   let authenticated = req.oidc.isAuthenticated();
   let user = req.oidc.user;
-  res.render('new-post', { user: user });
+  res.render('new-post', { user: user, errors: false });
 })
 
 router.get('/:id', (req, res) => {
@@ -81,41 +83,67 @@ router.get('/:id/delete', (req, res) => {
 })
 
 
-router.post('/post-preview', upload.array('imageFiles'), async (req, res) => {
+router.post('/post-preview', upload.array('imageFiles'), [
+  // form validation
+  check('category', 'choose a relevant category')
+    .exists(),
+  check('city', 'choose the region nearest to you')
+    .exists(),
+  check('title', 'enter a title for your post')
+    .exists()
+    .isLength({ min: 1 }),
+  check('price', 'price must be a valid number')
+    .exists()
+    .isNumeric(),
+  check('description', 'include a post description')
+    .exists()
+    .isLength({ min: 1 }),
+  check('email', 'enter a valid email address')
+    .exists()
+    .isEmail(),
+  check('lat', 'location required')
+    .exists()
+], async (req, res) => {
   let authenticated = req.oidc.isAuthenticated();
   let user = req.oidc.user;
   let uploadedFiles = req.files;
   let locationData = { lat: req.query.lat, lon: req.query.lon };
   let postData = req.body;
+  const errors = validationResult(req);
 
-
-  const uploadResult = await uploadFile(uploadedFiles);
-  uploadedFiles.forEach((files) => {
-    unlinkFile(files.path);
-  })
-  console.log('uploadResult', uploadResult);
-
-  // have controller layer in between to return new object with proper location data
-  await postModel.addPost(postData, locationData, (err) => {
-    if (err) {
-      console.log(err);
-      return;
-    }
-    console.log('New post added to db ' + postData);
-  }).then(result => {
-    console.log('addPostResult', result);
-    uploadResult.forEach((key) => {
-      postModel.addImageKey(postData, key, result, (err) => {
-        if(err) {
-            console.log(err);
-            return;
-        }
-      })
+  if(!errors.isEmpty()) {
+    let errMsg = errors.array();
+    res.render('new-post', { user: user, errors: errMsg });
+    return;
+  } else {
+    const uploadResult = await uploadFile(uploadedFiles);
+    uploadedFiles.forEach((files) => {
+      unlinkFile(files.path);
     })
-    res.redirect(`/posts/${result}`)
-  });
-  console.log('postData', postData);
-  // res.render('post-preview', { user: user, imagePath: uploadResult });
+    console.log('uploadResult', uploadResult);
+  
+    // have controller layer in between to return new object with proper location data
+    await postModel.addPost(postData, locationData, (err) => {
+      if (err) {
+        console.log(err);
+        return;
+      }
+      console.log('New post added to db ' + postData);
+    }).then(result => {
+      console.log('addPostResult', result);
+      uploadResult.forEach((key) => {
+        postModel.addImageKey(postData, key, result, (err) => {
+          if(err) {
+              console.log(err);
+              return;
+          }
+        })
+      })
+      res.redirect(`/posts/${result}`)
+    });
+    console.log('postData', postData);
+    // res.render('post-preview', { user: user, imagePath: uploadResult });
+  }
 });
 
 router.get('/post-preview/:key', (req, res) => {

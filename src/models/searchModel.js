@@ -12,7 +12,8 @@ function searchModel(queryString, cb) {
                     LEFT JOIN image ON post.post_id = image.post_id
                     WHERE title LIKE :queryString OR description LIKE :queryString OR category LIKE :queryString OR make LIKE :queryString OR model LIKE :queryString
                     GROUP BY post.post_id
-                    ORDER BY post.post_id desc;`;
+                    ORDER BY post.date desc;`;
+
     let params = { queryString: searchParam }
     db.query(sqlQuery, params, (err, results) => {
         if (err) {
@@ -32,7 +33,7 @@ function categorySearch (queryString, category, cb) {
                     LEFT JOIN details ON post.post_id = details.post_id
                     LEFT JOIN location ON post.post_id = location.post_id
                     WHERE category = :category AND (title LIKE :queryString OR description LIKE :queryString OR make LIKE :queryString OR model LIKE :queryString)
-                    ORDER BY post.post_id desc;`;
+                    ORDER BY post.date desc;`;
     let params = { 
         queryString: searchParam,
         category: category
