@@ -832,6 +832,8 @@ label {
     flex-direction: row;
     align-items: center;
     width: 100%; }
+  .nav-menu-item {
+    font-size: 1.1rem; }
   .nav-user-container {
     grid-row-start: 1;
     grid-column-start: 3;
