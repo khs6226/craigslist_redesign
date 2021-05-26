@@ -148,8 +148,12 @@
           <!-- data attr stores post_id -->
           <div class="post-card" onclick="location.href='/posts/<%= post.post_id %>';">
             <% if (post.image) { %>
-              <div class="thumbnail-container"></div>
+              <div class="thumbnail-container">
                 <img src="data:image/png;base64,<%= post.image %>" alt="image for <%= post.title %>" class="thumbnail">
+              </div>
+            <% } else {%>
+              <div class="thumbnail-container">
+                <p class="thumbnail-no-image">No image</p>
               </div>
             <% } %>
             <h3 class="post-card-title"><%= post.title %> <span class="post-price"> - $<%= post.price %></span></h3>
