@@ -32,11 +32,13 @@
             <li><a class="nav-menu-item" href="/">Home</a></li>
             <li><a class="nav-menu-item" href="/categories">Explore</a></li>
             <% if (user) { %>
-                <li><a class="nav-menu-item" href="/user/profile">Profile</a></li>
-                <li><a class="nav-menu-item" id="logout" href="/logout">Logout</a></li>
-                <% } else { %>
-                    <li  id="login"><a class="nav-menu-item" href="/login">Login</a></li>
-            <% } %>
+              <li><a class="nav-menu-item" href="/user/profile">Profile</a></li>
+              <li><a class="nav-menu-item" href="/contact">Contact Us</a></li>
+              <li><a class="nav-menu-item" id="logout" href="/logout">Logout</a></li>
+          <% } else { %>
+              <li><a class="nav-menu-item" href="/contact">Contact Us</a></li>
+              <li id="login"><a class="nav-menu-item" href="/login">Login</a></li>
+          <% } %>
         </ul>
     </div>
   </nav>
