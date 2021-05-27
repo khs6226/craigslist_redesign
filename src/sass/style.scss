@@ -886,7 +886,38 @@ label {
     margin: 40px 15px;
 }
 
+// Contact Us
+.contact-us {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40px 15px;
+}
 
+.form-input-container {
+  display: flex;
+  padding: 2%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#contact-us-form {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-input {
+  width: 50%;
+  border-radius: 5px;
+}
+
+.submit-button {
+  @include greenButton();
+  margin: 10%;
+}
+
+// Responsive Design
 @media only screen and (min-width: 600px) {
     .container-center {
         margin: 100px 60px;
