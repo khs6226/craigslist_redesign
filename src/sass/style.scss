@@ -787,11 +787,15 @@ label {
 }
 
 .preBtn {
-  left: 5%;
+    height: 25px;
+    left: 5%;
+    cursor: pointer;
 }
 
 .nxtBtn {
-  right: 5%;
+    height: 25px;
+    right: 5%;
+    cursor: pointer;
 }
 
 .additional-post-info-container {
