@@ -7,7 +7,7 @@ const user = require('./src/routes/user');
 const search = require('./src/routes/search');
 const posts = require('./src/routes/posts');
 const categories = require('./src/routes/categories');
-const contact = require('./src/routes/contact');
+const other = require('./src/routes/other');
 const port = process.env.PORT || 8080;
 
 
@@ -50,7 +50,7 @@ app.use('/user', user);
 app.use('/search', search);
 app.use('/posts', posts);
 app.use('/categories', categories);
-app.use('/contact', contact);
+app.use('/other', other);
 
 
 app.get('/', function (req, res) {

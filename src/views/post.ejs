@@ -36,10 +36,10 @@
                 <li><a class="nav-menu-item" href="/categories">Explore</a></li>
                 <% if (user) { %>
                   <li><a class="nav-menu-item" href="/user/profile">Profile</a></li>
-                  <li><a class="nav-menu-item" href="/contact">Contact Us</a></li>
+                  <li><a class="nav-menu-item" href="/other/contact">Contact Us</a></li>
                   <li><a class="nav-menu-item" id="logout" href="/logout">Logout</a></li>
               <% } else { %>
-                  <li><a class="nav-menu-item" href="/contact">Contact Us</a></li>
+                  <li><a class="nav-menu-item" href="/other/contact">Contact Us</a></li>
                   <li id="login"><a class="nav-menu-item" href="/login">Login</a></li>
               <% } %>
             </ul>
@@ -128,6 +128,13 @@
         </div>
     </div>
     </main>
+    <footer>
+      <ul>
+        <li><a href="/other/faq">FAQ</a></li>
+        <li><a href="/other/terms">Terms of Use</a></li>
+        <li><a href="/other/privacy">Privacy</a></li>
+      </ul>
+    </footer>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
     integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
     crossorigin=""></script>
