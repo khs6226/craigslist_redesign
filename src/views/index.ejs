@@ -31,10 +31,10 @@
                 <li><a class="nav-menu-item" href="/categories">Explore</a></li>
                 <% if (user) { %>
                     <li><a class="nav-menu-item" href="/user/profile">Profile</a></li>
-                    <li><a class="nav-menu-item" href="/contact">Contact Us</a></li>
+                    <li><a class="nav-menu-item" href="/other/contact">Contact Us</a></li>
                     <li><a class="nav-menu-item" id="logout" href="/logout">Logout</a></li>
                 <% } else { %>
-                    <li><a class="nav-menu-item" href="/contact">Contact Us</a></li>
+                    <li><a class="nav-menu-item" href="/other/contact">Contact Us</a></li>
                     <li id="login"><a class="nav-menu-item" href="/login">Login</a></li>
                 <% } %>
             </ul>
@@ -71,6 +71,13 @@
             </div>
         </div>
     </main>
+    <footer>
+      <ul>
+        <li><a href="/other/faq">FAQ</a></li>
+        <li><a href="/other/terms">Terms of Use</a></li>
+        <li><a href="/other/privacy">Privacy</a></li>
+      </ul>
+    </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="./js/menu.js"></script>
 </body>
